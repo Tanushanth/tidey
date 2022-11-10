@@ -13,15 +13,11 @@ const App = () => {
         <ul>
         <li>
           {/* Endpoint to route to Home component */}
-          <Link to="/">Home</Link>
+          <Link to="./login">Login</Link>
         </li>
         <li>
           {/* Endpoint to route to About component */}
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          {/* Endpoint to route to Contact Us component */}
-          <Link to="/contactus">Contact Us</Link>
+          <Link to="./signup">Signup</Link>
         </li>
       </ul>
         </div>
