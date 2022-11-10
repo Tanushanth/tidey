@@ -96,7 +96,50 @@
 }
 
 .textbox {
-  width: calc(80px + 2vmin);
-  height: calc(90px + 2vmin);
+  width: calc(600px + 2vmin);
+  height: calc(600px + 2vmin);
+  background: #2193b0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.textbox-heading {
+  text-align: center;
+  font-family: 'Courier Prime', monospace;
+  font-size: calc(30px + 2vmin);
+  margin-bottom: 60px;
+}
+
+.form {
   background-color: #fff;
+  width: calc(500px + 2vmin);
+  height: calc(50px + 2vmin);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+}
+
+.textbox-subheading {
+  text-align: center;
+  font-family: 'Courier Prime', monospace;
+  font-size: calc(20px + 2vmin);
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 960px) {
+  .textbox {
+    width: calc(400px + 2vmin);
+  }
+
+  .textbox-heading {
+    font-size: calc(20px + 2vmin);
+  }
+
+  .form {
+    width: calc(300px + 2vmin);
+    height: calc(50px + 2vmin);
+  }
 }

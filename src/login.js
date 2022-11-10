@@ -4,20 +4,13 @@ const Login = () => {
   return (
     <div className="App">
       <header className="App-header">
-          <p><span>Hi, </span>what would you like to do today?
-          </p>
-          <div className="button-container">
-        
-        <div className="main-btn">
-        <a
-          className="main-btn-content"
-          href="Login.js"
-          
-        >
-          Log In
-        </a>
-        </div>
-        </div>
+          <div className="textbox">
+            <p className="textbox-heading" STYLE="font-weight: bold">Log in to your account</p>
+            <p className="textbox-subheading">Username: </p>
+            <div className="form"></div>
+            <p className="textbox-subheading">Password: </p>
+            <div className="form"></div>
+          </div>
       </header>
     </div>
   );
