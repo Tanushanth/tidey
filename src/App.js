@@ -71,23 +71,23 @@ const App = () => {
           <div className="button-container">
 
         <div className="main-btn">
-        <ul>
-        <li>
+        
+        <a
+          className="main-btn-content"
+          Link href="/signup"
+        
+        >
+          Sign Up
+        </a>
+        
       
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-  
-          <Link to="/signup">Signup</Link>
-        </li>
-      </ul>
         </div>
 
         
         <div className="main-btn">
         <a
           className="main-btn-content"
-          href="Login.js"
+          Link href="/login"
         
         >
           Log In
