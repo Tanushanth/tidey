@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 import App from './App';
-import SignUp from './SignUp';
-import Login from './Login';
+import signup from './signup';
+import login from './login';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <SignUp/>
-    <Login/>
+    <signup />
+    <login />
   </React.StrictMode>
 );
 

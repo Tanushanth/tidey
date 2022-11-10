@@ -62,7 +62,7 @@
 .main-btn-content {
   text-decoration: none;
   color: white;
-  font-size: calc(20px + 2vmin);
+  font-size: calc(15px + 2vmin);
 }
 
 @media screen and (max-width: 960px) {
