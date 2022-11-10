@@ -1,6 +1,6 @@
 import './App.css';
 
-function signin() {
+const signin = () => {
   return (
     <div className="App">
       <header className="App-header">
