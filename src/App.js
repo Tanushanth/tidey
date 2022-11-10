@@ -12,12 +12,12 @@ const App = () => {
         <div className="main-btn">
         <ul>
         <li>
-          {/* Endpoint to route to Home component */}
-          <Link to="./login">Login</Link>
+      
+          <Link to="/login">Login</Link>
         </li>
         <li>
-          {/* Endpoint to route to About component */}
-          <Link to="./signup">Signup</Link>
+  
+          <Link to="/signup">Signup</Link>
         </li>
       </ul>
         </div>
