@@ -4,10 +4,49 @@ import { useWindowDimensions  } from 'react-native';
 import { eventWrapper } from '@testing-library/user-event/dist/utils';
 
 
+let tileSize = 100;
+let tileColumns = Math.floor( document.body.clientWidth / tileSize);
+let tileRows = Math.floor( document.body.clientHeight / tileSize);
+
+const wrapper = document.getElementById("tiles");
+
+const createTile = index => {
+  const tile = document.createElement("div");
+  tile.classList.add("tile");
+  tile.onclick = e => handleOnClick(index);
+  return tile;
+}
+
+const createTiles = quantity => {
+  Array.from(Array(quantity)).map((tile, index) => (
+    wrapper.appendChild(createTile(index))
+  ))
+
+}
+
+const createGrid = () => {
+  wrapper.innerHTML = "";
+  tileColumns = Math.floor( document.body.clientWidth / tileSize);
+  tileRows = Math.floor( document.body.clientHeight / tileSize);
+  
+  
+  wrapper.style.setProperty("--columnNum", tileColumns);
+  wrapper.style.setProperty("--rowNum", tileRows);
+
+  createTiles(tileColumns * tileRows);
+}
+
+const handleOnClick = index => {
+
+}
+createGrid();
+window.onresize = () => createGrid();
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div id = "tiles"></div>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
