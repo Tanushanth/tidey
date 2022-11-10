@@ -1,6 +1,6 @@
 import './App.css';
 
-function login() {
+const Login = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -23,4 +23,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;

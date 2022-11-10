@@ -5,18 +5,17 @@ import { BrowserRouter as Router, Routes,
 
 import './index.css';
 import App from './App';
-import signup from './signup';
-import login from './login';
+import Signup from './signup';
+import Login from './login';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App/>
     <Routes>
-      <Route exact path="/App" component={<App/>} />
-      <Route exact path="/login" component={<login/>} />
-      <Route exact path="/signup" component={<signup/>} />
+      <Route path="/App" element={<App />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   </BrowserRouter>
 );
@@ -24,4 +23,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//reportWebVitals();
