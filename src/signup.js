@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function signin() {
   return (
     <div className="App">
       <header className="App-header">
@@ -22,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default signin;
