@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, 
-  Route, Navigate, BrowserRouter} from "react-router-dom";
+  Route, Navigate, BrowserRouter, Redirect} from "react-router-dom";
 
 import './index.css';
 import App from './App';
@@ -16,6 +16,8 @@ root.render(
       <Route path="/App" element={<App />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      // Default
+      <Route path="/" element = {<App />}/>
     </Routes>
   </BrowserRouter>
 );
