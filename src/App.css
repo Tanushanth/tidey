@@ -58,5 +58,5 @@ body {
 }
 
 .tile {
-  outline: 1px solid white;
+  outline: none;
 }
