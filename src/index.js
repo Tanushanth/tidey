@@ -7,6 +7,8 @@ import './index.css';
 import App from './App';
 import Signup from './signup';
 import Login from './login';
+import Calculator from './calculator';
+
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,6 +18,7 @@ root.render(
       <Route path="/App" element={<App />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/calculator" element={<Calculator />} />
       // Default
       <Route path="/" element = {<App />}/>
     </Routes>

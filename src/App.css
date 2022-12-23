@@ -11,6 +11,18 @@
   color: white;
 }
 
+.App-header2 {
+  background-color: #101010;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(40px + 2vmin);
+  color: white;
+  animation: fadeIn 3s;
+}
+
 .App-header {
   background-color: #101010;
   min-height: 100vh;
@@ -20,13 +32,192 @@
   justify-content: center;
   font-size: calc(40px + 2vmin);
   color: white;
-  animation: fadeIn 5s;
+  animation: fadeIn 3s;
+
 }
 
 .App-header span {
   font-family: 'Great Vibes', cursive;
-  font-size: calc(130px + 2vmin);
+  font-size: calc(100px + 2vmin);
   
+}
+
+/* NAVIGATION BAR */
+.navbar {
+  background: #0bceff;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  animation: fadeIn 3s;
+
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+
+#navbar__logo {
+  background: #303030;
+  background-size: 100%;
+  font-weight: medium;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.95rem;
+    font-family: 'Great Vibes', cursive;
+
+}
+
+.navbar__menu {
+  display: flex; 
+  align-items: center;
+  list-style: none;
+}
+
+.navbar__item {
+  height: 80px;
+}
+
+.navbar__links {
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 155px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.navbar__links:hover {
+  color: #3554d0;
+  transition: all 0.3s ease;
+}
+
+.bar {
+  width: 25px;
+  height: 1.6px;
+  margin: 6.4px auto;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+  background: #000000;
+}
+
+@media screen and (max-width: 800px) {
+  
+   .navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0;
+  }
+
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: -1000px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+
+  .navbar__menu.active {
+    background: #ffffff;
+    top: 100%;
+    opacity: 100%;
+    transition: all 0.5s ease;
+    z-index: 99;
+    height: 60vh;
+    font-size: 1.6rem;
+  }
+
+  #navbar__logo {
+    padding-left: 25px;
+    padding-top: 0px;
+  }
+
+  .navbar__toggle .bar {
+    width: 25px;
+    height: 1.6px;
+    margin: 6.4px auto;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    background: #000000;
+  }
+
+  .navbar__item {
+    width: 100%;
+  }
+
+  .navbar__links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+    font-size: 1rem;
+  }
+
+  .navbar__btn {
+    padding-bottom: 2rem;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80px;
+    margin: 0;
+  }
+
+  #mobile-menu {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
+
+  .navbar__toggle .bar {
+    display: block;
+    cursor: pointer;
+  }
+
+  #mobile-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
 
 .button-container { 
@@ -47,22 +238,25 @@
   background: #2193b0;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  font-weight: bold;
   padding: 10px;
-  margin: 1em 0 1em 0;
-  color: #fff;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255, 255, 255);
   border-radius: 130px;
   text-align: center;
-  column-gap: 20px;
-  width: calc(200px + 2vmin);
-  height: calc(40px + 3vmin);
-  font-family: 'Courier Prime', monospace;
+  column-gap: 30px;
+  width: calc(240px + 2vmin);
+  height: calc(17px + 3vmin);
 }
 
 .main-btn-content {
   text-decoration: none;
-  color: white;
-  font-size: calc(15px + 2vmin);
+  color: rgb(255, 255, 255);
+  
+  font-size: calc(10px + 2vmin);
 }
 
 @media screen and (max-width: 960px) {
@@ -80,8 +274,12 @@
   }
 
   .main-btn {
-    width: 150px;
+    width: 190px;
     height: calc(30px + 3vmin);
+  }
+
+  .main-btn-content {
+    font-size: calc(7px + 2vmin);
   }
 }
 
@@ -98,7 +296,7 @@
 .textbox {
   width: calc(600px + 2vmin);
   height: calc(600px + 2vmin);
-  background: #2193b0;  /* fallback for old browsers */
+  background: #ffffff;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 20px;
@@ -142,4 +340,62 @@
     width: calc(300px + 2vmin);
     height: calc(50px + 2vmin);
   }
+}
+
+/* CALCULATOR SECTION */
+.calc-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.table {
+  padding: 20px 40px;
+  margin: 0 auto;
+  font-size: calc(10px + 2vmin);
+  font-weight: semi-bold;
+  background:rgb(42, 42, 42);
+  height: calc(530px + 2vmin);
+  width: calc(1300px + 2vmin);
+  border-radius: 15px;
+}
+
+.text-table {
+  font-family:'Courier New', Courier, monospace;
+  color: #fff;
+  font-size: calc(7px + 2vmin);
+  float:left;
+}
+
+.row {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr; /*Two columns*/
+  grid-auto-flow: column /*to align the input under the label*/;
+  justify-content: start; /*sticked to the left*/
+  grid-gap: 0 10px; /*horizontal space between  inputs*/
+}
+
+input[type=description] {
+  
+  width: 300px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=weighting] {
+  
+  width: 120px;
+  padding: 12px 20px;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+
+input[type=grade] {
+ 
+  width: 120px;
+  padding: 12px 20px;
+  margin: 10px auto;
+  box-sizing: border-box;
 }
