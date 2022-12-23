@@ -377,25 +377,25 @@
 }
 
 input[type=description] {
-  
+  grid-column-start: 1;
   width: 300px;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 0px 0;
   box-sizing: border-box;
 }
 
 input[type=weighting] {
-  
+  grid-column-start: 2;
   width: 120px;
   padding: 12px 20px;
-  margin: 10px auto;
+  margin: 0px auto;
   box-sizing: border-box;
 }
 
 input[type=grade] {
- 
+  grid-column-start: 3;
   width: 120px;
   padding: 12px 20px;
-  margin: 10px auto;
+  margin: 0px auto;
   box-sizing: border-box;
 }

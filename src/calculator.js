@@ -47,6 +47,36 @@ const Calculator = () => {
                             <input type="weighting" placeholder="Weight (%)"/>
                             <input type="grade" placeholder="Grade"/>
                             </div>
+
+                            <div className="row">
+                            <input type="description" placeholder="Description"/>
+                            <input type="weighting" placeholder="Weight (%)"/>
+                            <input type="grade" placeholder="Grade"/>
+                            </div>
+
+                            <div className="row">
+                            <input type="description" placeholder="Description"/>
+                            <input type="weighting" placeholder="Weight (%)"/>
+                            <input type="grade" placeholder="Grade"/>
+                            </div>
+
+                            <div className="row">
+                            <input type="description" placeholder="Description"/>
+                            <input type="weighting" placeholder="Weight (%)"/>
+                            <input type="grade" placeholder="Grade"/>
+                            </div>
+
+                            <div className="row">
+                            <input type="description" placeholder="Description"/>
+                            <input type="weighting" placeholder="Weight (%)"/>
+                            <input type="grade" placeholder="Grade"/>
+                            </div>
+
+                            <div className="row">
+                            <input type="description" placeholder="Description"/>
+                            <input type="weighting" placeholder="Weight (%)"/>
+                            <input type="grade" placeholder="Grade"/>
+                            </div>
                         </form>
                     </div>
                 </div>
