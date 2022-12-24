@@ -9,10 +9,10 @@ import Navbar from './Navbar';
 import Home from './Home';
 
 
-import Signup from './signup';
-import Login from './login';
-import Calculator from './calculator';
-import Courses from './courses';
+import Signup from './Signup';
+import Login from './Login';
+import Calculator from './Calculator';
+import Courses from './Courses';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -23,10 +23,10 @@ root.render(
       <Route path="/App" element={<App />} />
       <Route path="/Navbar" element={<Navbar />} />
       <Route path="/Home" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/calculator" element={<Calculator />} />
-      <Route path="/courses" element={<Courses />} />
+      <Route path="/Login" element={<Login />} />
+      <Route path="/Signup" element={<Signup />} />
+      <Route path="/Calculator" element={<Calculator />} />
+      <Route path="/Courses" element={<Courses />} />
       // Default
       <Route path="/" element = {<App />}/>
     </Routes>
