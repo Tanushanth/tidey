@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from './Navbar';
+import Home from './Home';
 import { Link } from "react-router-dom";
 import anime from "animejs/lib/anime.es.js"
 
@@ -64,25 +65,8 @@ const App = () => {
   return (
     <div className="App">
       <Navbar />
+      <Home />
       
-      <header className="App-header">
-        <p> <span>Hi, welcome to Tidey.</span> </p>
-
-          <div className="button-container">
-            <div className="main-btn">
-              <a className="main-btn-content" Link href="/courses">
-                Add a  new course
-              </a>
-            </div>
-
-        
-            <div className="main-btn">
-            <a className="main-btn-content" Link href="/calculator">
-              Calculate grades
-            </a>
-            </div>
-          </div>
-      </header>
     </div>
   );
 }

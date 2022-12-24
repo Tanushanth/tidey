@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes,
 import './index.css';
 import App from './App';
 import Navbar from './Navbar';
+import Home from './Home';
 import Signup from './signup';
 import Login from './login';
 import Calculator from './calculator';
@@ -19,6 +20,7 @@ root.render(
     <Routes>
       <Route path="/App" element={<App />} />
       <Route path="/Navbar" element={<Navbar />} />
+      <Route path="/Home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/calculator" element={<Calculator />} />
