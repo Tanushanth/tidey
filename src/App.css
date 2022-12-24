@@ -399,3 +399,10 @@ input[type=grade] {
   margin: 0px auto;
   box-sizing: border-box;
 }
+
+.course-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+}

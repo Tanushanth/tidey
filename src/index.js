@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Routes,
 
 import './index.css';
 import App from './App';
+import Navbar from './Navbar';
 import Signup from './signup';
 import Login from './login';
 import Calculator from './calculator';
+import Courses from './courses';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -16,9 +18,11 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/App" element={<App />} />
+      <Route path="/Navbar" element={<Navbar />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/calculator" element={<Calculator />} />
+      <Route path="/courses" element={<Courses />} />
       // Default
       <Route path="/" element = {<App />}/>
     </Routes>
