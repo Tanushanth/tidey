@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import anime from "animejs/lib/anime.es.js"
 
@@ -6,7 +7,18 @@ import anime from "animejs/lib/anime.es.js"
 
 const Calculator = () => {
 
+  const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
 
+
+  const handleGradeAdd = () =>{
+    setGradeList([...gradeList, {grade: ""}]);
+  }
+
+  const handleGradeRemove = (index) => {
+    const newList = [...gradeList];
+    newList.splice(index, 1);
+    setGradeList(newList);
+  }
   return (
     
     <div className="App">
@@ -42,41 +54,47 @@ const Calculator = () => {
                         
                         <form>
                             <label>Enter your grades below:</label>
-                            <div className="row">
-                            <input type="description" placeholder="Description"/>
-                            <input type="weighting" placeholder="Weight (%)"/>
-                            <input type="grade" placeholder="Grade"/>
-                            </div>
 
-                            <div className="row">
-                            <input type="description" placeholder="Description"/>
-                            <input type="weighting" placeholder="Weight (%)"/>
-                            <input type="grade" placeholder="Grade"/>
-                            </div>
+                            /* Basically returns as many input fields and the index is */
+                            {gradeList.map((singleRow, index) => (
+                                
+                                <div className="inputFields">
+                                    <div key = {index} className = "gradeRow">
+                                        <input type="description" placeholder="Description"/>
+                                        <input type="weighting" placeholder="Weight (%)"/>
+                                        <input type="grade" placeholder="Grade"/>
 
-                            <div className="row">
-                            <input type="description" placeholder="Description"/>
-                            <input type="weighting" placeholder="Weight (%)"/>
-                            <input type="grade" placeholder="Grade"/>
-                            </div>
+                                        {gradeList.length - 1 === index && (
+                                            <button 
+                                                type = "button" 
+                                                className = "addGrade-btn"
+                                                onClick = {handleGradeAdd}
+                                            >
+                                                <p>Add Row</p>
+                                            </button>
+                                        )}
 
-                            <div className="row">
-                            <input type="description" placeholder="Description"/>
-                            <input type="weighting" placeholder="Weight (%)"/>
-                            <input type="grade" placeholder="Grade"/>
-                            </div>
+                                        {gradeList.length > 1 && (
+                                            <button 
+                                                type = "button" 
+                                                className = "delGrade-btn"
+                                                onClick = {() => handleGradeRemove(index)}
+                                            >
+                                                <p>Remove Row</p>
+                                            </button>
+                                        )}
+                                        
+                                    </div>
+                                </div>
+                            
+                            
+                            
+                            ))}
 
-                            <div className="row">
-                            <input type="description" placeholder="Description"/>
-                            <input type="weighting" placeholder="Weight (%)"/>
-                            <input type="grade" placeholder="Grade"/>
-                            </div>
 
-                            <div className="row">
-                            <input type="description" placeholder="Description"/>
-                            <input type="weighting" placeholder="Weight (%)"/>
-                            <input type="grade" placeholder="Grade"/>
-                            </div>
+
+
+
                         </form>
                     </div>
                 </div>
