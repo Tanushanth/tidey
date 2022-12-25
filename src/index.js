@@ -7,12 +7,13 @@ import './index.css';
 import App from './App';
 import Navbar from './Navbar';
 import Home from './Home';
-
-
-import Signup from './Signup';
+import Courses from './Courses';
+import CourseList from './CourseList';
+import Create from './Create';
+import SignUp from './SignUp';
 import Login from './Login';
 import Calculator from './Calculator';
-import Courses from './Courses';
+
 
 import reportWebVitals from './reportWebVitals';
 
@@ -23,10 +24,13 @@ root.render(
       <Route path="/App" element={<App />} />
       <Route path="/Navbar" element={<Navbar />} />
       <Route path="/Home" element={<Home />} />
-      <Route path="/Login" element={<Login />} />
-      <Route path="/Signup" element={<Signup />} />
-      <Route path="/Calculator" element={<Calculator />} />
       <Route path="/Courses" element={<Courses />} />
+      <Route path="/CourseList" element={<CourseList />} />
+      <Route path="/Create" element={<Create />} />
+      <Route path="/Login" element={<Login />} />
+      <Route path="/SignUp" element={<SignUp />} />
+      <Route path="/Calculator" element={<Calculator />} />
+      
       // Default
       <Route path="/" element = {<App />}/>
     </Routes>

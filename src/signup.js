@@ -1,6 +1,6 @@
 import './App.css';
 
-const Signin = () => {
+const SignUp = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -16,4 +16,4 @@ const Signin = () => {
   );
 }
 
-export default Signin;
+export default SignUp;

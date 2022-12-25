@@ -20,7 +20,7 @@
   justify-content: center;
   font-size: calc(40px + 2vmin);
   color: white;
-  animation: fadeIn 3s;
+  /*animation: fadeIn 3s;*/
 }
 
 .App-header {
@@ -32,14 +32,11 @@
   justify-content: center;
   font-size: calc(40px + 2vmin);
   color: white;
-  animation: fadeIn 3s;
-
 }
 
 .App-header span {
   font-family: 'Great Vibes', cursive;
   font-size: calc(100px + 2vmin);
-  
 }
 
 /* NAVIGATION BAR */
@@ -54,7 +51,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  animation: fadeIn 3s;
+  /*animation: fadeIn 3s;*/
 
 }
 
@@ -82,8 +79,7 @@
   cursor: pointer;
   text-decoration: none;
   font-size: 1.95rem;
-    font-family: 'Great Vibes', cursive;
-
+  font-family: 'Great Vibes', cursive;
 }
 
 .navbar__menu {
@@ -109,7 +105,7 @@
 }
 
 .navbar__links:hover {
-  color: #3554d0;
+  color: #ffffff;
   transition: all 0.3s ease;
 }
 
@@ -235,9 +231,9 @@
 .main-btn {
   break-inside: avoid;
   page-break-inside: avoid;
-  background: #2193b0;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #00B4DB;  
+  background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  
+  background: linear-gradient(to right, #0083B0, #00B4DB); 
   font-weight: bold;
   padding: 10px;
   margin: 1em;
@@ -255,7 +251,6 @@
 .main-btn-content {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  
   font-size: calc(10px + 2vmin);
 }
 
@@ -289,7 +284,7 @@
 }
 
 .main-btn:hover {
-  box-shadow: 0 0 1.5rem rgb(52, 52, 52);
+  box-shadow: 0 0 1.5rem rgb(0, 55, 113);
   transition: all 0.3s ease;
 }
 
@@ -370,10 +365,10 @@
 
 .row {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr; /*Two columns*/
-  grid-auto-flow: column /*to align the input under the label*/;
-  justify-content: start; /*sticked to the left*/
-  grid-gap: 0 10px; /*horizontal space between  inputs*/
+  grid-template-rows: 1fr 1fr 1fr; 
+  grid-auto-flow: column;
+  justify-content: start; 
+  grid-gap: 0 10px; 
 }
 
 input[type=description] {
@@ -400,9 +395,56 @@ input[type=grade] {
   box-sizing: border-box;
 }
 
+
+/* COURSES SECTION */
 .course-container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px;
+  font-size: 20px;
+}
+
+.course-list {
+  font-size: calc(12px + 2vmin);
+}
+
+.course-preview {
+  background: rgb(34, 34, 34);
+  padding: 0px 15px;
+  border-radius: 30px;
+  height: calc(140px + 1vmin);
+}
+
+.course-preview:hover {
+  box-shadow: 0 0 1.5rem rgb(58, 58, 58);
+  transition: all 0.2s ease;
+}
+
+.course-header {
+  background-color: #101010;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(40px + 2vmin);
+  color: white;
+}
+
+button {
+  padding: 10px;
+  text-decoration: none;
+  font-size: calc(5px + 2vmin);
+  font-family: 'Quicksand';
+  color:rgb(255, 255, 255);
+  background: rgb(35, 35, 35);
+  border-color: #00B4DB;
+  border-radius: 20px;
+}
+
+h3 {
+  font-size: calc(10px + 2vmin);
+  text-align: left;
 }

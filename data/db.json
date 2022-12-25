@@ -1,0 +1,14 @@
+{
+    "courses": [
+        {
+            "courseCode": "ECE244",
+            "courseName": "Programming Fundamentals",
+            "id": 1
+        },
+        {
+            "courseCode": "ECE241",
+            "courseName": "Digital Systems",
+            "id": 2
+        }
+    ]
+}

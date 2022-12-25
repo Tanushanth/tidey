@@ -5,14 +5,14 @@ const Home = () => {
 
           <div className="button-container">
             <div className="main-btn">
-              <a className="main-btn-content" Link href="/courses">
+              <a className="main-btn-content" Link href="/Courses">
                 Add a  new course
               </a>
             </div>
 
         
             <div className="main-btn">
-            <a className="main-btn-content" Link href="/calculator">
+            <a className="main-btn-content" Link href="/Calculator">
               Calculate grades
             </a>
             </div>
