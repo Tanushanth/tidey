@@ -6,7 +6,7 @@ const Home = () => {
           <div className="button-container">
             <div className="main-btn">
               <a className="main-btn-content" Link href="/Courses">
-                Go to course dashboard
+                Course dashboard
               </a>
             </div>
 
