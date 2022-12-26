@@ -1,7 +1,9 @@
 import './App.css';
 import Navbar from './Navbar';
 import Home from './Home';
-import { Link } from "react-router-dom";
+import Create from './Create';
+import CourseDetails from './CourseDetails';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import anime from "animejs/lib/anime.es.js"
 
 
@@ -63,11 +65,20 @@ import anime from "animejs/lib/anime.es.js"
 const App = () => {
 
   return (
+    <Router>
     <div className="App">
       <Navbar />
-      <Home />
+
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Create" element={<Create />} />
+          <Route path="/Courses/:id" element={<CourseDetails />} />
+        </Routes>
+      </div>
       
     </div>
+    </Router>
   );
 }
 

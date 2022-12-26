@@ -26,6 +26,8 @@ root.render(
       <Route path="/Home" element={<Home />} />
       <Route path="/Courses" element={<Courses />} />
       <Route path="/CourseList" element={<CourseList />} />
+
+
       <Route path="/Create" element={<Create />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/SignUp" element={<SignUp />} />

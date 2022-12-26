@@ -26,6 +26,7 @@ const Courses = () => {
         </div>
 
         <button>
+        
         <Link to="../Create" style={{ color: '#FFF' }}>Add a new course</Link>
         </button>
         
@@ -33,6 +34,7 @@ const Courses = () => {
 
 
     </div>
+    
   );
 }
 
