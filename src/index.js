@@ -10,6 +10,7 @@ import Home from './Home';
 import Courses from './Courses';
 import CourseList from './CourseList';
 import Create from './Create';
+import useFetch from './UseFetch';
 import SignUp from './SignUp';
 import Login from './Login';
 import Calculator from './Calculator';
@@ -27,6 +28,8 @@ root.render(
       <Route path="/Courses" element={<Courses />} />
       <Route path="/CourseList" element={<CourseList />} />
       <Route path="/Create" element={<Create />} />
+      <Route path="/UseFetch" element={<useFetch />} />
+
       <Route path="/Login" element={<Login />} />
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/Calculator" element={<Calculator />} />
