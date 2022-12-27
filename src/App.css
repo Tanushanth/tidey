@@ -379,14 +379,14 @@ input[type=description] {
   box-sizing: border-box;
 }
 
-input[type=weighting] {
+input[type=number] {
   grid-column-start: 2;
   width: 120px;
   padding: 12px 20px;
   margin: 0px auto;
   box-sizing: border-box;
 }
-
+/*
 input[type=grade] {
   grid-column-start: 3;
   width: 120px;
@@ -394,7 +394,7 @@ input[type=grade] {
   margin: 0px auto;
   box-sizing: border-box;
 }
-
+*/
 
 /* COURSES SECTION */
 .course-container {
