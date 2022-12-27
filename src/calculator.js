@@ -9,8 +9,12 @@ import anime from "animejs/lib/anime.es.js"
 const Calculator = () => {
 
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
-
+  const [currentGrade, setCurrentGrade] = useState(0);
+  const [targetGrade, setTargetGrade] = useState(0);
+  
   console.log(gradeList);
+
+
   const handleGradeAdd = () =>{
     setGradeList([...gradeList, {desc: "", weight: "", grade: ""}]);
   }
@@ -27,6 +31,19 @@ const Calculator = () => {
     setGradeList(newList);
 
   }
+
+  const handleGradeCalculation = () => {
+    let tempGrade = 0;
+    let tempWeight = 0;
+    for (let i = 0; i < gradeList.length; i++) {
+        let thisGrade = parseInt(gradeList[i].grade);
+        let thisWeight = parseInt(gradeList[i].weight);
+        tempGrade += (thisGrade) * (0.01) * (thisWeight);
+        tempWeight += thisWeight;
+    }
+    setCurrentGrade(100* tempGrade/tempWeight );
+  }
+
   return (
     
     <div className="App">
@@ -40,7 +57,6 @@ const Calculator = () => {
                         <form>
                             <label>Enter your grades below:</label>
 
-                            /* Basically returns as many input fields and the index is */
                             {gradeList.map((singleRow, index) => (
                                 
                                 <div className="inputFields">
@@ -48,18 +64,20 @@ const Calculator = () => {
                                         <input 
                                             type="description" 
                                             placeholder="Description"
+                                            value = {singleRow.desc} 
+                                            onChange = {(e) => handleInputChange(e, index, "desc")}
                                         />
                                         <input 
-                                        type="weight" 
-                                        placeholder="Weight (%)"
-                                        value = {singleRow.weight} 
-                                        onChange = {(e) => handleInputChange(e, index, "weight")}
+                                            type="number" 
+                                            placeholder="Weight (%)"
+                                            value = {singleRow.weight} 
+                                            onChange = {(e) => handleInputChange(e, index, "weight")}
                                         />
                                         <input 
-                                        type= "grade" 
-                                        placeholder="Grade"
-                                        value = {singleRow.grade} 
-                                        onChange = {(e) => handleInputChange(e, index, "grade")}
+                                            type= "number" 
+                                            placeholder="Grade"
+                                            value = {singleRow.grade} 
+                                            onChange = {(e) => handleInputChange(e, index, "grade")}
                                         />
 
                                         {gradeList.length - 1 === index && (
@@ -99,7 +117,15 @@ const Calculator = () => {
             </div>
 
             <div className = "result-container">
-                
+                <button 
+                    type = "button" 
+                    className = "calcGrade-btn"
+                    onClick = {() => handleGradeCalculation()}
+                >
+                    <p>Calculate Grade!</p>
+                </button>
+                <p>Calculated Grade: {currentGrade}%</p>
+
             </div>
         </header>
     </div>
