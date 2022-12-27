@@ -379,7 +379,7 @@ input[type=description] {
   box-sizing: border-box;
 }
 
-input[type=weighting] {
+input[type=weight] {
   grid-column-start: 2;
   width: 120px;
   padding: 12px 20px;

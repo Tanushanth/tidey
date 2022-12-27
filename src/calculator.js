@@ -21,19 +21,15 @@ const Calculator = () => {
     setGradeList(newList);
   }
 
-  const handleInputChange = (e, index) => {
-    const {name, value} = e.target;
+  const handleInputChange = (e, index, element) => {
     const newList = [...gradeList];
-    newList[index].name = e.target.value;
+    newList[index][element] = e.target.value;
     setGradeList(newList);
 
   }
   return (
     
     <div className="App">
-    <Navbar />
-
-
         <header className="App-header">
             <div className="calc-container">
                 <div className="table">
@@ -52,15 +48,18 @@ const Calculator = () => {
                                         <input 
                                             type="description" 
                                             placeholder="Description"
-                                            value = {singleRow.weight} 
-                                            onChange = {(e) => handleInputChange(e, index)}
                                         />
-                                        <input type="weighting" placeholder="Weight (%)"/>
                                         <input 
-                                        type="grade" 
-                                        placeholder="Grade" 
+                                        type="weight" 
+                                        placeholder="Weight (%)"
+                                        value = {singleRow.weight} 
+                                        onChange = {(e) => handleInputChange(e, index, "weight")}
+                                        />
+                                        <input 
+                                        type= "grade" 
+                                        placeholder="Grade"
                                         value = {singleRow.grade} 
-                                        onChange = {(e) => handleInputChange(e, index)}
+                                        onChange = {(e) => handleInputChange(e, index, "grade")}
                                         />
 
                                         {gradeList.length - 1 === index && (
