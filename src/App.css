@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Great+Vibes&family=Quicksand:wght@300&display=swap');
 
+:root {
+  --table-width: 1300;
+}
 .App {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
@@ -345,13 +348,14 @@
   padding: 20px;
 }
 
+
 .table {
   padding: 20px 40px;
   margin: 0 auto;
   font-size: calc(10px + 2vmin);
   font-weight: semi-bold;
   background:rgb(42, 42, 42);
-  height: calc(530px + 2vmin);
+  height: calc(--table-width + 2vmin);
   width: calc(1300px + 2vmin);
   border-radius: 15px;
 }
