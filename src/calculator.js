@@ -76,7 +76,6 @@ const Calculator = () => {
                                             value = {singleRow.grade} 
                                             onChange = {(e) => handleInputChange(e, index, "grade")}
                                         />
-
                                         {gradeList.length - 1 === index && (
                                             <button 
                                                 type = "button" 
@@ -86,7 +85,6 @@ const Calculator = () => {
                                                 <p>Add Row</p>
                                             </button>
                                         )}
-
                                         {gradeList.length > 1 && (
                                             <button 
                                                 type = "button" 
