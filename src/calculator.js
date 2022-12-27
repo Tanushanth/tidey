@@ -10,9 +10,9 @@ const Calculator = () => {
 
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
 
-
+  console.log(gradeList);
   const handleGradeAdd = () =>{
-    setGradeList([...gradeList, {grade: ""}]);
+    setGradeList([...gradeList, {desc: "", weight: "", grade: ""}]);
   }
 
   const handleGradeRemove = (index) => {
@@ -20,9 +20,19 @@ const Calculator = () => {
     newList.splice(index, 1);
     setGradeList(newList);
   }
+
+  const handleInputChange = (e, index) => {
+    const {name, value} = e.target;
+    const newList = [...gradeList];
+    newList[index].name = e.target.value;
+    setGradeList(newList);
+
+  }
   return (
     
     <div className="App">
+    <Navbar />
+
 
         <header className="App-header">
             <div className="calc-container">
@@ -39,9 +49,19 @@ const Calculator = () => {
                                 
                                 <div className="inputFields">
                                     <div key = {index} className = "gradeRow">
-                                        <input type="description" placeholder="Description"/>
+                                        <input 
+                                            type="description" 
+                                            placeholder="Description"
+                                            value = {singleRow.weight} 
+                                            onChange = {(e) => handleInputChange(e, index)}
+                                        />
                                         <input type="weighting" placeholder="Weight (%)"/>
-                                        <input type="grade" placeholder="Grade"/>
+                                        <input 
+                                        type="grade" 
+                                        placeholder="Grade" 
+                                        value = {singleRow.grade} 
+                                        onChange = {(e) => handleInputChange(e, index)}
+                                        />
 
                                         {gradeList.length - 1 === index && (
                                             <button 
@@ -77,6 +97,10 @@ const Calculator = () => {
                         </form>
                     </div>
                 </div>
+            </div>
+
+            <div className = "result-container">
+                
             </div>
         </header>
     </div>
