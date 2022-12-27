@@ -23,8 +23,6 @@ const Calculator = () => {
   return (
     
     <div className="App">
-    <Navbar />
-
 
         <header className="App-header">
             <div className="calc-container">

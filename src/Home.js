@@ -1,3 +1,6 @@
+
+import { Link } from "react-router-dom";
+
 const Home = () => {
     return ( 
         <header className="App-header">
@@ -5,16 +8,16 @@ const Home = () => {
 
           <div className="button-container">
             <div className="main-btn">
-              <a className="main-btn-content" Link href="/Courses">
+              <Link className="main-btn-content" to="/Courses">
                 Course dashboard
-              </a>
+              </Link>
             </div>
 
         
             <div className="main-btn">
-            <a className="main-btn-content" Link href="/Calculator">
+            <Link className="main-btn-content" to="/Calculator">
               Calculate grades
-            </a>
+            </Link>
             </div>
           </div>
         </header>
