@@ -1,9 +1,6 @@
 import './App.css';
-import Navbar from './Navbar';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import anime from "animejs/lib/anime.es.js"
-
 
 
 const Calculator = () => {

@@ -8,7 +8,7 @@ import Create from './Create';
 import Courses from './Courses';
 import CourseDetails from './CourseDetails';
 import Calculator from './Calculator';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
   /* TANU TILE STUFF

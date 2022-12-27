@@ -445,6 +445,53 @@ button {
 }
 
 h3 {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(25px + 2vmin);
   text-align: left;
+  margin-top: -100px;
+}
+
+/* create new blog form */
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  background:#202020;
+  padding: 40px;
+  border-radius: 30px;
+}
+
+.create label {
+  text-align: left;
+  display: block;
+  font-size: 25px;
+}
+
+.create h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+
+.create input, .create textarea, .create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.create button {
+  background: #00B4DB;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.create button:hover {
+  color: rgb(19, 19, 19);
+  transition: all 0.3s ease;
 }
