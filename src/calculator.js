@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import { useEffect} from 'react';
 import { Link } from "react-router-dom";
 
 
@@ -8,7 +9,7 @@ const Calculator = () => {
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
   const [currentGrade, setCurrentGrade] = useState(0);
   const [targetGrade, setTargetGrade] = useState(0);
-  
+  const [additionalGrade, setAdditionalGrade] = useState(0);
   console.log(gradeList);
 
 
@@ -39,8 +40,22 @@ const Calculator = () => {
         tempWeight += thisWeight;
     }
     setCurrentGrade(100* tempGrade/tempWeight );
+    let remainingWeight = 100 - tempWeight;
+    let remainingGrade = targetGrade - (100 * tempGrade/tempWeight);
+    setAdditionalGrade(100* remainingGrade/remainingWeight)
+    
   }
 
+  const handleTargetChange = (e) => {
+    setTargetGrade(e.target.value);
+  }
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--table-width', (gradeList.length) * 300)
+    
+
+  }, [gradeList, targetGrade])
+  
   return (
     
     <div className="App">
@@ -65,7 +80,7 @@ const Calculator = () => {
                                             onChange = {(e) => handleInputChange(e, index, "desc")}
                                         />
                                         <input 
-                                            type="number" 
+                                            type= "number" 
                                             placeholder="Weight (%)"
                                             value = {singleRow.weight} 
                                             onChange = {(e) => handleInputChange(e, index, "weight")}
@@ -76,7 +91,6 @@ const Calculator = () => {
                                             value = {singleRow.grade} 
                                             onChange = {(e) => handleInputChange(e, index, "grade")}
                                         />
-
                                         {gradeList.length - 1 === index && (
                                             <button 
                                                 type = "button" 
@@ -86,7 +100,6 @@ const Calculator = () => {
                                                 <p>Add Row</p>
                                             </button>
                                         )}
-
                                         {gradeList.length > 1 && (
                                             <button 
                                                 type = "button" 
@@ -97,6 +110,11 @@ const Calculator = () => {
                                             </button>
                                         )}
                                         
+                                        
+                                        
+                                        
+
+
                                     </div>
                                 </div>
                             
@@ -112,8 +130,19 @@ const Calculator = () => {
                     </div>
                 </div>
             </div>
+            <div className = "target-container">
+                <p>Enter Target Grade (%):
+                    <input 
+                        type= "number" 
+                        placeholder="Target Grade"
+                        value = {targetGrade} 
+                        onChange = {(e) => handleTargetChange(e)}
+                    />
+                </p>
+            </div>
 
             <div className = "result-container">
+
                 <button 
                     type = "button" 
                     className = "calcGrade-btn"
@@ -122,6 +151,10 @@ const Calculator = () => {
                     <p>Calculate Grade!</p>
                 </button>
                 <p>Calculated Grade: {currentGrade}%</p>
+
+            </div>
+            <div className = "gradeNeeded-container">
+                <p>Additional Grade Needed: {additionalGrade}%</p>
 
             </div>
         </header>
