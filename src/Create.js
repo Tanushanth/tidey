@@ -10,7 +10,7 @@ const Create = () => {
 
     fetch('http://localhost:8000/courses', {
       method: 'POST',
-      headers: { "Content-Type": "applications/json"},
+      headers: { "Content-Type": "application/json"},
       body: JSON.stringify(courses)
     }).then(() => {
       console.log('new course added');
