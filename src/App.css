@@ -292,11 +292,10 @@
 }
 
 .textbox {
-  width: calc(600px + 2vmin);
-  height: calc(600px + 2vmin);
-  background: #ffffff;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: calc(500px + 2vmin);
+  height: calc(500px + 2vmin);
+  background: #1a1a1a;  /* fallback for old browsers */
+  border-color: #00B4DB;
   border-radius: 20px;
   padding: 30px;
 }
@@ -304,14 +303,15 @@
 .textbox-heading {
   text-align: center;
   font-family: 'Courier Prime', monospace;
-  font-size: calc(30px + 2vmin);
+  font-size: calc(20px + 2vmin);
   margin-bottom: 60px;
 }
 
 .form {
   background-color: #fff;
   width: calc(500px + 2vmin);
-  height: calc(50px + 2vmin);
+  height: calc(30px + 2vmin);
+  border-radius: 30px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -321,13 +321,14 @@
 .textbox-subheading {
   text-align: center;
   font-family: 'Courier Prime', monospace;
-  font-size: calc(20px + 2vmin);
+  font-size: calc(10px + 2vmin);
   margin-bottom: 30px;
+  padding-top: 30px;
 }
 
 @media screen and (max-width: 960px) {
   .textbox {
-    width: calc(400px + 2vmin);
+    width: calc(300px + 2vmin);
   }
 
   .textbox-heading {
