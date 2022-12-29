@@ -12,9 +12,11 @@ const Courses = () => {
       <header className="App-header">
       <h3>All courses</h3>
         <div className="course-container">
+          <div className="grid">
           { error && <div>{ error }</div>}
           { isPending && <div>Loading...</div>}
           {courses && <CourseList courses={courses} /> }
+          </div>
         </div>
 
         <button>

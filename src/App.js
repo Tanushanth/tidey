@@ -3,11 +3,11 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Login from './Login';
 import SignUp from './SignUp';
-
 import Create from './Create';
 import Courses from './Courses';
 import CourseDetails from './CourseDetails';
 import Calculator from './Calculator';
+import NotFound from './NotFound';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -82,7 +82,7 @@ const App = () => {
           <Route path="/Courses" element={<Courses />} />
           <Route path="/Courses/:id" element={<CourseDetails />} />
           <Route path="/Calculator" element={<Calculator />} />
-
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       

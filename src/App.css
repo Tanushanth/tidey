@@ -16,19 +16,19 @@
 
 .App-header2 {
   background-color: #101010;
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(40px + 2vmin);
+  font-size: calc(30px + 2vmin);
   color: white;
   /*animation: fadeIn 3s;*/
 }
 
 .App-header {
   background-color: #101010;
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +45,7 @@
 /* NAVIGATION BAR */
 .navbar {
   background: #0bceff;
-  height: 60px;
+  height: 8vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -402,9 +402,6 @@ input[type=grade] {
 
 /* COURSES SECTION */
 .course-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   margin: 0 auto;
   padding: 40px;
   font-size: 20px;
@@ -428,24 +425,36 @@ input[type=grade] {
 
 .course-header {
   background-color: #101010;
-  padding-top: 40px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(40px + 2vmin);
   color: white;
+  position: sticky;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
 }
 
 button {
-  padding: 10px;
+  padding: 8px;
   text-decoration: none;
-  font-size: calc(5px + 2vmin);
+  font-size: calc(4px + 2vmin);
   font-family: 'Quicksand';
   color:rgb(255, 255, 255);
   background: rgb(35, 35, 35);
   border-color: #00B4DB;
   border-radius: 20px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 h3 {

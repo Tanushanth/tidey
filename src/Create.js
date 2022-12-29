@@ -1,12 +1,17 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
   const [courseCode, setCourseCode] = useState('');
   const [courseName, setCourseName] = useState('');
+  const [isPending, setIsPending] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const courses = { courseCode, courseName };
+
+    setIsPending(true);
 
     fetch('http://localhost:8000/courses', {
       method: 'POST',
@@ -14,6 +19,8 @@ const Create = () => {
       body: JSON.stringify(courses)
     }).then(() => {
       console.log('new course added');
+      setIsPending(false);
+      navigate(-1);
     })
   }
 
@@ -40,8 +47,8 @@ const Create = () => {
               onChange={(e) => setCourseName(e.target.value)}
             />
 
-            <button>Add course</button>
-
+            { !isPending && <button>Add course</button> }
+            { isPending && <button disabled>Adding course...</button> }
           </form>
         </div>
 
