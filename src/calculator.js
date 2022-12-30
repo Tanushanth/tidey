@@ -59,11 +59,11 @@ const Calculator = () => {
     let oneNumberError = false;
     for (let i = 0; i < gradeList.length; i++) {
 
-        if(gradeList[i].weight !== 0){
+        if(gradeList[i].weight != 0){
             zeroWeightError = false;
             noInfoError = false;
         }
-        if(gradeList[i].grade !== 0){
+        if(gradeList[i].grade != 0){
             noInfoError = false;
         }
         if((!gradeList[i].grade && gradeList[i].weight) ||
@@ -181,7 +181,7 @@ const Calculator = () => {
                     onClick = {() => {
                         handleErrorCheck()
 
-                        if(errorState === false){
+                        if(errorState == false){
                             handleGradeCalculation()
                         }
                         else{
