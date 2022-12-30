@@ -3,38 +3,17 @@
 :root {
   --table-width: 1300;
 }
+
 .App {
+  background:rgb(19, 19, 19);
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   font-size: calc(80px + 2vmin);
 }
 
-.App-btn {
-  background-color: #4ccbf9;
-  color: white;
-}
-
-.App-header2 {
-  background-color: #101010;
-  min-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(30px + 2vmin);
-  color: white;
-  /*animation: fadeIn 3s;*/
-}
-
 .App-header {
-  background-color: #101010;
-  min-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(40px + 2vmin);
-  color: white;
+  min-height: 92vh;
 }
 
 .App-header span {
@@ -54,8 +33,6 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  /*animation: fadeIn 3s;*/
-
 }
 
 .navbar__container {
@@ -225,12 +202,6 @@
   column-gap: 90px;
 }
 
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
 .main-btn {
   break-inside: avoid;
   page-break-inside: avoid;
@@ -267,7 +238,6 @@
     justify-content: center;
     font-size: calc(30px + 2vmin);
     color: white;
-    animation: fadeIn 5s;
     padding: 30px;
   }
 
@@ -349,7 +319,6 @@
   padding: 20px;
 }
 
-
 .table {
   padding: 20px 40px;
   margin: 0 auto;
@@ -391,23 +360,8 @@ input[type=number] {
   margin: 0px auto;
   box-sizing: border-box;
 }
-/*
-input[type=grade] {
-  grid-column-start: 3;
-  width: 120px;
-  padding: 12px 20px;
-  margin: 0px auto;
-  box-sizing: border-box;
-}
-*/
 
 /* COURSES SECTION */
-.course-container {
-  margin: 0 auto;
-  padding: 40px;
-  font-size: 20px;
-}
-
 .course-list {
   font-size: calc(12px + 2vmin);
 }
@@ -425,22 +379,9 @@ input[type=grade] {
 }
 
 .course-header {
-  background-color: #101010;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  min-height: 92vh;
   font-size: calc(40px + 2vmin);
   color: white;
-  position: sticky;
-}
-
-.grid {
-    display: grid;
-    gap: 1rem;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
 }
 
 button {

@@ -19,7 +19,7 @@ const CourseDetails = () => {
   return (
     <div className="App">
       <div className="course-header">
-
+      
         <div className="course-details" style={ {fontSize: "calc(12px + 2vmin)"} }>
           { isPending && <div>Loading...</div>}
           { error && <div>{ error }</div>}
