@@ -2,15 +2,18 @@ import './App.css';
 import { useState } from 'react';
 import { useEffect} from 'react';
 import { Link } from "react-router-dom";
-
+import Popup from 'reactjs-popup';
+import Modal from 'react-bootstrap/Modal';
 
 const Calculator = () => {
+    
 
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
   const [currentGrade, setCurrentGrade] = useState(0);
-  const [targetGrade, setTargetGrade] = useState(0);
+  const [targetGrade, setTargetGrade] = useState(100);
   const [additionalGrade, setAdditionalGrade] = useState(0);
-  console.log(gradeList);
+  const [errorState, setErrorState] = useState(false);
+
 
 
   const handleGradeAdd = () =>{
@@ -36,12 +39,14 @@ const Calculator = () => {
     for (let i = 0; i < gradeList.length; i++) {
         let thisGrade = parseInt(gradeList[i].grade);
         let thisWeight = parseInt(gradeList[i].weight);
-        tempGrade += (thisGrade) * (0.01) * (thisWeight);
-        tempWeight += thisWeight;
+        if(gradeList[i].grade && gradeList[i].weight){
+            tempGrade += (thisGrade) * (0.01) * (thisWeight);
+            tempWeight += thisWeight;
+        }
     }
     setCurrentGrade(100* tempGrade/tempWeight );
     let remainingWeight = 100 - tempWeight;
-    let remainingGrade = targetGrade - (100 * tempGrade/tempWeight);
+    let remainingGrade = targetGrade - (tempGrade);
     setAdditionalGrade(100* remainingGrade/remainingWeight)
     
   }
@@ -50,10 +55,39 @@ const Calculator = () => {
     setTargetGrade(e.target.value);
   }
 
-  useEffect(() => {
-    document.documentElement.style.setProperty('--table-width', (gradeList.length) * 300)
-    
+  const handleErrorCheck = () => {
+    let zeroWeightError = true;
+    let noInfoError = true;
+    let oneNumberError = false;
+    for (let i = 0; i < gradeList.length; i++) {
 
+        if(gradeList[i].weight != 0){
+            zeroWeightError = false;
+            noInfoError = false;
+        }
+        if(gradeList[i].grade != 0){
+            noInfoError = false;
+        }
+        if((!gradeList[i].grade && gradeList[i].weight) ||
+        (gradeList[i].grade && !gradeList[i].weight)){
+            oneNumberError = true;
+        }
+
+
+
+        if(zeroWeightError || noInfoError || oneNumberError){
+            setErrorState(true);
+        }
+        else{
+            setErrorState(false);
+        }
+
+    }
+  }
+
+  useEffect(() => {
+    console.log("USEEFFECT")
+    document.documentElement.style.setProperty('--table-width', (gradeList.length) * 300)
   }, [gradeList, targetGrade])
   
   return (
@@ -61,6 +95,27 @@ const Calculator = () => {
     <div className="App">
         <header className="App-header">
             <div className="calc-container">
+            <Modal 
+                    show = {errorState} 
+                    onHide = {() => setErrorState(false)}
+                    className = "errorModal"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Input Error</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Please Enter Valid Weights and Grades</Modal.Body>
+                    <Modal.Footer>
+                        <button 
+                            type = "button"
+                            className = "popUp-btn"
+                            onClick = {() => setErrorState(false)}
+                            >
+
+                            <div 
+                            className='errorModalText'></div> Close
+                        </button>
+                    </Modal.Footer>
+                </Modal>
                 <div className="table">
                     <p>Grade Calculator</p>
 
@@ -146,15 +201,18 @@ const Calculator = () => {
                 <button 
                     type = "button" 
                     className = "calcGrade-btn"
-                    onClick = {() => handleGradeCalculation()}
+                    onClick = {() => {
+                        handleErrorCheck()
+                        handleGradeCalculation()
+                    }}
                 >
                     <p>Calculate Grade!</p>
                 </button>
-                <p>Calculated Grade: {currentGrade}%</p>
+                <p>Calculated Grade: {currentGrade.toFixed(2)}%</p>
 
             </div>
             <div className = "gradeNeeded-container">
-                <p>Additional Grade Needed: {additionalGrade}%</p>
+                <p>Additional Grade Needed: {additionalGrade.toFixed(2)}%</p>
 
             </div>
         </header>
