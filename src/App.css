@@ -4,26 +4,10 @@
   --table-width: 1300;
 }
 .App {
+  background:rgb(19, 19, 19);
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   font-size: calc(80px + 2vmin);
-}
-
-.App-btn {
-  background-color: #4ccbf9;
-  color: white;
-}
-
-.App-header2 {
-  background-color: #101010;
-  min-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(30px + 2vmin);
-  color: white;
-  /*animation: fadeIn 3s;*/
 }
 
 .App-header {
@@ -54,8 +38,6 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  /*animation: fadeIn 3s;*/
-
 }
 
 .navbar__container {
@@ -122,7 +104,6 @@
 }
 
 @media screen and (max-width: 800px) {
-  
    .navbar__container {
     display: flex;
     justify-content: space-between;
@@ -223,12 +204,6 @@
   display: flex;
   column-width: 30%;
   column-gap: 90px;
-}
-
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
 }
 
 .main-btn {
@@ -426,14 +401,9 @@ input[type=grade] {
 
 .course-header {
   background-color: #101010;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  min-height: 92vh;
   font-size: calc(40px + 2vmin);
   color: white;
-  position: sticky;
 }
 
 .grid {
