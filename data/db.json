@@ -9,6 +9,11 @@
       "courseCode": "ECE241",
       "courseName": "Digital Systems",
       "id": 2
+    },
+    {
+      "courseCode": "ECE212",
+      "courseName": "Circuit Analysis",
+      "id": 3
     }
   ]
 }
