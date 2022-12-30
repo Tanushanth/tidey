@@ -1,9 +1,7 @@
-import './App.css';
 import { useState } from 'react';
 import { useEffect} from 'react';
 import { Link } from "react-router-dom";
 import Popup from 'reactjs-popup';
-import Modal from 'react-bootstrap/Modal';
 
 const Calculator = () => {
     
@@ -95,28 +93,7 @@ const Calculator = () => {
     <div className="App">
         <header className="App-header">
             <div className="calc-container">
-            <Modal 
-                    show = {errorState} 
-                    onHide = {() => setErrorState(false)}
-                    className = "errorModal"
-                >
-                    <Modal.Header closeButton>
-                        <Modal.Title>Input Error</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Please Enter Valid Weights and Grades</Modal.Body>
-                    <Modal.Footer>
-                        <button 
-                            type = "button"
-                            className = "popUp-btn"
-                            onClick = {() => setErrorState(false)}
-                            >
-
-                            <div 
-                            className='errorModalText'></div> Close
-                        </button>
-                    </Modal.Footer>
-                </Modal>
-                <div className="table">
+              <div className="table">
                     <p>Grade Calculator</p>
 
                     <div className="text-table">
@@ -203,7 +180,15 @@ const Calculator = () => {
                     className = "calcGrade-btn"
                     onClick = {() => {
                         handleErrorCheck()
-                        handleGradeCalculation()
+
+                        if(errorState == false){
+                            handleGradeCalculation()
+                        }
+                        else{
+                            alert("Please enter valid Grades/Weights");
+                        }
+
+                        
                     }}
                 >
                     <p>Calculate Grade!</p>
