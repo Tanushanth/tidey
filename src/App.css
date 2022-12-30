@@ -5,7 +5,10 @@
 }
 .App {
 <<<<<<< HEAD
+<<<<<<< HEAD
   background:rgb(19, 19, 19);
+=======
+>>>>>>> parent of 126ae1c (Worked on Calculator)
 =======
 >>>>>>> parent of 126ae1c (Worked on Calculator)
   text-align: center;
@@ -14,7 +17,10 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 126ae1c (Worked on Calculator)
 .App-btn {
   background-color: #4ccbf9;
   color: white;
@@ -32,6 +38,9 @@
   /*animation: fadeIn 3s;*/
 }
 
+<<<<<<< HEAD
+>>>>>>> parent of 126ae1c (Worked on Calculator)
+=======
 >>>>>>> parent of 126ae1c (Worked on Calculator)
 .App-header {
   background-color: #101010;
@@ -62,6 +71,11 @@
   top: 0;
   z-index: 999;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  /*animation: fadeIn 3s;*/
+
+>>>>>>> parent of 126ae1c (Worked on Calculator)
 =======
   /*animation: fadeIn 3s;*/
 
@@ -133,6 +147,10 @@
 
 @media screen and (max-width: 800px) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  
+>>>>>>> parent of 126ae1c (Worked on Calculator)
 =======
   
 >>>>>>> parent of 126ae1c (Worked on Calculator)
@@ -239,13 +257,19 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 126ae1c (Worked on Calculator)
 
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
+<<<<<<< HEAD
+>>>>>>> parent of 126ae1c (Worked on Calculator)
+=======
 >>>>>>> parent of 126ae1c (Worked on Calculator)
 .main-btn {
   break-inside: avoid;
@@ -443,10 +467,13 @@ input[type=grade] {
 .course-header {
   background-color: #101010;
 <<<<<<< HEAD
+<<<<<<< HEAD
   min-height: 92vh;
   font-size: calc(40px + 2vmin);
   color: white;
 =======
+=======
+>>>>>>> parent of 126ae1c (Worked on Calculator)
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -455,6 +482,9 @@ input[type=grade] {
   font-size: calc(40px + 2vmin);
   color: white;
   position: sticky;
+<<<<<<< HEAD
+>>>>>>> parent of 126ae1c (Worked on Calculator)
+=======
 >>>>>>> parent of 126ae1c (Worked on Calculator)
 }
 
