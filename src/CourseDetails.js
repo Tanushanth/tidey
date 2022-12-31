@@ -1,7 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from './UseFetch';
 import { useState } from 'react';
+import Tabs from './Tabs';
 import Modal from 'react-bootstrap/Modal';
+
 
 const modalStyle = {
   position: "fixed",
@@ -13,7 +15,6 @@ const modalStyle = {
   marginLeft: "-280px",
   backgroundColor: 'white',
   border: "1px solid #999",
-  border: "1px solid rgba(0,0,0,.3)",
   borderRadius: "6px",
   boxShadow: "0 3px 7px rgba(0,0,0,0.3))",
   outline: "none",
@@ -46,7 +47,7 @@ const modalFooterStyle = {
 const CourseDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [showModal, setShow] = useState(false);
+  const [ showModal, setShow ] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -63,6 +64,8 @@ const CourseDetails = () => {
 
   return (
     <div className="App">
+      < Tabs />
+
       <div className="App-header">
       
         <div className="course-details" style={ {fontSize: "calc(12px + 2vmin)"} }>
@@ -70,27 +73,31 @@ const CourseDetails = () => {
           { error && <div>{ error }</div>}
           { courses &&  (
               <article>
-                <h2> { courses.courseCode } </h2>
-                <p> {  courses.courseName } </p>
+                  <h2> { courses.courseCode } </h2>
+                  <p> { courses.courseName } </p>
+                
                 <button 
-                  onClick ={ handleShow }>
+                  onClick={ handleShow }>
                     Delete course
                 </button>
                 
-                <Modal show={showModal} onHide={handleClose} style={modalStyle}>
-                  <Modal.Header  style={modalHeaderStyle}>
+                <Modal show={ showModal } onHide={ handleClose } style={ modalStyle }>
+                  <Modal.Header  style={ modalHeaderStyle }>
                     <Modal.Title>Delete Confirmation</Modal.Title>
                   </Modal.Header>
-                  <Modal.Body style={modalBodyStyle}>Are you sure you want to delete this course?</Modal.Body>
-                  <Modal.Footer style={modalFooterStyle}>
-                    <button variant="secondary" onClick={handleDelete} style={{ marginRight: "20px"}}>
+                  <Modal.Body style={ modalBodyStyle }>Are you sure you want to delete this course?</Modal.Body>
+                  <Modal.Footer style={ modalFooterStyle }>
+                    <button variant="secondary" onClick={ handleDelete } style={{ marginRight: "20px"}}>
                       Yes
                     </button>
-                    <button variant="primary" onClick={handleClose}>
+                    <button variant="primary" onClick={ handleClose }>
                       No
                     </button>
                   </Modal.Footer>
                 </Modal>
+
+
+
                 
               </article>
             )
