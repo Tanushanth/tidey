@@ -8,10 +8,9 @@ const Courses = () => {
 
   return (
     <div className="App">
-  
+    <h2 style={{ color: 'white', fontSize: "calc(15px + 2vmin)", paddingTop: "20px" }}>All courses</h2>
+    
       <header className="App-header">
-      <h3>All courses</h3>
-
         <div className="course-container">
           { error && <div>{ error }</div>}
           { isPending && <div>Loading...</div>}
