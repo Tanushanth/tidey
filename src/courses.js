@@ -17,7 +17,7 @@ const Courses = () => {
         </div>
 
         <button>
-          <Link to="../Create" style={{ color: '#FFF' }}>Add a new course</Link>
+          <Link to="../Create" style={{ color: '#FFF', textDecoration: "none" }}>Add a new course</Link>
         </button>
         
       </header>
