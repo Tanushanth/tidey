@@ -1,4 +1,3 @@
-import './App.css';
 import CourseList from './CourseList';
 import useFetch from './UseFetch';
 import { Link } from "react-router-dom";

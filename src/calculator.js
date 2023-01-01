@@ -1,13 +1,10 @@
-import './App.css';
 import { useState } from 'react';
 import { useEffect} from 'react';
 import { Link } from "react-router-dom";
 import Popup from 'reactjs-popup';
-import Modal from 'react-bootstrap/Modal';
-
+import {PlusCircle} from 'react-feather';
 const Calculator = () => {
     
-
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
   const [currentGrade, setCurrentGrade] = useState(0);
   const [targetGrade, setTargetGrade] = useState(100);
@@ -95,28 +92,7 @@ const Calculator = () => {
     <div className="App">
         <header className="App-header">
             <div className="calc-container">
-            <Modal 
-                    show = {errorState} 
-                    onHide = {() => setErrorState(false)}
-                    className = "errorModal"
-                >
-                    <Modal.Header closeButton>
-                        <Modal.Title>Input Error</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Please Enter Valid Weights and Grades</Modal.Body>
-                    <Modal.Footer>
-                        <button 
-                            type = "button"
-                            className = "popUp-btn"
-                            onClick = {() => setErrorState(false)}
-                            >
-
-                            <div 
-                            className='errorModalText'></div> Close
-                        </button>
-                    </Modal.Footer>
-                </Modal>
-                <div className="table">
+              <div className="table">
                     <p>Grade Calculator</p>
 
                     <div className="text-table">
@@ -128,6 +104,7 @@ const Calculator = () => {
                                 
                                 <div className="inputFields">
                                     <div key = {index} className = "gradeRow">
+
                                         <input 
                                             type="description" 
                                             placeholder="Description"
@@ -146,15 +123,8 @@ const Calculator = () => {
                                             value = {singleRow.grade} 
                                             onChange = {(e) => handleInputChange(e, index, "grade")}
                                         />
-                                        {gradeList.length - 1 === index && (
-                                            <button 
-                                                type = "button" 
-                                                className = "addGrade-btn"
-                                                onClick = {handleGradeAdd}
-                                            >
-                                                <p>Add Row</p>
-                                            </button>
-                                        )}
+                                   
+                                        
                                         {gradeList.length > 1 && (
                                             <button 
                                                 type = "button" 
@@ -165,12 +135,22 @@ const Calculator = () => {
                                             </button>
                                         )}
                                         
-                                        
-                                        
-                                        
 
 
                                     </div>
+                                    {gradeList.length - 1 === index && (
+                                            <button 
+                                                type = "button" 
+                                                className = "addGrade-btn"
+                                                onClick = {handleGradeAdd}
+                                            >
+                                                <PlusCircle color = '#4ccbf9' classname = "addGrade-btn-child"> </PlusCircle>
+                                                <p classname = "addGrade-btn-child">Add Row</p>
+                                                
+                                            </button>
+                                        )}
+                                        
+                                        
                                 </div>
                             
                             
@@ -203,7 +183,15 @@ const Calculator = () => {
                     className = "calcGrade-btn"
                     onClick = {() => {
                         handleErrorCheck()
-                        handleGradeCalculation()
+
+                        if(errorState == false){
+                            handleGradeCalculation()
+                        }
+                        else{
+                            alert("Please enter valid Grades/Weights");
+                        }
+
+                        
                     }}
                 >
                     <p>Calculate Grade!</p>

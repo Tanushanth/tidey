@@ -1,5 +1,3 @@
-import './App.css';
-
 const Login = () => {
   return (
     <div className="App">
