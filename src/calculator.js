@@ -9,7 +9,7 @@ const Calculator = () => {
 
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
   const [currentGrade, setCurrentGrade] = useState(0);
-  const [targetGrade, setTargetGrade] = useState(100);
+  const [targetGrade, setTargetGrade] = useState(0);
   const [additionalGrade, setAdditionalGrade] = useState(0);
   const [errorState, setErrorState] = useState(false);
 
