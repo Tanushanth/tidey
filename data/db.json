@@ -43,19 +43,6 @@
         }
       ],
       "targetGrade": 0
-    },
-    {
-      "courseCode": "UMA123",
-      "courseName": "i love uzma",
-      "gradeList": [
-        {
-          "desc": "",
-          "weight": "",
-          "grade": ""
-        }
-      ],
-      "targetGrade": 0,
-      "id": 4
     }
   ]
 }

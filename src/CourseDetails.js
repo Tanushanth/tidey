@@ -43,6 +43,16 @@ const modalFooterStyle = {
     boxShadow: "inset 0 1px 0 @white",
 }
 
+  const modalBtn = {
+    background: "#2596be",
+    fontWeight: "bold",
+    color: "#fff",
+    border: "0",
+    padding: "8px",
+    borderRadius: "8px",
+    cursor: "pointer",
+    marginRight: "20px"
+  }
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -62,13 +72,27 @@ const CourseDetails = () => {
     fetch('http://localhost:8000/courses/' + courses.id, {
       method: 'DELETE'
     }).then (() => {
-      navigate('/courses');
+      navigate('/courses')
     })
   }
 
-  const handleEditSave = () => {
-    setCourseCode(1);
-  }
+  const handleEditSave = async (e) => {
+    e.preventDefault();
+    const courses = { courseCode, courseName };
+
+
+    try {
+      await fetch('http://localhost:8000/courses', {
+        method: "POST",
+        headers: { admin: "true", "Content-Type": "application/json" },
+        body: JSON.stringify(courses),
+      });
+      setEditShow(false);
+      navigate(-1)
+    } catch (error) {
+      console.log("error");
+    }
+  };
 
   return (
     <div className="App">
@@ -101,10 +125,10 @@ const CourseDetails = () => {
                   </Modal.Header>
                   <Modal.Body style={ modalBodyStyle }>Are you sure you want to delete this course?</Modal.Body>
                   <Modal.Footer style={ modalFooterStyle }>
-                    <button variant="secondary" onClick={ handleDelete } style={{ marginRight: "20px"}}>
+                    <button variant="secondary" onClick={ handleDelete } style={ modalBtn }>
                       Yes
                     </button>
-                    <button variant="primary" onClick={ handleClose }>
+                    <button variant="primary" onClick={ handleClose } style={ modalBtn }>
                       No
                     </button>
                   </Modal.Footer>
@@ -119,23 +143,31 @@ const CourseDetails = () => {
                   <Modal.Footer style={ modalFooterStyle }>
                     <input 
                       type="text" 
+                      required
                       value={ courseCode } 
                       style={{ marginRight: "20px"}}
+                      onChange={(e) => setCourseCode(e.target.value)}
                     />
                       
                     <input 
                       type="text" 
                       value={ courseName } 
-
+                      required
                       style={{ marginRight: "20px", marginBottom: "20px"}}
+                      onChange={(e) => setCourseName(e.target.value)}
                     />
+
                     <button 
-                      onClick={ handleEditSave }>
+                      onClick={ handleEditSave }
+                      style={ modalBtn }
+                    >
                         Save
                     </button>
 
                     <button 
-                      onClick={ handleEditCancel }>
+                      onClick={ handleEditCancel }
+                      style={ modalBtn }
+                    >
                         Cancel
                     </button>
                   </Modal.Footer>

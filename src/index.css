@@ -629,3 +629,12 @@ h3 {
     padding-bottom: 2rem;
   }
 }
+
+.column {
+  margin: 1rem;
+  padding: 20px;
+  text-align: center;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: calc(5px + 2vmin);
+}
