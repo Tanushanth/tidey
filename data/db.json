@@ -9,6 +9,11 @@
       "courseCode": "ECE244",
       "courseName": "Programming Fundamentals",
       "id": 2
+    },
+    {
+      "courseCode": "ECE212",
+      "courseName": "Circuit Analysis",
+      "id": 3
     }
   ]
 }

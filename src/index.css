@@ -18,26 +18,10 @@ code {
   --table-width: 1300;
 }
 .App {
+  background:#101010;
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   font-size: calc(80px + 2vmin);
-}
-
-.App-btn {
-  background-color: #4ccbf9;
-  color: white;
-}
-
-.App-header2 {
-  background-color: #101010;
-  min-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(30px + 2vmin);
-  color: white;
-  /*animation: fadeIn 3s;*/
 }
 
 .App-header {
@@ -68,8 +52,6 @@ code {
   position: sticky;
   top: 0;
   z-index: 999;
-  /*animation: fadeIn 3s;*/
-
 }
 
 .navbar__container {
@@ -136,7 +118,6 @@ code {
 }
 
 @media screen and (max-width: 800px) {
-  
    .navbar__container {
     display: flex;
     justify-content: space-between;
@@ -237,12 +218,6 @@ code {
   display: flex;
   column-width: 30%;
   column-gap: 90px;
-}
-
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
 }
 
 .main-btn {
@@ -363,7 +338,6 @@ code {
   padding: 20px;
 }
 
-
 .table {
   padding: 20px 40px;
   margin: 0 auto;
@@ -386,8 +360,6 @@ code {
   display: grid;
   grid-auto-flow:row;
   justify-content: center; 
-
-
 }
 
 input[type=description] {
@@ -421,6 +393,7 @@ input[type=number] {
   background: white;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
 .errorModalText {
   font-size:1.1rem;
   margin-bottom: 1.6rem;
@@ -428,7 +401,6 @@ input[type=number] {
 }
 
 .addGrade-btn {
-  
   margin: 1rem;
   padding: 2px 13rem 2px 13rem;
   text-align: center;
@@ -442,7 +414,6 @@ input[type=number] {
 .addGrade-btn-child {
   margin: 1rem;
 }
-
 
 
 /* COURSES SECTION */
@@ -481,10 +452,10 @@ input[type=number] {
 }
 
 .grid {
-    display: grid;
-    gap: 1rem;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
 }
 
 button {
@@ -556,3 +527,157 @@ h3 {
   transition: all 0.3s ease;
 }
 
+/* NAVIGATION BAR */
+.tabs {
+  background: #101010;
+  height: 10vh;
+  font-size: 1.4rem;
+  font-weight: bold;
+  top: 0;
+}
+
+.tab-container {
+  justify-content: space-between;
+  height: 80px;
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+
+.tab-menu {
+  display: flex; 
+  align-items: center;
+  list-style: none;
+  
+}
+
+.box {
+  border-style: solid;
+  border: 1px solid #101010 !important;
+  border-bottom: 1px solid rgb(255, 255, 255) !important;
+  width: 200px;
+}
+
+.tab-item {
+  height: 80px;
+}
+
+.tab-link {
+  color: #f0f0f0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 155px;
+  font-size: 1.1rem;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.tab-link:hover {
+  color: #0083B0;
+  transition: all 0.3s ease;
+}
+
+.bar {
+  width: 25px;
+  height: 1.6px;
+  margin: 6.4px auto;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+  background: #000000;
+}
+
+@media screen and (max-width: 800px) {
+   .tab-container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0;
+  }
+
+  .tab-menu {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    top: -1000px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+
+  .tab-menu.active {
+    background: #ffffff;
+    top: 100%;
+    opacity: 100%;
+    transition: all 0.5s ease;
+    z-index: 99;
+    height: 60vh;
+    font-size: 1.6rem;
+  }
+
+  .navbar__toggle .bar {
+    width: 25px;
+    height: 1.6px;
+    margin: 6.4px auto;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    background: #000000;
+  }
+
+  .tab-item {
+    width: 100%;
+  }
+
+  .tab-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+    font-size: 1rem;
+  }
+
+  .tab-btn {
+    padding-bottom: 2rem;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80px;
+    margin: 0;
+  }
+
+  #mobile-menu {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    transform: translate(5%, 20%);
+  }
+
+  .navbar__toggle .bar {
+    display: block;
+    cursor: pointer;
+  }
+
+  #mobile-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
