@@ -44,7 +44,7 @@ const modalFooterStyle = {
 }
 
 
-const CourseDetails = () => {
+const CourseDetails = ({ course }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [ showModal, setShow ] = useState(false);
@@ -60,7 +60,6 @@ const CourseDetails = () => {
       navigate('/courses');
     })
   }
-  
 
   return (
     <div className="App">
