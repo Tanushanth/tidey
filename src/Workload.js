@@ -41,7 +41,12 @@ const Workload = () => {
             < Tabs />
             <div className="App-header">
             <div>
-			<input type="file" name="file" onChange={changeHandler} />
+			<input 
+				type="file" 
+				name="file" 
+				style={{ fontSize: "calc(40px+2vmin)", fontFamily: "'Quicksand'"}}
+				onChange={changeHandler} 
+			/>
 			{isFilePicked ? (
 				<div>
 					<p>Filename: {selectedFile.name}</p>
