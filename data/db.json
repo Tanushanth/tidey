@@ -3,17 +3,59 @@
     {
       "courseCode": "ECE244",
       "courseName": "Programming Fundamentals",
-      "id": 1
+      "id": 1,
+      "gradeList": [
+        {
+          "desc": "Uma Thesis",
+          "weight": "40",
+          "grade": "69"
+        },
+        {
+          "desc": "",
+          "weight": "",
+          "grade": ""
+        }
+      ],
+      "targetGrade": 90
     },
     {
       "courseCode": "ECE212",
       "courseName": "Circuit Analysis",
-      "id": 2
+      "id": 2,
+      "gradeList": [
+        {
+          "desc": "",
+          "weight": "",
+          "grade": ""
+        }
+      ],
+      "targetGrade": 0
     },
     {
       "courseCode": "ECE241",
       "courseName": "Digital Systems",
-      "id": 3
+      "id": 3,
+      "gradeList": [
+        {
+          "desc": "",
+          "weight": "",
+          "grade": ""
+        }
+      ],
+      "targetGrade": 0
+    },
+    {
+      "courseCode": "UMA123",
+      "courseName": "i love uzma",
+      "gradeList": [
+        {
+          "desc": "",
+          "weight": "",
+          "grade": ""
+        }
+      ],
+      "targetGrade": 0,
+      "id": 4
     }
   ]
 }

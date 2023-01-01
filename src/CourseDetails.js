@@ -44,7 +44,7 @@ const modalFooterStyle = {
 }
 
 
-const CourseDetails = ({ course }) => {
+const CourseDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [ courseCode, setCourseCode] = useState( "New Course Code");

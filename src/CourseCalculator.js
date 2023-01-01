@@ -1,19 +1,30 @@
 import { useState } from 'react';
 import { useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Popup from 'reactjs-popup';
 import {PlusCircle} from 'react-feather';
+import useFetch from './UseFetch';
+import Tabs from './Tabs';
+import { Tab } from 'bootstrap';
+const CourseCalculator = () => {
 
-const Calculator = () => {
-
-
+  const {id} = useParams();
+  const { data: courses, isPending, error } = useFetch('http://localhost:8000/courses');
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
   const [currentGrade, setCurrentGrade] = useState(0);
   const [targetGrade, setTargetGrade] = useState(100);
   const [additionalGrade, setAdditionalGrade] = useState(0);
   const [errorState, setErrorState] = useState(false);
 
-
+  const handleInfoCopy = () => {
+    if(courses){
+        const tempList = courses[id-1].gradeList;
+        const tempTargetGrade = courses[id-1].targetGrade;
+        setGradeList(tempList);
+        setTargetGrade(tempTargetGrade);
+    }
+  }
   const handleGradeAdd = () =>{
     setGradeList([...gradeList, {desc: "", weight: "", grade: ""}]);
   }
@@ -86,11 +97,14 @@ const Calculator = () => {
   useEffect(() => {
     console.log("USEEFFECT")
     document.documentElement.style.setProperty('--table-width', (gradeList.length) * 300)
-  }, [gradeList, targetGrade])
+    handleInfoCopy()
+
+    }, [gradeList, targetGrade, courses])
   
   return (
     
     <div className="App">
+        <Tabs />
         <header className="App-header">
             <div className="calc-container">
               <div className="table">
@@ -100,7 +114,7 @@ const Calculator = () => {
                         
                         <form>
                             <label>Enter your grades below:</label>
-
+                            
                             {gradeList.map((singleRow, index) => (
                                 
                                 <div className="inputFields">
@@ -209,4 +223,4 @@ const Calculator = () => {
   );
 }
 
-export default Calculator;
+export default CourseCalculator;

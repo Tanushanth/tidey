@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 const Create = () => {
   const [courseCode, setCourseCode] = useState('');
   const [courseName, setCourseName] = useState('');
+  const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
+  const [targetGrade, setTargetGrade] = useState(0);
   const [isPending, setIsPending] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const courses = { courseCode, courseName };
+    const courses = { courseCode, courseName, gradeList, targetGrade};
 
     setIsPending(true);
 
