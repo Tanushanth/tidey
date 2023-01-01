@@ -277,8 +277,8 @@ code {
 }
 
 .textbox {
-  width: calc(500px + 2vmin);
-  height: calc(500px + 2vmin);
+  width: calc(400px + 2vmin);
+  height: calc(450px + 2vmin);
   background: #1a1a1a;  /* fallback for old browsers */
   border-color: #00B4DB;
   border-radius: 20px;
@@ -287,16 +287,15 @@ code {
 
 .textbox-heading {
   text-align: center;
-  font-family: 'Courier Prime', monospace;
-  font-size: calc(20px + 2vmin);
-  margin-bottom: 60px;
+  font-family: 'Quicksand';
+  font-size: calc(15px + 2vmin);
+  margin-bottom: 40px;
 }
 
 .form {
   background-color: #fff;
-  width: calc(500px + 2vmin);
-  height: calc(30px + 2vmin);
-  border-radius: 30px;
+  width: calc(350px + 2vmin);
+  height: calc(20px + 2vmin);
   display: flex;
   justify-content: center;
   align-content: center;
@@ -306,7 +305,7 @@ code {
 .textbox-subheading {
   text-align: center;
   font-family: 'Courier Prime', monospace;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   margin-bottom: 30px;
   padding-top: 30px;
 }
@@ -322,7 +321,7 @@ code {
 
   .form {
     width: calc(300px + 2vmin);
-    height: calc(50px + 2vmin);
+    height: calc(20px + 2vmin);
   }
 }
 
