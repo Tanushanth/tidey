@@ -39,6 +39,7 @@ const CourseCalculator = () => {
     const newList = [...gradeList];
     newList[index][element] = e.target.value;
     setGradeList(newList);
+    /*handleDatabaseUpdate();*/
 
   }
 
@@ -62,6 +63,7 @@ const CourseCalculator = () => {
 
   const handleTargetChange = (e) => {
     setTargetGrade(e.target.value);
+    /*handleDatabaseUpdate();*/
   }
 
   const handleErrorCheck = () => {
@@ -94,13 +96,50 @@ const CourseCalculator = () => {
     }
   }
 
+
+
+  const handleDatabaseUpdate = () => {
+    let courseCode = courses[id-1].courseCode;
+    let courseName = courses[id-1].courseName;
+    const currentCourse = { courseCode, courseName, gradeList, targetGrade};
+    for(const course of courses){
+        fetch('http://localhost:8000/courses/' + course.id, {
+            method: 'DELETE'
+        })
+    }
+    console.log(courses);
+    for(let i = 0; i < courses.length; i++){
+        
+        if(i === id - 1){
+            fetch('http://localhost:8000/courses', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json"},
+                body: JSON.stringify(currentCourse)
+            })
+        }
+        else{
+            fetch('http://localhost:8000/courses', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json"},
+                body: JSON.stringify(courses[i])
+            })
+        }
+
+    }
+
+  }
+  useEffect(() => {
+     handleInfoCopy()
+
+    }, [courses])
+
   useEffect(() => {
     console.log("USEEFFECT")
     document.documentElement.style.setProperty('--table-width', (gradeList.length) * 300)
-    handleInfoCopy()
 
-    }, [gradeList, targetGrade, courses])
+    }, [gradeList, targetGrade])
   
+
   return (
     
     <div className="App">
@@ -109,7 +148,6 @@ const CourseCalculator = () => {
             <div className="calc-container">
               <div className="table">
                     <p>Grade Calculator</p>
-
                     <div className="text-table">
                         
                         <form>
