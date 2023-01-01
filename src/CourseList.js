@@ -8,7 +8,7 @@ const courseStyle = {
 const CourseList = ({ courses }) => {
 
     return ( 
-        <div className="course-list">
+        <div className="course-list" style={{ fontSize: "calc(12px + 2vmin)" }}>
             {courses.map((course) => (
                 <div className="course-preview" key={ course.id }>
                     <Link to={`/Courses/${course.id} `} style={ courseStyle }>

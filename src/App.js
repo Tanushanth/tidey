@@ -6,6 +6,7 @@ import Create from './Create';
 import Courses from './Courses';
 import CourseDetails from './CourseDetails';
 import Calculator from './Calculator';
+import Workload from './Workload';
 import NotFound from './NotFound';
 import Tabs from './Tabs';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -82,6 +83,7 @@ const App = () => {
           <Route path="/Courses" element={<Courses />} />
           <Route path="/Courses/:id" element={<CourseDetails />} />
           <Route path="/Courses/:id/Calculator" element={<Calculator />} />
+          <Route path="/Courses/:id/Workload" element={<Workload />} />
           <Route path="/Calculator" element={<Calculator />} />
           <Route path="/Tabs" element={<Tabs />} />
           <Route path="*" element={<NotFound />} />

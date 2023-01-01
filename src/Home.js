@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return ( 
         <header className="App-header">
-        <p> <span>Hi, welcome to Tidey.</span> </p>
+          <p 
+            style={{ fontFamily: "'Great Vibes', cursive", fontSize: "calc(100px + 2vmin)" }}>
+              Hi, welcome to Tidey.
+          </p>
 
           <div className="button-container">
             <div className="main-btn">

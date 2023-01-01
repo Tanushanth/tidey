@@ -47,9 +47,14 @@ const modalFooterStyle = {
 const CourseDetails = ({ course }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [ showModal, setShow ] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [ courseCode, setCourseCode] = useState( "New Course Code");
+  const [ courseName, setCourseName] = useState("New Course Name");
+  const [ showDeleteModal, setDeleteShow ] = useState(false);
+  const [ showEditModal, setEditShow ] = useState(false);
+  const handleClose = () => setDeleteShow(false);
+  const handleShow = () => setDeleteShow(true);
+  const handleEditShow = () => setEditShow(true);
+  const handleEditCancel= () => setEditShow(false);
 
   const { data: courses, error, isPending } = useFetch('http://localhost:8000/courses/' + id);
 
@@ -61,11 +66,15 @@ const CourseDetails = ({ course }) => {
     })
   }
 
+  const handleEditSave = () => {
+    setCourseCode(1);
+  }
+
   return (
     <div className="App">
       < Tabs />
 
-      <div className="App-header" style={{ minHeight: "82vh" }}>
+      <div className="App-header" style={{ minHeight: "80vh" }}>
       
         <div className="course-details" style={ {fontSize: "calc(12px + 2vmin)"} }>
           { isPending && <div>Loading...</div>}
@@ -74,13 +83,19 @@ const CourseDetails = ({ course }) => {
               <article>
                   <h2> { courses.courseCode } </h2>
                   <p> { courses.courseName } </p>
-                
+         
                 <button 
-                  onClick={ handleShow }>
+                  onClick={ handleShow }
+                  style={{ marginRight: "20px" }} >
                     Delete course
                 </button>
+
+                <button 
+                  onClick={ handleEditShow }>
+                    Edit course
+                </button>
                 
-                <Modal show={ showModal } onHide={ handleClose } style={ modalStyle }>
+                <Modal show={ showDeleteModal } onHide={ handleClose } style={ modalStyle }>
                   <Modal.Header  style={ modalHeaderStyle }>
                     <Modal.Title>Delete Confirmation</Modal.Title>
                   </Modal.Header>
@@ -95,6 +110,37 @@ const CourseDetails = ({ course }) => {
                   </Modal.Footer>
                 </Modal>
 
+                
+                <Modal show={ showEditModal } onHide={ handleClose } style={ modalStyle }>
+                  <Modal.Header  style={ modalHeaderStyle }>
+                    <Modal.Title>Edit Course</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body style={ modalBodyStyle }>Fill in the inputs with your changes</Modal.Body>
+                  <Modal.Footer style={ modalFooterStyle }>
+                    <input 
+                      type="text" 
+                      value={ courseCode } 
+                      style={{ marginRight: "20px"}}
+                    />
+                      
+                    <input 
+                      type="text" 
+                      value={ courseName } 
+
+                      style={{ marginRight: "20px", marginBottom: "20px"}}
+                    />
+                    <button 
+                      onClick={ handleEditSave }>
+                        Save
+                    </button>
+
+                    <button 
+                      onClick={ handleEditCancel }>
+                        Cancel
+                    </button>
+                  </Modal.Footer>
+                </Modal>
+          
 
 
                 

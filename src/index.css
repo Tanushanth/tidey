@@ -36,22 +36,6 @@ code {
   color: white;
 }
 
-.details-header {
-  background-color: #101010;
-  min-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: left;
-  font-size: calc(40px + 2vmin);
-  color: white;
-}
-
-.App-header span {
-  font-family: 'Great Vibes', cursive;
-  font-size: calc(100px + 2vmin);
-}
-
 /* NAVIGATION BAR */
 .navbar {
   background: #0bceff;
@@ -423,6 +407,7 @@ input[type=number] {
   font-family: 'Quicksand';
   border-radius: 20px;
 }
+
 .addGrade-btn-child {
   margin: 1rem;
 }
@@ -433,10 +418,6 @@ input[type=number] {
   margin: 0 auto;
   padding: 40px;
   font-size: 20px;
-}
-
-.course-list {
-  font-size: calc(12px + 2vmin);
 }
 
 .course-preview {
@@ -463,13 +444,6 @@ input[type=number] {
   position: sticky;
 }
 
-.grid {
-  display: grid;
-  gap: 1rem;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
-}
-
 button {
   padding: 8px;
   text-decoration: none;
@@ -491,8 +465,6 @@ h3 {
   margin-top: -100px;
 }
 
-
-
 /* create new blog form */
 .create {
   max-width: 400px;
@@ -509,13 +481,7 @@ h3 {
   font-size: 25px;
 }
 
-.create h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 30px;
-}
-
-.create input, .create textarea, .create select {
+.create input {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -591,14 +557,12 @@ h3 {
   transition: all 0.3s ease;
 }
 
-
 .box:hover {
   border-style: solid;
   border: 2px solid #101010 !important;
   border-bottom: 2px solid #00B4DB !important;
   width: 180px;
 }
-
 
 @media screen and (max-width: 800px) {
   .tab-container {
@@ -664,40 +628,4 @@ h3 {
   .tab-btn {
     padding-bottom: 2rem;
   }
-
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 80px;
-    margin: 0;
-  }
-
-  #mobile-menu {
-    position: absolute;
-    top: 20%;
-    right: 5%;
-    transform: translate(5%, 20%);
-  }
-
-  .navbar__toggle .bar {
-    display: block;
-    cursor: pointer;
-  }
-
-  #mobile-menu.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  #mobile-menu.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  #mobile-menu.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-}
-.panel-content {
-  text-align: center;
 }
