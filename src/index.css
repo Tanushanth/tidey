@@ -17,6 +17,7 @@ code {
 :root {
   --table-width: 1300;
 }
+
 .App {
   background:#101010;
   text-align: center;
@@ -31,6 +32,17 @@ code {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: calc(40px + 2vmin);
+  color: white;
+}
+
+.details-header {
+  background-color: #101010;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
   font-size: calc(40px + 2vmin);
   color: white;
 }
@@ -549,15 +561,13 @@ h3 {
 .tab-menu {
   display: flex; 
   align-items: center;
-  list-style: none;
-  
 }
 
 .box {
   border-style: solid;
   border: 1px solid #101010 !important;
   border-bottom: 1px solid rgb(255, 255, 255) !important;
-  width: 200px;
+  width: 180px;
 }
 
 .tab-item {
@@ -577,21 +587,21 @@ h3 {
 }
 
 .tab-link:hover {
-  color: #0083B0;
+  color: #00B4DB;
   transition: all 0.3s ease;
 }
 
-.bar {
-  width: 25px;
-  height: 1.6px;
-  margin: 6.4px auto;
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
-  background: #000000;
+
+.box:hover {
+  border-style: solid;
+  border: 2px solid #101010 !important;
+  border-bottom: 2px solid #00B4DB !important;
+  width: 180px;
 }
 
+
 @media screen and (max-width: 800px) {
-   .tab-container {
+  .tab-container {
     display: flex;
     justify-content: space-between;
     height: 80px;
@@ -601,6 +611,13 @@ h3 {
     padding: 0;
   }
 
+  .box {
+    border-style: solid;
+    border: 1px solid #101010 !important;
+    border-bottom: 1px solid rgb(255, 255, 255) !important;
+    width: 180px;
+  }
+  
   .tab-menu {
     display: grid;
     grid-template-columns: auto;
@@ -680,4 +697,7 @@ h3 {
   #mobile-menu.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+}
+.panel-content {
+  text-align: center;
 }

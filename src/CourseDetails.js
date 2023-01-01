@@ -11,8 +11,8 @@ const modalStyle = {
   zIndex: "-100px",
   top: "10%",
   left: "50%",
-  width: "560px",
-  marginLeft: "-280px",
+  width: "500px",
+  marginLeft: "-260px",
   backgroundColor: 'white',
   border: "1px solid #999",
   borderRadius: "6px",
@@ -66,7 +66,7 @@ const CourseDetails = () => {
     <div className="App">
       < Tabs />
 
-      <div className="App-header">
+      <div className="App-header" style={{ minHeight: "82vh" }}>
       
         <div className="course-details" style={ {fontSize: "calc(12px + 2vmin)"} }>
           { isPending && <div>Loading...</div>}

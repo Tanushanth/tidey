@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import { useNavigate, useParams } from "react-router-dom";
-import useFetch from './UseFetch';
-import { useState } from 'react';
  
 const Tabs = (courses) => {
     const { id } = useParams();
@@ -35,5 +33,5 @@ const Tabs = (courses) => {
         </nav>
      );
 }
- 
+
 export default Tabs;
