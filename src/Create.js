@@ -1,18 +1,20 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import {db} from './Firebase';
+import {collection, getDocs, addDoc, doc, updateDoc, setDoc} from 'firebase/firestore';
 const Create = () => {
   const [courseCode, setCourseCode] = useState('');
   const [courseName, setCourseName] = useState('');
-  const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
+  const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}, { desc: "", weight: "", grade: ""}]);
   const [targetGrade, setTargetGrade] = useState(0);
   const [isPending, setIsPending] = useState(false);
+  const coursesCollectionRef = collection(db, "courses");
   const navigate = useNavigate();
-
+/*
   const handleSubmit = (e) => {
     e.preventDefault();
     const courses = { courseCode, courseName, gradeList, targetGrade};
-
+    
     setIsPending(true);
 
     fetch('http://localhost:8000/courses', {
@@ -25,6 +27,13 @@ const Create = () => {
       navigate(-1);
     })
   }
+*/
+  const createCourse = async (e) => {
+    e.preventDefault()
+    const docRef = new doc(coursesCollectionRef);
+    await setDoc(docRef, {courseCode: courseCode, courseName: courseName, targetGrade: targetGrade, gradeList: gradeList, id: docRef.id});
+    navigate(-1);
+  }
 
   return (
     <div className="App">
@@ -32,7 +41,7 @@ const Create = () => {
         <h3>Add a new course</h3>
 
         <div className="create">
-          <form onSubmit={ handleSubmit }>
+          <form onSubmit = {createCourse}>
             <label>Course Code:</label>
             <input 
               type="text" 
@@ -49,8 +58,8 @@ const Create = () => {
               onChange={(e) => setCourseName(e.target.value)}
             />
 
-            { !isPending && <button>Add course</button> }
-            { isPending && <button disabled>Adding course...</button> }
+            <button >Add course</button>
+            
           </form>
         </div>
 

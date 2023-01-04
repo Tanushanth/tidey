@@ -43,6 +43,11 @@
         }
       ],
       "targetGrade": 0
+    },
+    {
+      "courseCode": "ILY244",
+      "courseName": "Uzramming Fundamentals",
+      "id": 4
     }
   ]
 }

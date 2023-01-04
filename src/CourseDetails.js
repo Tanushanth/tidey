@@ -1,8 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from './UseFetch';
-import { useState } from 'react';
 import Tabs from './Tabs';
 import Modal from 'react-bootstrap/Modal';
+import { updateDoc } from "firebase/firestore";
+import {db} from "./Firebase";
+import {useState, useEffect} from 'react';
+import {collection, getDocs, addDoc, doc, getDoc, deleteDoc} from 'firebase/firestore';
 
 
 const modalStyle = {
@@ -66,21 +69,45 @@ const CourseDetails = () => {
   const handleEditShow = () => setEditShow(true);
   const handleEditCancel= () => setEditShow(false);
 
-  const { data: courses, error, isPending } = useFetch('http://localhost:8000/courses/' + id);
+  /* const { data: courses, error, isPending } = useFetch('http://localhost:8000/courses/' + id); */
+  
+  const [courses, setCourses] = useState();
+  const coursesCollectionRef = collection(db, "courses");
+  const [currentCourse, setCurrentCourse] = useState();
+  useEffect(() => {
+      const getCourses = async () => {
+          
+          const data = await getDocs(coursesCollectionRef);
+          setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+          
+          
+      };
+      const getCurrentCourse = async () =>{
+        const docRef = doc(db, "courses", id);
+        const docSnap = await getDoc(docRef);
+        setCurrentCourse({...docSnap.data(), id: docSnap.id});
+      }
+      
+      getCourses();
+      getCurrentCourse();
 
-  const handleDelete = () => {
-    fetch('http://localhost:8000/courses/' + courses.id, {
-      method: 'DELETE'
-    }).then (() => {
-      navigate('/courses')
-    })
+      
+      
+      
+  }, []);
+  const handleDelete = async () => {
+
+    const docRef = doc(db, "courses", id);
+    await deleteDoc(docRef);
+    navigate(-1)
   }
 
-  const handleEditSave = async (e) => {
-    e.preventDefault();
-    const courses = { courseCode, courseName };
-
-
+  const updateCourse = async () => {
+    const docRef = doc(db, "courses", id);
+    await updateDoc( docRef , {courseCode: courseCode, courseName: courseName});
+    setEditShow(false);
+    navigate(-1);
+  /*
     try {
       await fetch('http://localhost:8000/courses', {
         method: "POST",
@@ -91,8 +118,10 @@ const CourseDetails = () => {
       navigate(-1)
     } catch (error) {
       console.log("error");
-    }
+    }*/
+
   };
+
 
   return (
     <div className="App">
@@ -101,12 +130,11 @@ const CourseDetails = () => {
       <div className="App-header" style={{ minHeight: "80vh" }}>
       
         <div className="course-details" style={ {fontSize: "calc(12px + 2vmin)"} }>
-          { isPending && <div>Loading...</div>}
-          { error && <div>{ error }</div>}
-          { courses &&  (
+          { currentCourse &&  (
+              
               <article>
-                  <h2> { courses.courseCode } </h2>
-                  <p> { courses.courseName } </p>
+                  <h2> { currentCourse.courseCode } </h2>
+                  <p> { currentCourse.courseName } </p>
          
                 <button 
                   onClick={ handleShow }
@@ -158,7 +186,7 @@ const CourseDetails = () => {
                     />
 
                     <button 
-                      onClick={ handleEditSave }
+                      onClick={ updateCourse }
                       style={ modalBtn }
                     >
                         Save

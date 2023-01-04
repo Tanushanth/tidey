@@ -7,24 +7,26 @@ import {PlusCircle} from 'react-feather';
 import useFetch from './UseFetch';
 import Tabs from './Tabs';
 import { Tab } from 'bootstrap';
+
+import {db} from "./Firebase";
+import {collection, getDocs, addDoc, doc, getDoc, deleteDoc} from 'firebase/firestore';
+
+
+
 const CourseCalculator = () => {
 
   const {id} = useParams();
-  const { data: courses, isPending, error } = useFetch('http://localhost:8000/courses');
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
   const [currentGrade, setCurrentGrade] = useState(0);
   const [targetGrade, setTargetGrade] = useState(100);
   const [additionalGrade, setAdditionalGrade] = useState(0);
   const [errorState, setErrorState] = useState(false);
 
-  const handleInfoCopy = () => {
-    if(courses){
-        const tempList = courses[id-1].gradeList;
-        const tempTargetGrade = courses[id-1].targetGrade;
-        setGradeList(tempList);
-        setTargetGrade(tempTargetGrade);
-    }
-  }
+  const [courses, setCourses] = useState();
+  const coursesCollectionRef = collection(db, "courses");
+  const [currentCourse, setCurrentCourse] = useState();
+
+
   const handleGradeAdd = () =>{
     setGradeList([...gradeList, {desc: "", weight: "", grade: ""}]);
   }
@@ -128,10 +130,25 @@ const CourseCalculator = () => {
     }
 
   }
-  useEffect(() => {
-     handleInfoCopy()
 
-    }, [courses])
+  useEffect(() => {
+    const getCourses = async () => {
+        
+        const data = await getDocs(coursesCollectionRef);
+        setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        
+        
+    };
+    const getCurrentCourse = async () =>{
+      const docRef = doc(db, "courses", id);
+      const docSnap = await getDoc(docRef);
+      setCurrentCourse({...docSnap.data(), id: docSnap.id});
+    }
+    
+    getCourses();
+    getCurrentCourse();
+   // setGradeList(currentCourse.gradeList);
+}, []);
 
   useEffect(() => {
     console.log("USEEFFECT")
