@@ -278,7 +278,7 @@ code {
 
 .textbox {
   width: calc(400px + 2vmin);
-  height: calc(450px + 2vmin);
+  height: calc(550px + 2vmin);
   background: #1a1a1a;  /* fallback for old browsers */
   border-color: #00B4DB;
   border-radius: 20px;

@@ -1,13 +1,10 @@
-/*The stuff they told me to add lol*/
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getFirestore} from "@firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyAj7XLwCQAkn2zwkbiQBCkyUo9efWiRdI8",
   authDomain: "tidey-db.firebaseapp.com",
@@ -22,3 +19,20 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const db = getFirestore(app);
+export const auth = getAuth(app);
+
+const provider = new GoogleAuthProvider()
+
+export const signInWithGoogle = () => {
+  //const navigate = useNavigate();
+
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    const name = result.user.displayName;
+    localStorage.setItem("name", name);
+    alert('You are logged in');
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+};

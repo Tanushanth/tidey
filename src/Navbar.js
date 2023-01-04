@@ -16,6 +16,10 @@ const Navbar = () => {
                     <li className="navbar__item">
                     <Link className="navbar__links" to="./SignUp">Sign Up</Link>
                     </li>
+
+                    <li className="navbar__item">
+                    <Link className="navbar__links" to="./SignUp">{localStorage.getItem("name")}</Link>
+                    </li>
             
                     <li className="navbar__item">
                     <Link className="navbar__links" to="./Login">Login</Link>
