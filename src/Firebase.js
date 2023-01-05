@@ -21,16 +21,3 @@ const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 
-const provider = new GoogleAuthProvider();
-
-export const signInWithGoogle = () => {
-  signInWithPopup(auth, provider)
-  .then((result) => {
-    const name = result.user.displayName;
-    localStorage.setItem("name", name);
-    alert('You are logged in');
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-};

@@ -1,7 +1,8 @@
-import { signInWithGoogle, auth} from './Firebase';
+import { auth } from './Firebase';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useState } from 'react';
+import { RefreshCcw } from 'react-feather';
 
 const headingStyle = {
   textAlign: "center",
@@ -19,7 +20,7 @@ const Login = () => {
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
-    localStorage.setItem("email", user.email);
+    localStorage.setItem("email", user?.email);
   })
 
   const login = async (e) => {
@@ -31,13 +32,28 @@ const Login = () => {
         loginEmail,
         loginPassword
       );
-      alert('You are logged in');
       navigate(-1);
+      alert('You are logged in');
+      
     } catch(error) {
         console.log(error.message);
     }
   }
 
+  const provider = new GoogleAuthProvider();
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      const name = result.user.displayName;
+      localStorage.setItem("name", name);
+      navigate(-1);
+      alert('You are logged in');
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  };
 
   return (
     <div className="App">

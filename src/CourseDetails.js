@@ -30,32 +30,32 @@ const modalHeaderStyle = {
 }
 
 const modalBodyStyle = {
-    position: "relative",
-    overflowY: "auto",
-    maxHeight: "400px",
-    padding: "15px"
-  }
+  position: "relative",
+  overflowY: "auto",
+  maxHeight: "400px",
+  padding: "15px"
+}
   
 const modalFooterStyle = {
-    padding: "14px 15px 15px",
-    marginBottom: "0",
-    textAlign: "right",
-    backgroundColor: "#f5f5f5",
-    borderTop: "1px solid #ddd",
-    borderRadius: "0 0 6px 6px",
-    boxShadow: "inset 0 1px 0 @white",
+  padding: "14px 15px 15px",
+  marginBottom: "0",
+  textAlign: "right",
+  backgroundColor: "#f5f5f5",
+  borderTop: "1px solid #ddd",
+  borderRadius: "0 0 6px 6px",
+  boxShadow: "inset 0 1px 0 @white",
 }
 
-  const modalBtn = {
-    background: "#2596be",
-    fontWeight: "bold",
-    color: "#fff",
-    border: "0",
-    padding: "8px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    marginRight: "20px"
-  }
+const modalBtn = {
+  background: "#2596be",
+  fontWeight: "bold",
+  color: "#fff",
+  border: "0",
+  padding: "8px",
+  borderRadius: "8px",
+  cursor: "pointer",
+  marginRight: "20px"
+}
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -65,17 +65,16 @@ const CourseDetails = () => {
 
   const [ showDeleteModal, setDeleteShow ] = useState(false);
   const [ showEditModal, setEditShow ] = useState(false);
-  
+
   const handleClose = () => setDeleteShow(false);
   const handleShow = () => setDeleteShow(true);
   const handleEditShow = () => setEditShow(true);
   const handleEditCancel= () => setEditShow(false);
-
-  /* const { data: courses, error, isPending } = useFetch('http://localhost:8000/courses/' + id); */
   
   const [courses, setCourses] = useState();
   const coursesCollectionRef = collection(db, "courses");
   const [currentCourse, setCurrentCourse] = useState();
+
   useEffect(() => {
       const getCourses = async () => {
           
@@ -109,19 +108,6 @@ const CourseDetails = () => {
     await updateDoc( docRef , {courseCode: courseCode, courseName: courseName});
     setEditShow(false);
     navigate(-1);
-  /*
-    try {
-      await fetch('http://localhost:8000/courses', {
-        method: "POST",
-        headers: { admin: "true", "Content-Type": "application/json" },
-        body: JSON.stringify(courses),
-      });
-      setEditShow(false);
-      navigate(-1)
-    } catch (error) {
-      console.log("error");
-    }*/
-
   };
 
 
