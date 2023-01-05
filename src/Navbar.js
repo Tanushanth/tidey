@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { auth } from "./Firebase";
 import Modal from 'react-bootstrap/Modal';
 
@@ -56,7 +56,6 @@ const modalBtn = {
 
 const Navbar = () => {
     const [ isLoggedIn, setIsLoggedIn ] = useState();
-    const [ isLoggedOut, setIsLoggedOut ] = useState();
     const [ showModal, setShowModal ] = useState(false);
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
@@ -64,15 +63,27 @@ const Navbar = () => {
 
     const logout = async () => {
         await signOut(auth);
+        localStorage.setItem("email", "undefined");
         navigate("./");
         setShowModal(false);
-        setIsLoggedOut(true); 
+        setIsLoggedIn(false);
     }
     
     onAuthStateChanged(auth, (currentUser) => {
-        setIsLoggedIn(true);
+        if(localStorage.getItem("email") !== "undefined"){
+            setIsLoggedIn(true);
+
+        }
+        else{
+            setIsLoggedIn(false);
+
+        }
     })
 
+    useEffect(() => {
+        console.log(isLoggedIn);
+    }, [isLoggedIn])
+    
     return ( 
         <nav class="navbar">
             <div class="navbar__container">
@@ -87,7 +98,7 @@ const Navbar = () => {
                 
                 <ul class="navbar__menu">
                     
-                    { !isLoggedOut && isLoggedIn && (
+                    { isLoggedIn && (
                     <article>
                         <ul class="navbar__menu">
                         <li className="navbar__item">
@@ -101,7 +112,7 @@ const Navbar = () => {
                     </article>
                     )}
 
-                    { isLoggedOut && isLoggedIn && (
+                    { !isLoggedIn && (
                         <article>
                         <ul class="navbar__menu">
                             <li className="navbar__item">

@@ -152,6 +152,8 @@ const CourseCalculator = () => {
 
         return () => {}
     }, []);
+
+    
     return (
         
         <div className="App">

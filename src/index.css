@@ -26,7 +26,7 @@ code {
 }
 
 .App-header {
-  background-color: #101010;
+  
   min-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ code {
 
 /* NAVIGATION BAR */
 .navbar {
-  background: #0bceff;
+  background: #1A1A1A;
   height: 8vh;
   display: flex;
   justify-content: center;
@@ -48,6 +48,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 999;
+  color:white;
 }
 
 .navbar__container {
@@ -62,7 +63,7 @@ code {
 }
 
 #navbar__logo {
-  background: #303030;
+  background: #ffffff;
   background-size: 100%;
   font-weight: medium;
   -webkit-background-clip: text;
@@ -88,7 +89,7 @@ code {
 }
 
 .navbar__links {
-  color: #000000;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,7 +101,7 @@ code {
 }
 
 .navbar__links:hover {
-  color: #ffffff;
+  color: #00B4DB;
   transition: all 0.3s ease;
 }
 

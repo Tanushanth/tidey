@@ -100,14 +100,14 @@ const CourseDetails = () => {
 
     const docRef = doc(db, "courses", id);
     await deleteDoc(docRef);
-    navigate(-1)
+    navigate("../Courses")
   }
 
   const updateCourse = async () => {
     const docRef = doc(db, "courses", id);
     await updateDoc( docRef , {courseCode: courseCode, courseName: courseName});
     setEditShow(false);
-    navigate(-1);
+    navigate("../Courses");
   };
 
 

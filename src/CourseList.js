@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { db } from './Firebase';
 import {useState, useEffect} from 'react';
 import {collection, getDocs, addDoc} from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 const courseStyle = {
     textDecoration: "none",
     color: 'white'
@@ -10,13 +12,23 @@ const courseStyle = {
 const CourseList = () => {
     const [courses, setCourses] = useState();
     const coursesCollectionRef = collection(db, "courses");
+    const [userID, setUserID] = useState('');
+
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserID(user.uid)
+  
+      } 
+    });
+
 
     useEffect(() => {
         const getCourses = async () => {
             
             const data = await getDocs(coursesCollectionRef);
-            setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-            
+            setCourses(data.docs.map((doc) => ({...doc.data()})));
+            //id: doc.id
             
         };
         
@@ -27,13 +39,16 @@ const CourseList = () => {
        
         <div className="course-list" style={{ fontSize: "calc(12px + 2vmin)" }}>
             {courses && courses.map((course) => (
-                
-                <div className="course-preview">
-                    <Link to={`/Courses/${course.id} `} style={ courseStyle }>
-                        <h2>{ course.courseCode }</h2>
-                        <p>{ course.courseName }</p>
-                    </Link>
-                </div>
+                <article>
+                    {course.userID === userID &&
+                        <div className="course-preview">          
+                            <Link to={`/Courses/${course.id} `} style={ courseStyle }>
+                                <h2>{ course.courseCode }</h2>
+                                <p>{ course.courseName }</p>
+                            </Link>
+                        </div>              
+                    }
+                </article>
                 
             ))}
 

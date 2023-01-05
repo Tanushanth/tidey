@@ -49,6 +49,9 @@ const Login = () => {
       const name = result.user.displayName;
       localStorage.setItem("name", name);
       alert('You are logged in');
+      if((localStorage.getItem("email") !== "undefined")){
+        navigate(-1);
+      }
     })
     .catch((error) => {
       console.log(error);
@@ -56,9 +59,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if(!(localStorage.getItem(email)))
-      navigate(-1);
-   
+
   }, [])
 
   return (
