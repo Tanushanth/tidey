@@ -1,7 +1,7 @@
 import { auth } from './Firebase';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { RefreshCcw } from 'react-feather';
 
 const headingStyle = {
@@ -11,6 +11,7 @@ const headingStyle = {
   marginBottom: "30px",
   paddingTop: "30px"
 }
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,9 +33,9 @@ const Login = () => {
         loginEmail,
         loginPassword
       );
-      navigate(-1);
-      alert('You are logged in');
       
+      alert('You are logged in');
+      navigate(-1);
     } catch(error) {
         console.log(error.message);
     }
@@ -47,13 +48,18 @@ const Login = () => {
     .then((result) => {
       const name = result.user.displayName;
       localStorage.setItem("name", name);
-      navigate(-1);
       alert('You are logged in');
     })
     .catch((error) => {
       console.log(error);
     })
   };
+
+  useEffect(() => {
+    if(!(localStorage.getItem(email)))
+      navigate(-1);
+   
+  }, [])
 
   return (
     <div className="App">

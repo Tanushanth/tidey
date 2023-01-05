@@ -60,18 +60,15 @@ const Navbar = () => {
     const [ showModal, setShowModal ] = useState(false);
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
-
     const navigate = useNavigate();
-
-    
 
     const logout = async () => {
         await signOut(auth);
         navigate("./");
-        console.log(isLoggedIn);
-        setIsLoggedOut(true);
+        setShowModal(false);
+        setIsLoggedOut(true); 
     }
-
+    
     onAuthStateChanged(auth, (currentUser) => {
         setIsLoggedIn(true);
     })
@@ -123,7 +120,7 @@ const Navbar = () => {
 
                 <Modal show={ showModal } style={ modalStyle }>
                   <Modal.Header  style={ modalHeaderStyle }>
-                    <Modal.Title>Delete Confirmation</Modal.Title>
+                    <Modal.Title>Logout Confirmation</Modal.Title>
                   </Modal.Header>
                   <Modal.Body style={ modalBodyStyle }>Are you sure you want to log out?</Modal.Body>
                   <Modal.Footer style={ modalFooterStyle }>
