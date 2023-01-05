@@ -62,8 +62,10 @@ const CourseDetails = () => {
   const navigate = useNavigate();
   const [ courseCode, setCourseCode] = useState( "New Course Code");
   const [ courseName, setCourseName] = useState("New Course Name");
+
   const [ showDeleteModal, setDeleteShow ] = useState(false);
   const [ showEditModal, setEditShow ] = useState(false);
+  
   const handleClose = () => setDeleteShow(false);
   const handleShow = () => setDeleteShow(true);
   const handleEditShow = () => setEditShow(true);

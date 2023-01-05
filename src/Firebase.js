@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {getFirestore} from "@firebase/firestore";
+import { getFirestore } from "@firebase/firestore";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,11 +21,9 @@ const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
 
-const provider = new GoogleAuthProvider()
+const provider = new GoogleAuthProvider();
 
 export const signInWithGoogle = () => {
-  //const navigate = useNavigate();
-
   signInWithPopup(auth, provider)
   .then((result) => {
     const name = result.user.displayName;
