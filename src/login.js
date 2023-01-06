@@ -34,7 +34,7 @@ const Login = () => {
       );
       
       alert('You are logged in');
-      navigate(-1);
+      navigate("./");
     } catch(error) {
         console.log(error.message);
     }

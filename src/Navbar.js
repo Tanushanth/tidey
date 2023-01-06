@@ -66,19 +66,17 @@ const Navbar = () => {
     const logout = async () => {
         await signOut(auth);
         localStorage.setItem("email", "undefined");
-        navigate("./");
         setShowModal(false);
         setIsLoggedIn(false);
+        navigate("./");
     }
     
     onAuthStateChanged(auth, (currentUser) => {
         if(localStorage.getItem("email") !== "undefined"){
             setIsLoggedIn(true);
-
         }
         else{
             setIsLoggedIn(false);
-
         }
     })
 

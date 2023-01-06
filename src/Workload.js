@@ -1,15 +1,18 @@
 import Tabs from './Tabs';
 import { useState, useEffect } from 'react';
+import { db } from './Firebase';
 import { storage } from './Firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from 'uuid';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs } from 'firebase/firestore';
+
 
 const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
 	const [ fileList, setFileList ] = useState([]);
-	const [userID, setUserID] = useState('');
-	const [ isUploaded, setIsUploaded ] = useState(false);
+	const [ userID, setUserID ] = useState('');
+	const coursesCollectionRef = collection(db, "courses");
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -30,12 +33,11 @@ const Workload = () => {
 		}
 
 		const fileRef = ref(storage, `${userID}/${fileUpload.name + v4()}`);
+
 		uploadBytes(fileRef, fileUpload).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
 				setFileList((prev) => [...prev, url])
-				setIsUploaded(true);
 			})
-			
 		})
 	};
 
@@ -47,7 +49,8 @@ const Workload = () => {
 				})
 			})
 		});
-	}, [isUploaded]);
+	}, []);
+
 
     return ( 
         <div className="App">
@@ -56,12 +59,12 @@ const Workload = () => {
 				<div className="workload-container">
 	
 					{ fileList.map((url) => {
-					return <iframe src={url} width="80%" height="700px"></iframe>
+						return <iframe src={ url } width="80%" height="700px"></iframe>
 					})}
 					
 					<input type="file" 
-						onChange={(e) => {setFileUpload(e.target.files[0])}} />
-					<button style={{ marginTop: "40px", marginBottom: "40px"}} onClick={uploadFile}>Upload</button>
+						onChange={(e) => { setFileUpload(e.target.files[0]) }} />
+					<button style={{ marginTop: "40px", marginBottom: "40px"}} onClick={ uploadFile }>Upload</button>
 
 					
 				</div>
