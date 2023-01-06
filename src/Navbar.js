@@ -61,6 +61,8 @@ const Navbar = () => {
     const handleShow = () => setShowModal(true);
     const navigate = useNavigate();
 
+    
+
     const logout = async () => {
         await signOut(auth);
         localStorage.setItem("email", "undefined");
@@ -88,14 +90,13 @@ const Navbar = () => {
         <nav class="navbar">
             <div class="navbar__container">
                 <Link class="navbar__links" id="navbar__logo" to="./">Tidey</Link>
-                
+
                 <div className="navbar__toggle" id="mobile-menu">
                     <span className="bar"></span>
                     <span className="bar"></span>
                     <span className="bar"></span>
                 </div>
-                
-                
+
                 <ul class="navbar__menu">
                     
                     { isLoggedIn && (
