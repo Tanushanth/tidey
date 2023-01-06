@@ -27,6 +27,7 @@ const CourseList = () => {
         const getCourses = async () => {
             
             const data = await getDocs(coursesCollectionRef);
+            
             setCourses(data.docs.map((doc) => ({...doc.data()})));
             //id: doc.id
             

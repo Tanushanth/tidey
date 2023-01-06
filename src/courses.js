@@ -3,7 +3,8 @@ import useFetch from './UseFetch';
 import { Link } from "react-router-dom";
 
 const Courses = () => {
-  const { data: courses, isPending, error } = useFetch('http://localhost:8000/courses');
+  
+  {/*const { data: courses, isPending, error } = useFetch('http://localhost:8000/courses');*/}
 
   return (
     <div>
@@ -11,9 +12,13 @@ const Courses = () => {
     
       <header className="App-header">
         <div className="course-container">
+          {/*
           { error && <div>{ error }</div>}
           { isPending && <div>Loading...</div>}
+          
           { courses && <CourseList/> }
+          */}
+          <CourseList/>
         </div>
 
         <button>
