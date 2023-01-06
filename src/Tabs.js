@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from 'react';
- 
+import { useParams } from "react-router-dom";
+
 const Tabs = ({courses}) => {
     const { id } = useParams();
-    const navigate = useNavigate();
 
     return ( 
         <nav class="tabs">
@@ -25,7 +23,7 @@ const Tabs = ({courses}) => {
 
                     <div className="box">
                         <li className="tab-item">
-                        <Link className="tab-link" to={`../Courses/${id}/Workload`}>Workload</Link>
+                        <Link className="tab-link" to={`../Courses/${id}/Workload`}>Syllabus</Link>
                         </li>
                     </div>
 

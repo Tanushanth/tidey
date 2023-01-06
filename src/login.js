@@ -2,7 +2,6 @@ import { auth } from './Firebase';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useState, useEffect } from 'react';
-import { RefreshCcw } from 'react-feather';
 
 const headingStyle = {
   textAlign: "center",
