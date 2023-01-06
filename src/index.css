@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Great+Vibes&family=Quicksand:wght@300&display=swap');
 
+
 .waves {
   position: fixed;
   width: 100%;
@@ -56,6 +57,8 @@ code {
 
 :root {
   --table-width: 1300;
+  --calc-cardheight: 30vh;
+  --calc-cardwidth: calc(var(--calc-cardheight) * 2.5);
   scroll-behavior: smooth;
 }
 
@@ -165,7 +168,7 @@ code {
   background: #fff;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1300px) {
   .background-style {
     background-image: url(Wavey.png);
     background-size: auto 100%;
@@ -296,7 +299,7 @@ code {
   font-size: calc(10px + 2vmin);
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 800px) {
   .App-header {
     min-height: 91vh;
     color: white;
@@ -479,6 +482,91 @@ input[type=number] {
 }
 
 
+.calc-card-container-1{
+  display:grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem;
+  text-align: center;
+  
+}
+.calc-card-container-2{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  padding-left: 20px;
+}
+.calc-card {
+  width: var(--calc-cardwidth);
+  height: var(--calc-cardheight);
+  padding: 3px;
+  position: relative;
+  border-width: 10px;
+  border-radius: 50px;
+  border-style:double;
+  border-color:#0083B0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  text-decoration: none;
+  font-size: calc(4px + 2vmin);
+  font-family: 'Quicksand';
+  color: rgb(88 199 250);
+  box-shadow: 0 0 1px 1px #0083B0;
+  cursor: pointer;
+  flex-direction: column;
+  transition: 1s ease-in-out;
+}
+
+.calc-card:hover {
+  box-shadow: 0 0 3px 3px #0083B0;
+  font-size: calc(4px + 2.3vmin);
+  transition: box-shadow 1s;
+  transition: font-size 1s;
+}
+
+
+.calc-card2 {
+  width: var(--calc-cardwidth / 2);
+  height: var(--calc-cardheight / 2 + 10px);
+  padding: 3px;
+  position: relative;
+  border-width: 10px;
+  border-radius: 50px;
+  border-style:double;
+  border-color:#0083B0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  text-decoration: none;
+  font-size: calc(4px + 2vmin);
+  font-family: 'Quicksand';
+  color: rgb(88 199 250);
+  box-shadow: 0 0 1px 1px #0083B0;
+  cursor: pointer;
+  flex-direction: column;
+  transition: 1s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.calc-card2:hover {
+  box-shadow: 0 0 3px 3px #0083B0;
+  font-size: calc(4px + 2.3vmin);
+
+  transition: box-shadow 1s;
+  transition: font-size 1s;
+}
+
+@keyframes spin{
+  0% {
+    --calc-cardrotate: 0deg;
+  }
+  100%{
+    --calc-cardrotate: 360deg;
+  }
+}
 /* COURSES SECTION */
 .course-container {
   margin: 0 auto;
