@@ -65,6 +65,7 @@ code {
 .background-style {
   background-image: url(Wavey.png);
   background-size: 100%;
+  transition: all 0.3s ease;
 }
 
 .App {

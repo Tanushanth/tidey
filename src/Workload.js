@@ -1,5 +1,6 @@
 import Tabs from './Tabs';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { db } from './Firebase';
 import { storage } from './Firebase';
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
@@ -10,6 +11,7 @@ import { collection, getDocs } from 'firebase/firestore';
 
 const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
+	const { id } = useParams();
 	const [ fileList, setFileList ] = useState([]);
 	const [ userID, setUserID ] = useState('');
 	const coursesCollectionRef = collection(db, "courses");
@@ -32,7 +34,7 @@ const Workload = () => {
 			alert("You are not logged in");
 		}
 
-		const fileRef = ref(storage, `${userID}/${fileUpload.name + v4()}`);
+		const fileRef = ref(storage, `${userID}/${id}/${fileUpload.name + v4()}`);
 
 		uploadBytes(fileRef, fileUpload).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
@@ -49,7 +51,7 @@ const Workload = () => {
 				})
 			})
 		});
-	}, []);
+	}, [fileList]);
 
 
     return ( 
@@ -57,7 +59,6 @@ const Workload = () => {
             < Tabs />
             <div className="App-header">
 				<div className="workload-container">
-	
 					{ fileList.map((url) => {
 						return <iframe src={ url } width="80%" height="700px"></iframe>
 					})}
