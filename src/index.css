@@ -9,7 +9,6 @@
   max-height:150px;
   bottom: 0;
   left: 0;
-  
 }
 
 .parallax > use {
@@ -59,6 +58,11 @@ code {
   --table-width: 1300;
 }
 
+.background-style {
+  background-image: url(Wavey.png);
+  background-size: 100%;
+}
+
 .App {
   background:#101010;
   text-align: center;
@@ -67,7 +71,6 @@ code {
 }
 
 .App-header {
-  
   min-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -75,6 +78,12 @@ code {
   justify-content: center;
   font-size: calc(40px + 2vmin);
   color: white;
+}
+
+.home-heading {
+  font-family: 'Great Vibes', cursive;
+  font-size: calc(100px + 2vmin);
+  text-shadow: 2px 2px 3px #101010;
 }
 
 /* NAVIGATION BAR */
@@ -148,15 +157,25 @@ code {
 
 .bar {
   width: 25px;
-  height: 1.6px;
-  margin: 6.4px auto;
-  border-radius: 2px;
+  height: 3px;
+  margin: 5px auto;
   transition: all 0.3s ease-in-out;
-  background: #000000;
+  background: #fff;
 }
 
 @media screen and (max-width: 800px) {
-   .navbar__container {
+  .background-style {
+    background-image: url(Wavey.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+  }
+
+  .waves {
+    position: absolute;
+    margin-bottom:-10px; 
+  }
+
+  .navbar__container {
     display: flex;
     justify-content: space-between;
     height: 80px;
@@ -178,33 +197,32 @@ code {
     z-index: -1;
   }
 
-  .navbar__menu.active {
-    background: #ffffff;
-    top: 100%;
-    opacity: 100%;
-    transition: all 0.5s ease;
-    z-index: 99;
-    height: 60vh;
-    font-size: 1.6rem;
+  .navbar__toggle .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+    display: block;
+    cursor: pointer;
   }
-
+  .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: #fff;
+  }
+  
   #navbar__logo {
     padding-left: 25px;
     padding-top: 0px;
   }
 
-  .navbar__toggle .bar {
-    width: 25px;
-    height: 1.6px;
-    margin: 6.4px auto;
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out;
-    background: #000000;
-  }
-
   .navbar__item {
     width: 100%;
   }
+  
 
   .navbar__links {
     text-align: center;
@@ -212,26 +230,6 @@ code {
     width: 100%;
     display: table;
     font-size: 1rem;
-  }
-
-  .navbar__btn {
-    padding-bottom: 2rem;
-  }
-
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 80px;
-    margin: 0;
-  }
-
-  #mobile-menu {
-    position: absolute;
-    top: 20%;
-    right: 5%;
-    transform: translate(5%, 20%);
   }
 
   .navbar__toggle .bar {
@@ -274,6 +272,7 @@ code {
   border-radius: 130px;
   text-align: center;
   column-gap: 30px;
+  /*box-shadow: 0 0 1.5rem rgb(3, 153, 218); */
   width: calc(240px + 2vmin);
   height: calc(17px + 3vmin);
 }
@@ -286,35 +285,41 @@ code {
 
 @media screen and (max-width: 960px) {
   .App-header {
-    background-color: #101010;
-    min-height: 100vh;
+    min-height: 91vh;
+    color: white;
+    justify-content: column;
+    transition: all 0.5s ease;
+  }
+
+  .home-heading {
+    font-size: calc(60px + 2vmin);
+  }
+
+  .button-container { 
     display: flex;
     flex-direction: column;
+    justify-content: column;
     align-items: center;
-    justify-content: center;
-    font-size: calc(30px + 2vmin);
-    color: white;
-    animation: fadeIn 5s;
-    padding: 30px;
   }
 
   .main-btn {
     width: 190px;
-    height: calc(30px + 3vmin);
+    height: calc(20px + 3vmin);
+    margin: 0.25em;
   }
 
   .main-btn-content {
-    font-size: calc(7px + 2vmin);
+    font-size: calc(10px + 2vmin);
   }
 }
 
 .main-btn-content:hover {
-  color:#202020;
+  color:#2524249f;
   transition: all 0.3s ease;
 }
 
 .main-btn:hover {
-  box-shadow: 0 0 1.5rem rgb(0, 55, 113);
+  box-shadow: 0 0 1.5rem rgb(3, 153, 218);
   transition: all 0.3s ease;
 }
 
@@ -401,8 +406,9 @@ code {
 
 input[type=text] {
   font-family:'Courier New', Courier, monospace;
-  font-size: calc(3px + 2vmin);
+  font-size: calc(2px + 2vmin);
   color:rgb(19, 19, 19);
+  width: calc(150px + 2vmin);
 }
 
 input[type=description] {
@@ -480,15 +486,10 @@ input[type=number] {
 }
 
 .course-header {
-  background-color: #101010;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(40px + 2vmin);
+  font-size: calc(15px + 2vmin);
+  padding-top: 20px;
+  margin-bottom: -30px;
   color: white;
-  position: sticky;
 }
 
 button {

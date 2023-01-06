@@ -6,8 +6,8 @@ const Courses = () => {
   const { data: courses, isPending, error } = useFetch('http://localhost:8000/courses');
 
   return (
-    <div className="App">
-    <h2 style={{ color: 'white', fontSize: "calc(15px + 2vmin)", paddingTop: "20px" }}>All courses</h2>
+    <div>
+    <h2 className="course-header">All courses</h2>
     
       <header className="App-header">
         <div className="course-container">
@@ -21,10 +21,7 @@ const Courses = () => {
         </button>
         
       </header>
-
-
-    </div>
-    
+      </div>
   );
 }
 
