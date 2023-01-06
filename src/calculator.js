@@ -92,7 +92,23 @@ const Calculator = () => {
     
     <div className="App">
         <header className="App-header">
+            <div className = "calc-card-container-1">
+                <div className = "calc-card">
+                    <h1>Current Grade</h1>
+                    <h2>{currentGrade.toFixed(2)}%</h2>
+
+                </div>
+                <div className = "calc-card-container-2">
+                    <div className = "calc-card2">
+                        Target Grade
+                    </div>
+                    <div className = "calc-card2">
+                        Additional Grade
+                    </div>
+                </div>
+            </div>
             <div className="calc-container">
+
               <div className="table">
                     <p>Grade Calculator</p>
 
