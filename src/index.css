@@ -787,3 +787,10 @@ label {
   grid-template-columns: 1fr 1fr;
   font-size: calc(5px + 2vmin);
 }
+
+input[type=info] {
+  font-family:'Courier New', Courier, monospace;
+  font-size: calc(2px + 2vmin);
+  color:rgb(19, 19, 19);
+  width: calc(300px + 2vmin);
+}
