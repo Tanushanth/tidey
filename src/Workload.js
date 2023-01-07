@@ -23,7 +23,7 @@ const Workload = () => {
       } 
     });
 
-	const fileListRef = ref(storage, `${userID}/`);
+	const fileListRef = ref(storage, `${userID}/${id}`);
 	const uploadFile = () => {
 		if(fileUpload === null) {
 			alert("Choose a file");
@@ -51,7 +51,7 @@ const Workload = () => {
 				})
 			})
 		});
-	}, [fileList]);
+	}, [fileListRef]);
 
 
     return ( 
@@ -59,13 +59,17 @@ const Workload = () => {
             < Tabs />
             <div className="App-header">
 				<div className="workload-container">
-					{ fileList.map((url) => {
-						return <iframe src={ url } width="80%" height="700px"></iframe>
-					})}
-					
-					<input type="file" 
-						onChange={(e) => { setFileUpload(e.target.files[0]) }} />
-					<button style={{ marginTop: "40px", marginBottom: "40px"}} onClick={ uploadFile }>Upload</button>
+					<div className="file-container">
+						{ fileList.map((url) => {
+							return <iframe src={ url } width="90%" height="90%"></iframe>
+						})}
+					</div>
+
+					<div className="button-container">
+						<input type="file" 
+							onChange={(e) => { setFileUpload(e.target.files[0]) }} />
+						<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
+					</div>
 
 					
 				</div>

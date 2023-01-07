@@ -766,3 +766,35 @@ input[type=info] {
   color:rgb(19, 19, 19);
   width: calc(300px + 2vmin);
 }
+
+input[type=file] {
+  font-family:'Quicksand';
+  width: calc(250px + 2vmin);
+  font-size: calc(3px + 2vmin);
+}
+
+input::file-selector-button {
+  border: thin solid grey;
+  border-radius: 3px;
+}
+
+.button-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.workload-container {
+  padding: 30px;
+}
+
+.file-container {
+  padding: 30px;
+  width: auto 100%;
+  height: auto 100%;
+}
+
+.workload-container button:hover {
+  color:rgb(3, 153, 218);
+  transition: all 0.3s ease;
+}
