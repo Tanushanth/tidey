@@ -14,7 +14,7 @@ const Workload = () => {
 	const { id } = useParams();
 	const [ fileList, setFileList ] = useState([]);
 	const [ userID, setUserID ] = useState('');
-	const coursesCollectionRef = collection(db, "courses");
+	const [ isUploaded, setIsUploaded ] = useState(false);
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -38,6 +38,7 @@ const Workload = () => {
 
 		uploadBytes(fileRef, fileUpload).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
+				setIsUploaded(true);
 				setFileList((prev) => [...prev, url])
 			})
 		})
@@ -45,13 +46,13 @@ const Workload = () => {
 
 	useEffect(() => {
 		listAll(fileListRef).then((response) => {
-			response.items.forEach((item) => {
-				getDownloadURL(item).then((url) => {
-					setFileList((prev) => [...prev, url]);
-				})
-			})
+		  response.items.forEach((item) => {
+			getDownloadURL(item).then((url) => {
+			  setFileList((prev) => [...prev, url]);
+			});
+		  });
 		});
-	}, [fileListRef]);
+	}, []);
 
 
     return ( 
@@ -59,19 +60,31 @@ const Workload = () => {
             < Tabs />
             <div className="App-header">
 				<div className="workload-container">
-					<div className="file-container">
-						{ fileList.map((url) => {
-							return <iframe src={ url } width="90%" height="90%"></iframe>
-						})}
-					</div>
+					{ isUploaded &&
+						<article>
+						<div className="file-container">
+							{ fileList.map((url) => {
+								return <iframe src={ url } width="900px" height="300vh"></iframe>
+							})}
+						</div>
 
-					<div className="button-container">
-						<input type="file" 
-							onChange={(e) => { setFileUpload(e.target.files[0]) }} />
-						<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
-					</div>
+						<div className="button-container">
+							<input type="file" 
+								onChange={(e) => { setFileUpload(e.target.files[0]) }} />
+							<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
+						</div>
+						</article>
+					}
 
-					
+					{ !isUploaded &&
+						<article>
+						<div className="button-container">
+							<input type="file" 
+								onChange={(e) => { setFileUpload(e.target.files[0]) }} />
+							<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
+						</div>
+						</article>
+					}
 				</div>
 			
 			</div>

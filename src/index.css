@@ -794,6 +794,10 @@ input::file-selector-button {
   height: auto 100%;
 }
 
+.workload-container button {
+  width: calc(230px + 2vmin);
+}
+
 .workload-container button:hover {
   color:rgb(3, 153, 218);
   transition: all 0.3s ease;
