@@ -159,13 +159,24 @@ const CourseCalculator = () => {
         <div className="App">
             <Tabs />
             <header className="App-header">
+            <div className = "calc-card-container-1">
+                <div className = "calc-card">
+                    <h1>Current Grade</h1>
+                    <h2>{currentGrade.toFixed(2)}%</h2>
+                </div>
+                <div className = "calc-card">
+                    <h1>Additional Grade Needed</h1>
+                    <h2>{additionalGrade.toFixed(2)}%</h2>
+                </div>
+            </div>
+
                 <div className="calc-container">
-                <div className="table">
+                <div className="table" style={{ fontSize: "calc(16px + 2vmin)", fontWeight: "bold" }}>
                         <p>Grade Calculator</p>
                         <div className="text-table">
                             
                             <form>
-                                <label>Enter your grades below:</label>
+                                <label style={{ fontFamily: "'Quicksand'" }}>Enter your grades below:</label>
                                 
                                 {gradeList.map((singleRow, index) => (
                                     
@@ -198,7 +209,7 @@ const CourseCalculator = () => {
                                                     className = "delGrade-btn"
                                                     onClick = {() => handleGradeRemove(index)}
                                                 >
-                                                    <p>Remove Row</p>
+                                                    Remove Row
                                                 </button>
                                             )}
                                             
@@ -210,10 +221,12 @@ const CourseCalculator = () => {
                                                     type = "button" 
                                                     className = "addGrade-btn"
                                                     onClick = {handleGradeAdd}
-                                                >
-                                                    <PlusCircle color = '#4ccbf9' classname = "addGrade-btn-child"> </PlusCircle>
-                                                    <p classname = "addGrade-btn-child">Add Row</p>
+                                                > 
+                                                <div classname = "addGrade-btn-child">
+                                                <PlusCircle color = '#4ccbf9' classname = "addGrade-btn-child"> </PlusCircle>
                                                     
+                                                </div>
+                                                Add Row
                                                 </button>
                                             )}
                                             
@@ -233,17 +246,14 @@ const CourseCalculator = () => {
                     </div>
                 </div>
                 <div className = "target-container">
-                    <p>Enter Target Grade (%):
+                    <p className="target-header">Enter Target Grade (%):
                         <input 
-                            type= "number" 
+                            type= "target" 
                             placeholder="Target Grade"
                             value = {targetGrade} 
                             onChange = {(e) => handleTargetChange(e)}
                         />
                     </p>
-                </div>
-
-                <div className = "result-container">
 
                     <button 
                         type = "button" 
@@ -260,16 +270,10 @@ const CourseCalculator = () => {
 
                             
                         }}
-                    >
-                        <p>Calculate Grade! (Saves)</p>
+                    >Calculate/Save Grade!
                     </button>
-                    <p>Calculated Grade: {currentGrade.toFixed(2)}%</p>
-
                 </div>
-                <div className = "gradeNeeded-container">
-                    <p>Additional Grade Needed: {additionalGrade.toFixed(2)}%</p>
-
-                </div>
+                
             </header>
         </div>
     );
