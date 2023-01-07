@@ -179,7 +179,7 @@ const Calculator = () => {
                 </div>
             </div>
             <div className = "target-container">
-                <p>Enter Target Grade (%):
+                <p className="target-header">Enter Target Grade (%):
                     <input 
                         type= "target" 
                         placeholder="Target Grade"

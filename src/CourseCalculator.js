@@ -246,7 +246,7 @@ const CourseCalculator = () => {
                     </div>
                 </div>
                 <div className = "target-container">
-                    <p>Enter Target Grade (%):
+                    <p className="target-header">Enter Target Grade (%):
                         <input 
                             type= "target" 
                             placeholder="Target Grade"
@@ -258,7 +258,6 @@ const CourseCalculator = () => {
                     <button 
                         type = "button" 
                         className = "calcGrade-btn"
-                        style = {{ width: "260px" }}
                         onClick = {() => {
                             handleErrorCheck()
 
@@ -271,8 +270,7 @@ const CourseCalculator = () => {
 
                             
                         }}
-                    >
-                        <p>Calculate Grade! (Saves)</p>
+                    >Calculate/Save Grade!
                     </button>
                 </div>
                 
