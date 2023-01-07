@@ -880,7 +880,7 @@ h3 {
   width: 180px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) and (min-width: 401px) {
   .tab-container {
     display: flex;
     justify-content: space-between;
@@ -914,6 +914,69 @@ h3 {
     padding-bottom: 2rem;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .tabs {
+    background: #101010;
+    height: 10vh;
+    font-size: 1.2rem;
+    font-weight: bold;
+    top: 0;
+  }
+  
+  .tab-container {
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 0px;
+  }
+  
+  .tab-menu {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    width: 540px;
+  }
+  
+  .box {
+    border-style: solid;
+    border: 1px solid #101010 !important;
+    border-bottom: 1px solid rgb(255, 255, 255) !important;
+    width: 180px;
+  }
+  
+  .tab-item {
+    height: 80px;
+  }
+  
+  .tab-link {
+    color: #f0f0f0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .tab-link:hover {
+    color: #00B4DB;
+    transition: all 0.3s ease;
+  }
+  
+  .box:hover {
+    border-style: solid;
+    border: 2px solid #101010 !important;
+    border-bottom: 2px solid #00B4DB !important;
+    width: 150px;
+  }
+}
+
 
 .column {
   margin: 1rem;
