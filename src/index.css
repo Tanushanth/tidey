@@ -216,7 +216,7 @@ code {
   }
 
   .navbar__toggle .bar {
-    width: 25px;
+    width: 26px;
     height: 3px;
     margin: 5px auto;
     transition: all 0.3s ease-in-out;
@@ -267,7 +267,7 @@ code {
 
 }
 
-.button-container { 
+.main-btn-container { 
   display: flex;
   column-width: 30%;
   column-gap: 90px;
@@ -300,7 +300,7 @@ code {
   font-size: calc(10px + 2vmin);
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .App-header {
     min-height: 91vh;
     color: white;
@@ -312,7 +312,7 @@ code {
     font-size: calc(60px + 2vmin);
   }
 
-  .button-container { 
+  .main-btn-container { 
     display: flex;
     flex-direction: column;
     justify-content: column;

@@ -3,7 +3,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useState, useEffect} from 'react';
 import { auth } from "./Firebase";
 import Modal from 'react-bootstrap/Modal';
-
+import HamburgerMenu from './HamburgerMenu';
 
 const modalStyle = {
     position: "fixed",
@@ -60,7 +60,11 @@ const Navbar = () => {
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
     const navigate = useNavigate();
+    const [ hamburgerOpen, setHamburgerOpen ] = useState(false);
 
+    const toggleHamburger = () => {
+        setHamburgerOpen(!hamburgerOpen);
+    }
     
 
     const logout = async () => {
@@ -89,44 +93,46 @@ const Navbar = () => {
             <div class="navbar__container">
                 <Link class="navbar__links" id="navbar__logo" to="./">Tidey</Link>
 
-                <div className="navbar__toggle" id="mobile-menu">
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                </div>
+                    <div className="navbar__toggle" id="mobile-menu" onClick={ toggleHamburger }>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                    </div>
+                
 
-                <ul class="navbar__menu">
-                    
-                    { isLoggedIn && (
-                    <article>
-                        <ul class="navbar__menu">
-                        <li className="navbar__item">
-                        <Link className="navbar__links" style={{ marginRight: "50px" }}to="./">{localStorage.getItem("email")}</Link>
-                        </li>
-
-                        <li className="navbar__item">
-                        <Link className="navbar__links" onClick={ handleShow } to="./">Logout</Link>
-                        </li>
-                        </ul>
-                    </article>
-                    )}
-
-                    { !isLoggedIn && (
+                    <ul class="navbar__menu">
+                        
+                        { isLoggedIn  && (
                         <article>
-                        <ul class="navbar__menu">
+                            <ul class="navbar__menu">
                             <li className="navbar__item">
-                            <Link className="navbar__links" to="./SignUp">Sign Up</Link>
+                            <Link className="navbar__links" style={{ marginRight: "50px" }}to="./">{localStorage.getItem("email")}</Link>
                             </li>
-                            
-                            
+
                             <li className="navbar__item">
-                            <Link className="navbar__links" to="./Login">Login</Link>
+                            <Link className="navbar__links" onClick={ handleShow } to="./">Logout</Link>
                             </li>
-                        </ul>
+                            </ul>
                         </article>
-                    )}
-                    
-                </ul>
+                        )}
+
+                        { !isLoggedIn && (
+                            <article>
+                            <ul class="navbar__menu">
+                                <li className="navbar__item">
+                                <Link className="navbar__links" to="./SignUp">Sign Up</Link>
+                                </li>
+                                
+                                
+                                <li className="navbar__item">
+                                <Link className="navbar__links" to="./Login">Login</Link>
+                                </li>
+                            </ul>
+                            </article>
+                        )}
+                        
+                    </ul>
+                
 
                 <Modal show={ showModal } style={ modalStyle }>
                   <Modal.Header  style={ modalHeaderStyle }>
