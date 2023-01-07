@@ -8,7 +8,7 @@ import HamburgerMenu from './HamburgerMenu';
 const modalStyle = {
     position: "fixed",
     fontFamily: "'Quicksand', sans-serif",
-    zIndex: "-100px",
+    zIndex: "100",
     top: "10%",
     left: "50%",
     width: "500px",
@@ -103,13 +103,14 @@ const Navbar = () => {
                         { isLoggedIn  && (
                         <article>
                             <ul class="navbar__menu">
-                            <li className="navbar__item">
-                            <Link className="navbar__links" style={{ marginRight: "50px" }}to="./">{localStorage.getItem("email")}</Link>
-                            </li>
+                                <li className="navbar__item">
+                                <Link className="navbar__links" style={{ marginRight: "50px" }}to="./">{localStorage.getItem("email")}</Link>
+                                </li>
 
-                            <li className="navbar__item">
-                            <Link className="navbar__links" onClick={ handleShow } to="./">Logout</Link>
-                            </li>
+                                <li className="navbar__item">
+                                <Link className="navbar__links" onClick={ ()=>{handleShow();
+                                toggleHamburger();} } to="./">Logout</Link>
+                                </li>
                             </ul>
                         </article>
                         )}
@@ -118,12 +119,12 @@ const Navbar = () => {
                             <article>
                             <ul class="navbar__menu">
                                 <li className="navbar__item">
-                                <Link className="navbar__links" to="./SignUp">Sign Up</Link>
+                                <Link className="navbar__links" to="./SignUp" onClick={ toggleHamburger } >Sign Up</Link>
                                 </li>
                                 
                                 
                                 <li className="navbar__item">
-                                <Link className="navbar__links" to="./Login">Login</Link>
+                                <Link className="navbar__links" to="./Login" onClick={ toggleHamburger } >Login</Link>
                                 </li>
                             </ul>
                             </article>

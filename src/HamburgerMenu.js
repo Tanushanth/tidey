@@ -111,24 +111,22 @@ export default function Hamburger({ isOpen }){
                     width: 100%;
                     max-width: 1300px;
                     padding: 0;
-
                   }
                 
                   .navbar__menu {
-                    display: ${ isOpen ? 'grid': 'none'};
-                    grid-template-columns: ${ isOpen ? 'none': 'auto'};
-                    margin: ${ isOpen ? '-50px': '0'};
+                    display: ${ isOpen ? 'flex': 'none'};
+                    flex-direction: ${ isOpen ? 'column': 'none'};
+                    left: 0;
+                    right: 0;
                     width: ${ isOpen ? 'auto 100%': '100%'};
                     position: ${ isOpen ? 'absolute': 'absolute'};
                     top: ${ isOpen ? '100%': '-1000px'};
                     transition: all 0.5s ease;
-                    z-index: ${ isOpen ? '99': '-1'};
+                    z-index: ${ isOpen ? '90': '-1'};
                     background: ${ isOpen ? '#1a1a1a': 'none'};
                     opacity: ${ isOpen ? '90%': '1'};
-                    height: ${isOpen ? '30vh' : '0'};
+                    height: ${isOpen ? '35vh' : '0'};
                     font-size: ${isOpen ? '1.6rem' : ''};
-                    border-style: solid;
-                    border-color: 'white';
                   }
                 
                   .bar {
@@ -141,17 +139,19 @@ export default function Hamburger({ isOpen }){
                 
                   #navbar__logo {
                     text-align: center;
-                    padding-left:  ${isOpen ? '25px' : '0px'};
+                    padding-left:  ${isOpen ? '55px' : '0px'};
                     padding-top: 0px;
                   }
                 
                   .navbar__item {
-                    width: ${isOpen ? '100%' : ''};
+                    width: ${isOpen ? '100%' : '0'};
+                    margin-bottom: ${isOpen ? '3rem' : 0};
                   }
                 
                   .navbar__links {
                     text-align: ${isOpen ? 'center' : 'left'};
-                    padding: ${isOpen ? '2rem' : 0};
+                    padding-top: ${isOpen ? '3rem' : 0};
+                    padding-bottom: ${isOpen ? '3rem' : 0};
                     width: ${isOpen ? '100%' : ''};
                     display: ${isOpen ? 'table' : 'flex'};
                     font-size: ${isOpen ? '1rem' : ''};

@@ -49,7 +49,7 @@ const Login = () => {
       localStorage.setItem("name", name);
       alert('You are logged in');
       if((localStorage.getItem("email") !== "undefined")){
-        navigate(-1);
+        navigate("../");
       }
     })
     .catch((error) => {
