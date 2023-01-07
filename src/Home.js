@@ -31,7 +31,7 @@ const Home = () => {
                 Hi, welcome to Tidey.
             </p>
 
-            <div className="button-container">
+            <div className="main-btn-container">
               <div className="main-btn">
                 <Link className="main-btn-content" /*onClick={handleAlert} */ to="/Courses">
                   Course dashboard
