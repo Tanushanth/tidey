@@ -346,6 +346,7 @@ code {
   background: #1a1a1a;  /* fallback for old browsers */
   border-color: #00B4DB;
   border-radius: 20px;
+  transition: all 0.3s ease;
   padding: 30px;
 }
 
