@@ -3,18 +3,22 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { db } from './Firebase';
 import { storage } from './Firebase';
-import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
 import { v4 } from 'uuid';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs } from 'firebase/firestore';
+import { isReactNative } from '@firebase/util';
 
 
 const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
 	const { id } = useParams();
 	const [ fileList, setFileList ] = useState([]);
+	const [ fileNameList, setFileNameList] = useState([]);
 	const [ userID, setUserID ] = useState();
 	const [ firstUpdate, setFirstUpdate ] = useState(false);
+	const [ currentURL, setCurrentURL] = useState();
+	const [newFileName, setNewFileName] = useState('');
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -37,6 +41,7 @@ const Workload = () => {
 		uploadBytes(fileRef, fileUpload).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
 				setFileList((prev) => [...prev, url])
+				setFileNameList((prev) => [...prev, newFileName]);
 			})
 		})
 	};
@@ -64,28 +69,85 @@ const Workload = () => {
 		
 			
 		}
-	}, [userID]);
+	}, [userID, firstUpdate]);
+
+	const handleFileRemove = (targetURL, index) => {
+		const newFileList = [...fileList];
+		
+		fileList.splice(index, 1);
+		setFileList(newFileList);
 
 
+		listAll(fileListRef).then((response) => {
+			response.items.forEach((item) => {
+				getDownloadURL(item).then((url) => {
+					if(url === targetURL){
+						deleteObject(item).then(() => {
+							console.log("Deleted!")
+							setFileList([]);
+							setFirstUpdate(false);
+							return;
+						})
+					}
+				});	
+			});
+		});
+		
+	}
+
+	const handleFileSelect = (url, index) => {
+		setCurrentURL(url);
+	}
+
+	const handleNewFileNameChange = (e) => {
+		setNewFileName(e.target.value)
+	
+	  }
     return ( 
         <div className="App">
             < Tabs />
             <div className="App-header">
 				<div className="workload-container">
 					
-					<article>
+					
 					<div className="file-container">
-						{fileList.length >= 1 && fileList.map((url) => {
-							return <iframe src={ url } width="900px" height="300vh"></iframe>
-						})}
+					{fileList.map((url, index) => (
+						<div key = {index}>
+
+								<button 
+								type = "button" 
+								className = "selectFile-btn"
+								onClick = {() => handleFileSelect(url, index)}
+							>
+								Select This : {fileNameList[index]}
+							</button>
+							<button 
+								type = "button" 
+								className = "delFile-btn"
+								onClick = {() => handleFileRemove(url, index)}
+							>
+								remove :D
+							</button>
+						</div>
+                            
+                    ))}
+					<iframe src={ currentURL } width="900px" height="300vh"></iframe>
+		
+						
 					</div>
 
 					<div className="button-container">
 						<input type="file" 
 							onChange={(e) => { setFileUpload(e.target.files[0]) }} />
+						<input 
+                                            type="description" 
+                                            placeholder="Description"
+                                            value = {newFileName} 
+                                            onChange = {(e) => handleNewFileNameChange(e)}
+                                        />
 						<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
 					</div>
-					</article>
+					
 				
 				</div>
 			
