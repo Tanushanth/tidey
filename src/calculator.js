@@ -89,33 +89,26 @@ const Calculator = () => {
   }, [gradeList, targetGrade])
   
   return (
-    
     <div className="App">
         <header className="App-header">
             <div className = "calc-card-container-1">
                 <div className = "calc-card">
                     <h1>Current Grade</h1>
                     <h2>{currentGrade.toFixed(2)}%</h2>
-
                 </div>
-                <div className = "calc-card-container-2">
-                    <div className = "calc-card2">
-                        Target Grade
-                    </div>
-                    <div className = "calc-card2">
-                        Additional Grade
-                    </div>
+                <div className = "calc-card">
+                    <h1>Additional Grade Needed</h1>
+                    <h2>{additionalGrade.toFixed(2)}%</h2>
                 </div>
             </div>
             <div className="calc-container">
 
               <div className="table">
-                    <p>Grade Calculator</p>
+                    <p style={{ fontSize: "calc(16px + 2vmin)", fontWeight: "bold" }}>Grade Calculator</p>
 
                     <div className="text-table">
-                        
                         <form>
-                            <label>Enter your grades below:</label>
+                            <label style={{ fontFamily: "'Quicksand'" }}>Enter your grades below:</label>
 
                             {gradeList.map((singleRow, index) => (
                                 
@@ -148,7 +141,7 @@ const Calculator = () => {
                                                 className = "delGrade-btn"
                                                 onClick = {() => handleGradeRemove(index)}
                                             >
-                                                <p>Remove Row</p>
+                                                Remove Row
                                             </button>
                                         )}
                                         
@@ -161,9 +154,12 @@ const Calculator = () => {
                                                 className = "addGrade-btn"
                                                 onClick = {handleGradeAdd}
                                             >
-                                                <PlusCircle color = '#4ccbf9' classname = "addGrade-btn-child"> </PlusCircle>
-                                                <p classname = "addGrade-btn-child">Add Row</p>
                                                 
+                                                <div classname = "addGrade-btn-child">
+                                                <PlusCircle color = '#4ccbf9' classname = "addGrade-btn-child"> </PlusCircle>
+                                                    
+                                                </div>
+                                                Add Row
                                             </button>
                                         )}
                                         
@@ -185,15 +181,12 @@ const Calculator = () => {
             <div className = "target-container">
                 <p>Enter Target Grade (%):
                     <input 
-                        type= "number" 
+                        type= "target" 
                         placeholder="Target Grade"
                         value = {targetGrade} 
                         onChange = {(e) => handleTargetChange(e)}
                     />
                 </p>
-            </div>
-
-            <div className = "result-container">
 
                 <button 
                     type = "button" 
@@ -213,12 +206,11 @@ const Calculator = () => {
                 >
                     <p>Calculate Grade!</p>
                 </button>
-                <p>Calculated Grade: {currentGrade.toFixed(2)}%</p>
-
             </div>
-            <div className = "gradeNeeded-container">
-                <p>Additional Grade Needed: {additionalGrade.toFixed(2)}%</p>
 
+            <div className = "result-container">
+
+            
             </div>
         </header>
     </div>
