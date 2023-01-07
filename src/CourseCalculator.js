@@ -176,7 +176,7 @@ const CourseCalculator = () => {
                         <div className="text-table">
                             
                             <form>
-                                <label style={{ fontFamily: "'Quicksand'" }}>Enter your grades below:</label>
+                                <label>Enter your grades below:</label>
                                 
                                 {gradeList.map((singleRow, index) => (
                                     

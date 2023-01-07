@@ -104,11 +104,11 @@ const Calculator = () => {
             <div className="calc-container">
 
               <div className="table">
-                    <p style={{ fontSize: "calc(16px + 2vmin)", fontWeight: "bold" }}>Grade Calculator</p>
+                    <p>Grade Calculator</p>
 
                     <div className="text-table">
                         <form>
-                            <label style={{ fontFamily: "'Quicksand'" }}>Enter your grades below:</label>
+                            <label>Enter your grades below:</label>
 
                             {gradeList.map((singleRow, index) => (
                                 
@@ -152,8 +152,7 @@ const Calculator = () => {
                                             <button 
                                                 type = "button" 
                                                 className = "addGrade-btn"
-                                                onClick = {handleGradeAdd}
-                                            >
+                                                onClick = {handleGradeAdd}                                            >
                                                 
                                                 <div classname = "addGrade-btn-child">
                                                 <PlusCircle color = '#4ccbf9' classname = "addGrade-btn-child"> </PlusCircle>
