@@ -13,16 +13,14 @@ const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
 	const { id } = useParams();
 	const [ fileList, setFileList ] = useState([]);
-	const [ userID, setUserID ] = useState('');
-	const [ isUploaded, setIsUploaded ] = useState(false);
-
+	const [ userID, setUserID ] = useState();
+	const [ firstUpdate, setFirstUpdate ] = useState(false);
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserID(user.uid)
       } 
     });
-
 	const fileListRef = ref(storage, `${userID}/${id}`);
 	const uploadFile = () => {
 		if(fileUpload === null) {
@@ -38,21 +36,35 @@ const Workload = () => {
 
 		uploadBytes(fileRef, fileUpload).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
-				setIsUploaded(true);
 				setFileList((prev) => [...prev, url])
 			})
 		})
 	};
 
-	useEffect(() => {
-		listAll(fileListRef).then((response) => {
-		  response.items.forEach((item) => {
-			getDownloadURL(item).then((url) => {
-			  setFileList((prev) => [...prev, url]);
-			});
-		  });
+
+
+	const handleURL = (item) => {
+		getDownloadURL(item).then((url) => {
+			setFileList((prev) => [...prev, url])	
 		});
-	}, []);
+	}
+	useEffect(() => {
+
+		if(userID && !firstUpdate){
+
+			
+			listAll(fileListRef).then((response) => {
+				
+				response.items.forEach((item) => {
+					handleURL(item)		
+				});
+				setFirstUpdate(true);
+				
+			});
+		
+			
+		}
+	}, [userID]);
 
 
     return ( 
@@ -60,31 +72,21 @@ const Workload = () => {
             < Tabs />
             <div className="App-header">
 				<div className="workload-container">
-					{ isUploaded &&
-						<article>
-						<div className="file-container">
-							{ fileList.map((url) => {
-								return <iframe src={ url } width="900px" height="300vh"></iframe>
-							})}
-						</div>
+					
+					<article>
+					<div className="file-container">
+						{fileList.length >= 1 && fileList.map((url) => {
+							return <iframe src={ url } width="900px" height="300vh"></iframe>
+						})}
+					</div>
 
-						<div className="button-container">
-							<input type="file" 
-								onChange={(e) => { setFileUpload(e.target.files[0]) }} />
-							<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
-						</div>
-						</article>
-					}
-
-					{ !isUploaded &&
-						<article>
-						<div className="button-container">
-							<input type="file" 
-								onChange={(e) => { setFileUpload(e.target.files[0]) }} />
-							<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
-						</div>
-						</article>
-					}
+					<div className="button-container">
+						<input type="file" 
+							onChange={(e) => { setFileUpload(e.target.files[0]) }} />
+						<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
+					</div>
+					</article>
+				
 				</div>
 			
 			</div>
