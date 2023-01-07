@@ -94,13 +94,11 @@ const Navbar = () => {
                 <Link class="navbar__links" id="navbar__logo" to="./">Tidey</Link>
 
                     <div className="navbar__toggle" id="mobile-menu" onClick={ toggleHamburger }>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
+                        <HamburgerMenu isOpen={ hamburgerOpen } />
                     </div>
                 
 
-                    <ul class="navbar__menu">
+                    <ul class="navbar__holder">
                         
                         { isLoggedIn  && (
                         <article>

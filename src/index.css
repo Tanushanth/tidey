@@ -140,6 +140,12 @@ code {
   list-style: none;
 }
 
+.navbar__holder {
+  display: flex; 
+  align-items: center;
+  list-style: none;
+}
+
 .navbar__item {
   height: 80px;
 }
@@ -181,6 +187,8 @@ code {
     margin-bottom:-10px; 
   }
 }
+
+/*
 
 @media screen and (max-width: 800px) {
   .navbar__container {
@@ -266,6 +274,7 @@ code {
   }
 
 }
+*/
 
 .main-btn-container { 
   display: flex;
