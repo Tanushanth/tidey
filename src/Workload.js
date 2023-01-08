@@ -15,8 +15,10 @@ const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
 	const { id } = useParams();
 	const [ fileList, setFileList ] = useState([]);
-	const [ fileNameList, setFileNameList] = useState([]);
+	const [ fileNameList, setFileNameList] = useState([{ name: ""}]);
 	const [ userID, setUserID ] = useState();
+	const [changesSaved, setChangesSaved] = useState(false);
+
 	const [ firstUpdate, setFirstUpdate ] = useState(false);
 	const [ currentURL, setCurrentURL] = useState();
 	const [ newFileName, setNewFileName ] = useState('');
@@ -34,6 +36,7 @@ const Workload = () => {
 
 	const fileListRef = ref(storage, `${userID}/${id}`);
 	const uploadFile = () => {
+
 		if(fileUpload === null) {
 			alert("Choose a file");
 			return;
@@ -43,17 +46,35 @@ const Workload = () => {
 			alert("You are not logged in");
 		}
 
+		console.log(newFileName);
 		const fileRef = ref(storage, `${userID}/${id}/${fileUpload.name + v4()}`);
 
+		/* WHY DOES THI SNOT WORK */
+		setFileNameList((prev) => [...prev, 
+			{
+				name: newFileName
+			},
+		])
+
+		console.log(fileNameList);
+
+		
 		uploadBytes(fileRef, fileUpload).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
 				setFileList((prev) => [...prev, url])
-				setFileNameList((prev) => [...prev, newFileName]);
 			})
 		})
+
+		updateInformation();
+
 	};
 
 
+	const updateInformation = async() => {
+        const docRef = doc(db, "courses", id);
+        await updateDoc( docRef , {fileNameList: fileNameList});
+        setChangesSaved(true);
+    }
 
 	/* ALL FOR GETTING THE CURRENT COURSE INFO */
 	const getCourses = async () => {
@@ -132,9 +153,19 @@ const Workload = () => {
 		setCurrentURL(url);
 	}
 
+	/*
 	const handleFileName = (e) => {
-		setFileNameList((prev) => [...prev,  newFileName]);
+		//console.log(e.target.value);
+		//console.log(newFileName);
+
+		//setNewFileName(e.target.value);
+		setFileNameList((prev) => [...prev,  e.target.value]);
+		//const newNameList = [...fileNameList];
+        //newNameList[element] = e.target.value;
+        //setFileNameList(newNameList);
+		
 	}
+	*/
 
     return ( 
         <div className="App">
@@ -154,7 +185,7 @@ const Workload = () => {
 								className = "selectFile-btn"
 								onClick = {() => handleFileSelect(url, index)}
 							>
-								Select This : {fileNameList[index]}
+								Select This : {fileNameList[index]["name"]}
 							</button>
 							<button 
 								type = "button" 
@@ -173,15 +204,17 @@ const Workload = () => {
 					</div>
 
 					<div className="button-container" >
+						<form>
 						<input type="file" 
 							onChange={(e) => { setFileUpload(e.target.files[0]) }} />
 
 						<input 
 							type="description" 
-							placeholder="Description"
-							value = { newFileName } 
-							onChange = {(e) => handleFileName(e)}
+							placeholder="Description..."
+							value={ newFileName }
+							onChange={(e) => setNewFileName(e.target.value)}
                         />
+						</form>
 
 						<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
 					</div>
