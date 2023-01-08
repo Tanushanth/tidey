@@ -7,6 +7,7 @@ const Create = () => {
   const [courseCode, setCourseCode] = useState('');
   const [courseName, setCourseName] = useState('');
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
+  const [fileNameList, setFileNameList] = useState([{ name: ""}]);
   const [targetGrade, setTargetGrade] = useState(0);
   const [isPending, setIsPending] = useState(false);
   const coursesCollectionRef = collection(db, "courses");
@@ -31,6 +32,7 @@ const Create = () => {
       courseName: courseName, 
       targetGrade: targetGrade, 
       gradeList: gradeList, 
+      fileNameList: fileNameList,
       id: docRef.id,
       userID: userID
     });
@@ -46,16 +48,18 @@ const Create = () => {
           <form onSubmit = {createCourse}>
             <label>Course Code:</label>
             <input 
-              type="text" 
+              type="course" 
               required
+              placeholder="Course Code..."
               value={ courseCode }
               onChange={(e) => setCourseCode(e.target.value)}
             />
 
             <label>Course Name:</label>
             <input 
-              type="text" 
+              type="course" 
               required
+              placeholder="Course Name..."
               value={ courseName }
               onChange={(e) => setCourseName(e.target.value)}
             />

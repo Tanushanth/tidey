@@ -8,6 +8,7 @@ import { v4 } from 'uuid';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs } from 'firebase/firestore';
 import { isReactNative } from '@firebase/util';
+import { addDoc, doc, getDoc, deleteDoc, updateDoc} from 'firebase/firestore';
 
 
 const Workload = () => {
@@ -18,13 +19,19 @@ const Workload = () => {
 	const [ userID, setUserID ] = useState();
 	const [ firstUpdate, setFirstUpdate ] = useState(false);
 	const [ currentURL, setCurrentURL] = useState();
-	const [newFileName, setNewFileName] = useState('');
-    const auth = getAuth();
+	const [ newFileName, setNewFileName ] = useState('');
+	const [courses, setCourses] = useState();
+	const coursesCollectionRef = collection(db, "courses");
+    const [currentCourse, setCurrentCourse] = useState();
+
+	const auth = getAuth();
+
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserID(user.uid)
       } 
     });
+
 	const fileListRef = ref(storage, `${userID}/${id}`);
 	const uploadFile = () => {
 		if(fileUpload === null) {
@@ -46,6 +53,32 @@ const Workload = () => {
 		})
 	};
 
+
+
+	/* ALL FOR GETTING THE CURRENT COURSE INFO */
+	const getCourses = async () => {
+        const data = await getDocs(coursesCollectionRef);
+        setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    };
+
+    const getCurrentCourse = async () =>{
+        const docRef = doc(db, "courses", id);
+        const docSnap = await getDoc(docRef);
+        setCurrentCourse({...docSnap.data(), id: docSnap.id});
+    }
+
+	useEffect(() => {
+        getCourses();
+        getCurrentCourse();
+    }, []);
+
+
+	/* SETTING THE FILE NAME LIST NEW */
+    useEffect(() => {        
+        if(currentCourse){
+            setFileNameList(currentCourse.fileNameList);
+        }
+    }, [currentCourse]);
 
 
 	const handleURL = (item) => {
@@ -99,10 +132,10 @@ const Workload = () => {
 		setCurrentURL(url);
 	}
 
-	const handleNewFileNameChange = (e) => {
-		setNewFileName(e.target.value)
-	
-	  }
+	const handleFileName = (e) => {
+		setFileNameList((prev) => [...prev,  newFileName]);
+	}
+
     return ( 
         <div className="App">
             < Tabs />
@@ -111,6 +144,8 @@ const Workload = () => {
 					
 					
 					<div className="file-container">
+
+					
 					{fileList.map((url, index) => (
 						<div key = {index}>
 
@@ -131,24 +166,26 @@ const Workload = () => {
 						</div>
                             
                     ))}
+					
 					<iframe src={ currentURL } width="900px" height="300vh"></iframe>
 		
 						
 					</div>
 
-					<div className="button-container">
+					<div className="button-container" >
 						<input type="file" 
 							onChange={(e) => { setFileUpload(e.target.files[0]) }} />
+
 						<input 
-                                            type="description" 
-                                            placeholder="Description"
-                                            value = {newFileName} 
-                                            onChange = {(e) => handleNewFileNameChange(e)}
-                                        />
+							type="description" 
+							placeholder="Description"
+							value = { newFileName } 
+							onChange = {(e) => handleFileName(e)}
+                        />
+
 						<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
 					</div>
 					
-				
 				</div>
 			
 			</div>

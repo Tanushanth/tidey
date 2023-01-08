@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
+import { auth } from "./Firebase";
+import { useState } from 'react';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Home = () => {
+  const [ userID, setUserID ] = useState();
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setUserID(user.uid)
+    } 
+  });
+
   const handleAlert = () => {
-    alert("To save your courses, you can log in or sign up!")
+    console.log(userID);
+    if(!userID)
+      alert("To save your courses, you can log in or sign up!");
+    else  
+      return;
   }
 
     return ( 

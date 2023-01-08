@@ -324,7 +324,7 @@ code {
   margin: 0 auto;
   font-size: calc(10px + 2vmin);
   font-weight: semi-bold;
-  background:rgb(42, 42, 42);
+  background:#1a1a1a;
   height: calc(--table-width + 2vmin);
   width: calc(1200px + 2vmin);
   border-radius: 15px;
@@ -360,6 +360,14 @@ label {
   font-size: 20px;
   font-family: 'Quicksand';
   padding-left: 50px;
+}
+
+input[type=course] {
+  font-family:'Courier New', Courier, monospace;
+  font-size: calc(2px + 2vmin);
+  color:rgb(19, 19, 19);
+  width: calc(40px + 2vmin);
+  border-radius: 7px;
 }
 
 input[type=text] {
@@ -657,7 +665,6 @@ input[type=target] {
   
   .table {
     font-size: calc(10px + 2vmin);
-    background:rgb(42, 42, 42);
     height: calc(--table-width + 2vmin);
     width: calc(650px + 2vmin);
   }
