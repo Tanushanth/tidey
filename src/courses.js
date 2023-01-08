@@ -1,7 +1,6 @@
 import CourseList from './CourseList';
 import useFetch from './UseFetch';
 import { Link } from "react-router-dom";
-
 const Courses = () => {
   
   {/*const { data: courses, isPending, error } = useFetch('http://localhost:8000/courses');*/}

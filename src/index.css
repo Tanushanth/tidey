@@ -757,7 +757,10 @@ input[type=target] {
   background: rgb(34, 34, 34);
   padding: 0px 15px;
   border-radius: 30px;
+  min-height: 500px;
   height: calc(140px + 1vmin);
+  min-width: 300px;
+  margin: 1rem;
 }
 
 .course-preview:hover {
@@ -792,6 +795,27 @@ h3 {
   text-align: left;
   margin-top: -100px;
 }
+
+
+
+.course-inner-carousel {
+  
+  font-size: calc(12px + 2vmin);
+  display: flex;
+
+  width: auto 100%;
+}
+.course-carousel {
+
+  width: 1600px;
+  overflow:hidden;
+  
+}
+
+
+
+
+
 
 /* create new blog form */
 .create {
