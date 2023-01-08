@@ -18,7 +18,7 @@ const Workload = () => {
 	const [ fileNameList, setFileNameList] = useState([{ name: ""}]);
 	const [ userID, setUserID ] = useState();
 	const [changesSaved, setChangesSaved] = useState(false);
-
+	const [ firstFile, setFirstFile ] = useState(true);
 	const [ firstUpdate, setFirstUpdate ] = useState(false);
 	const [ currentURL, setCurrentURL] = useState();
 	const [ newFileName, setNewFileName ] = useState('');
@@ -49,12 +49,14 @@ const Workload = () => {
 		console.log(newFileName);
 		const fileRef = ref(storage, `${userID}/${id}/${fileUpload.name + v4()}`);
 
-		/* WHY DOES THI SNOT WORK */
-		setFileNameList((prev) => [...prev, 
-			{
-				name: newFileName
-			},
-		])
+		
+			/* WHY DOES THI SNOT WORK */
+			setFileNameList((prev) => [...prev, 
+				{
+					name: newFileName
+				},
+			])
+		
 
 		console.log(fileNameList);
 
@@ -176,7 +178,8 @@ const Workload = () => {
 					
 					<div className="file-container">
 
-					
+					{!fileNameList &&
+					<>
 					{fileList.map((url, index) => (
 						<div key = {index}>
 
@@ -197,6 +200,8 @@ const Workload = () => {
 						</div>
                             
                     ))}
+					</>
+					}
 					
 					<iframe src={ currentURL } width="900px" height="300vh"></iframe>
 		
