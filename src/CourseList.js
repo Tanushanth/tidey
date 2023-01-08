@@ -5,6 +5,7 @@ import {collection, getDocs, addDoc} from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {motion} from 'framer-motion';
 import {useRef} from "react";
+import {ChevronsLeft, ChevronsRight} from 'react-feather';
 const courseStyle = {
     textDecoration: "none",
     color: 'white'
@@ -17,6 +18,7 @@ const CourseList = () => {
     const [carouselWidth, setCarouselWidth] = useState();
     const carousel = useRef();
     const auth = getAuth();
+    const swipeString = "<<< SWIPE"
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserID(user.uid)
@@ -42,8 +44,9 @@ const CourseList = () => {
         setCarouselWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
     }, [courses])
     return ( 
-        
+
             <motion.div ref = {carousel} className = "course-carousel">
+                
                 <motion.div drag = "x" dragConstraints =  {{right: 0, left: -carouselWidth}} className = "course-inner-carousel">
                     {courses && courses.map((course) => {
                         return(
@@ -70,6 +73,11 @@ const CourseList = () => {
                         })}
             
                 </motion.div>
+                <div className = "swipe-text">
+                <ChevronsLeft color = '#4ccbf9'></ChevronsLeft>
+                <p>SWIPE</p>
+                <ChevronsRight color = '#4ccbf9'></ChevronsRight>
+                </div>
             </motion.div>
     /*
         <div className="course-list" style={{ fontSize: "calc(12px + 2vmin)" }}>

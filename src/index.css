@@ -827,11 +827,43 @@ h3 {
 }
 .course-carousel {
 
-  width: 1600px;
+  width: 1200px;
   overflow:hidden;
   
 }
+@media screen and (max-width: 1200px) {
+  .course-carousel {
 
+    width: 800px;
+    overflow:hidden;
+    
+  }
+  .course-inner-carousel {
+  
+    font-size: calc(2px + 2vmin);
+    display: flex;
+  
+    width: auto 100%;
+  }
+  .course-preview {
+    background: rgb(34, 34, 34);
+    padding: 0;
+    border-radius: 30px;
+    min-height: 300px;
+    height: calc(140px + 1vmin);
+    min-width: 250px;
+    margin: 1rem;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-image: url(cardWaves.png);
+    background-size: auto 100%;
+    transition: all 0.3s ease;
+    
+    
+  }
+}
 
 @media screen and (max-width: 800px) {
   .course-carousel {
@@ -867,10 +899,50 @@ h3 {
   }
 }
 
+@media screen and (max-width: 400px) {
+  .course-carousel {
 
+    width: 275px;
+    overflow:hidden;
+    
+  }
+  .course-inner-carousel {
+  
+    font-size: calc(2px + 2vmin);
+    display: flex;
+  
+    width: auto 100%;
+  }
+  .course-preview {
+    background: rgb(34, 34, 34);
+    padding: 0;
+    border-radius: 30px;
+    min-height: 140px;
+    height: calc(140px + 1vmin);
+    min-width: 100px;
+    margin: 1rem;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-image: url(cardWaves.png);
+    background-size: auto 100%;
+    transition: all 0.3s ease;
+    
+    
+  }
+}
 
+.swipe-text {
+  display: flex;
+  margin: 0 5%;
+  justify-content: space-between;
 
-
+}
+.swipe-text p {
+  color:rgb(3, 153, 218);
+  translate: 0px -15px;
+}
 
 /* create new blog form */
 .create {
