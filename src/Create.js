@@ -7,7 +7,7 @@ const Create = () => {
   const [courseCode, setCourseCode] = useState('');
   const [courseName, setCourseName] = useState('');
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
-  const [fileNameList, setFileNameList] = useState([{ name: "" }]);
+  const [fileNameList, setFileNameList] = useState(['']);
   const [targetGrade, setTargetGrade] = useState(0);
   const [isPending, setIsPending] = useState(false);
   const coursesCollectionRef = collection(db, "courses");

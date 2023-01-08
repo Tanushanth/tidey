@@ -6,8 +6,9 @@ import { updateDoc } from "firebase/firestore";
 import {db} from "./Firebase";
 import {useState, useEffect} from 'react';
 import {collection, getDocs, addDoc, doc, getDoc, deleteDoc} from 'firebase/firestore';
-
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
+import { storage } from './Firebase';
 const modalStyle = {
   position: "fixed",
   fontFamily: "'Quicksand', sans-serif",
@@ -74,6 +75,22 @@ const CourseDetails = () => {
   const [courses, setCourses] = useState();
   const coursesCollectionRef = collection(db, "courses");
   const [currentCourse, setCurrentCourse] = useState();
+  const [ userID, setUserID ] = useState();
+
+
+
+  const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserID(user.uid)
+      } 
+    });
+
+	const fileListRef = ref(storage, `${userID}/${id}`);
+
+
+
 
   useEffect(() => {
       const getCourses = async () => {
@@ -96,11 +113,27 @@ const CourseDetails = () => {
       
       
   }, []);
+  
+
+
+
+  
   const handleDelete = async () => {
 
     const docRef = doc(db, "courses", id);
     await deleteDoc(docRef);
     navigate("../Courses")
+
+    listAll(fileListRef).then((response) => {
+			response.items.forEach((item) => {
+				getDownloadURL(item).then((url) => {
+						deleteObject(item).then(() => {
+							console.log("Deleted!")
+							return;
+						})
+				});	
+			});
+		});
   }
 
   const updateCourse = async () => {

@@ -47,21 +47,25 @@ const CourseList = () => {
                 <motion.div drag = "x" dragConstraints =  {{right: 0, left: -carouselWidth}} className = "course-inner-carousel">
                     {courses && courses.map((course) => {
                         return(
-                        <motion.div>
-                            {course.userID === userID &&
-                            
-                            
-                                <div className="course-preview">          
-                                    <Link to={`/Courses/${course.id} `} style={ courseStyle }>
-                                        <h2>{ course.courseCode }</h2>
-                                        <p>{ course.courseName }</p>
-                                    </Link>
-                                </div>              
-                            
-                            
+                            <motion.div>
+                                {course.userID === userID &&
                                 
-                            }
-                        </motion.div>
+                                    <div>
+                                        
+                                            <div className="course-preview" >  
+                                                <Link to={`/Courses/${course.id} `} style={ courseStyle }>                                                      
+                                                    <div className = "courseInfo">
+                                                        <h2>{ course.courseCode }</h2>
+                                                    
+                                                        <p>{ course.courseName }</p>
+                                                    </div>
+                                                </Link>
+                                            </div>              
+                                        
+                                    </div>
+                                    
+                                }
+                            </motion.div>
                             );
                         })}
             

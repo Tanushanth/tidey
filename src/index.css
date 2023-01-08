@@ -755,16 +755,26 @@ input[type=target] {
 
 .course-preview {
   background: rgb(34, 34, 34);
-  padding: 0px 15px;
+  padding: 0;
   border-radius: 30px;
-  min-height: 500px;
+  min-height: 400px;
   height: calc(140px + 1vmin);
   min-width: 300px;
   margin: 1rem;
+  display:flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+ 
+  background-image: url(cardWaves.png);
+  background-size: auto 100%;
+  transition: all 0.3s ease;
+  
+  
 }
 
 .course-preview:hover {
-  box-shadow: 0 0 1.5rem rgb(58, 58, 58);
+  box-shadow: 0 0 1.5rem rgb(116, 218, 236);
   transition: all 0.2s ease;
 }
 
@@ -796,7 +806,17 @@ h3 {
   margin-top: -100px;
 }
 
-
+.course-preview h3 {
+  font-size: calc(20px + 2vmin);
+  text-align: left;
+  margin-top: 0px;
+}
+.course-preview p {
+  font-size: calc(7px + 2vmin);
+}
+.courseInfo {
+  padding-bottom: 100px;
+}
 
 .course-inner-carousel {
   
@@ -810,6 +830,41 @@ h3 {
   width: 1600px;
   overflow:hidden;
   
+}
+
+
+@media screen and (max-width: 800px) {
+  .course-carousel {
+
+    width: 500px;
+    overflow:hidden;
+    
+  }
+  .course-inner-carousel {
+  
+    font-size: calc(2px + 2vmin);
+    display: flex;
+  
+    width: auto 100%;
+  }
+  .course-preview {
+    background: rgb(34, 34, 34);
+    padding: 0;
+    border-radius: 30px;
+    min-height: 250px;
+    height: calc(140px + 1vmin);
+    min-width: 175px;
+    margin: 1rem;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-image: url(cardWaves.png);
+    background-size: auto 100%;
+    transition: all 0.3s ease;
+    
+    
+  }
 }
 
 

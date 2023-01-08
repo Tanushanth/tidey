@@ -15,7 +15,7 @@ const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
 	const { id } = useParams();
 	const [ fileList, setFileList ] = useState([]);
-	const [ fileNameList, setFileNameList] = useState([{ name: ""}]);
+	const [ fileNameList, setFileNameList] = useState([]);
 	const [ userID, setUserID ] = useState();
 	const [changesSaved, setChangesSaved] = useState(false);
 	const [ firstFile, setFirstFile ] = useState(true);
@@ -25,7 +25,9 @@ const Workload = () => {
 	const [courses, setCourses] = useState();
 	const coursesCollectionRef = collection(db, "courses");
     const [currentCourse, setCurrentCourse] = useState();
+	const [isFirstFile, setIsFirstFile] = useState(true);
 
+	
 	const auth = getAuth();
 
     onAuthStateChanged(auth, (user) => {
@@ -35,6 +37,9 @@ const Workload = () => {
     });
 
 	const fileListRef = ref(storage, `${userID}/${id}`);
+
+	
+
 	const uploadFile = () => {
 
 		if(fileUpload === null) {
@@ -50,13 +55,13 @@ const Workload = () => {
 		const fileRef = ref(storage, `${userID}/${id}/${fileUpload.name + v4()}`);
 
 		
-			/* WHY DOES THI SNOT WORK */
-			setFileNameList((prev) => [...prev, 
-				{
-					name: newFileName
-				},
-			])
+		/* WHY DOES THI SNOT WORK */
 		
+		setFileNameList((prev) => [...prev, newFileName])
+
+
+
+
 
 		console.log(fileNameList);
 
@@ -67,7 +72,6 @@ const Workload = () => {
 			})
 		})
 
-		updateInformation();
 
 	};
 
@@ -98,7 +102,7 @@ const Workload = () => {
 
 	/* SETTING THE FILE NAME LIST NEW */
     useEffect(() => {        
-        if(currentCourse){
+        if(currentCourse && currentCourse[0] != ''){
             setFileNameList(currentCourse.fileNameList);
         }
     }, [currentCourse]);
@@ -107,6 +111,7 @@ const Workload = () => {
 	const handleURL = (item) => {
 		getDownloadURL(item).then((url) => {
 			setFileList((prev) => [...prev, url])	
+
 		});
 	}
 	useEffect(() => {
@@ -127,12 +132,25 @@ const Workload = () => {
 		}
 	}, [userID, firstUpdate]);
 
+
+
+	useEffect(() => {
+		if(fileNameList.length > 0){
+			updateInformation();
+		}
+
+	}, [fileNameList])
+
 	const handleFileRemove = (targetURL, index) => {
-		const newFileList = [...fileList];
 		
-		fileList.splice(index, 1);
+		const newFileList = [...fileList];
+		newFileList.splice(index, 1);
 		setFileList(newFileList);
 
+		
+		const newFileNameList = [...fileNameList];
+		newFileNameList.splice(index+1, 1);
+		setFileNameList(newFileNameList);
 
 		listAll(fileListRef).then((response) => {
 			response.items.forEach((item) => {
@@ -178,32 +196,31 @@ const Workload = () => {
 					
 					<div className="file-container">
 
-					{!fileNameList &&
-					<>
-					{fileList.map((url, index) => (
-						<div key = {index}>
-
-								<button 
-								type = "button" 
-								className = "selectFile-btn"
-								onClick = {() => handleFileSelect(url, index)}
-							>
-								Select This : {fileNameList[index]["name"]}
-							</button>
-							<button 
-								type = "button" 
-								className = "delFile-btn"
-								onClick = {() => handleFileRemove(url, index)}
-							>
-								remove :D
-							</button>
-						</div>
-                            
-                    ))}
-					</>
-					}
 					
-					<iframe src={ currentURL } width="900px" height="300vh"></iframe>
+						{fileList.map((url, index) => (
+							<div key = {index}>
+
+									<button 
+									type = "button" 
+									className = "selectFile-btn"
+									onClick = {() => handleFileSelect(url, index)}
+								>
+									
+									Select This : {fileNameList[index+1]}
+								</button>
+								<button 
+									type = "button" 
+									className = "delFile-btn"
+									onClick = {() => handleFileRemove(url, index)}
+								>
+									remove :D
+								</button>
+							</div>
+								
+						))}
+						
+						
+						<iframe src={ currentURL } width="900px" height="900vh"></iframe>
 		
 						
 					</div>

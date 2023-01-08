@@ -6,9 +6,15 @@ const Tabs = ({courses}) => {
 
     return ( 
         <nav class="tabs">
+            
             <div class="tab-container">
             
                 <ul class="tab-menu">
+                    <div className="box">
+                        <li className="tab-item">
+                        <Link className="tab-link" to={`../Courses`}>Back to Courses</Link>
+                        </li>
+                    </div>
                     <div className="box">
                         <li className="tab-item">
                         <Link className="tab-link" to={`../Courses/${id}`}>Course Info</Link>
