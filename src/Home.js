@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  { /*const handleAlert = () => {
+  const handleAlert = () => {
     alert("To save your courses, you can log in or sign up!")
   }
-*/ }
 
     return ( 
       <div className="background-style">
@@ -33,7 +32,7 @@ const Home = () => {
 
             <div className="main-btn-container">
               <div className="main-btn">
-                <Link className="main-btn-content" /*onClick={handleAlert} */ to="/Courses">
+                <Link className="main-btn-content" onClick={handleAlert} to="/Courses">
                   Course dashboard
                 </Link>
               </div>
