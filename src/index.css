@@ -188,6 +188,25 @@ code {
   }
 }
 
+@media screen and (max-width: 375px) {
+  .background-style {
+    background-image: url(Wavey.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+  }
+
+  .waves {
+    position: fixed;
+    width: 100%;
+    height: 50vh;
+    margin-bottom:-30px; /*Fix for safari gap*/
+    min-height:100px;
+    max-height:130px;
+    bottom: 0;
+    left: 0;
+  }
+}
+
 .main-btn-container { 
   display: flex;
   column-width: 30%;
@@ -223,7 +242,7 @@ code {
 
 @media screen and (max-width: 900px) {
   .App-header {
-    min-height: 91vh;
+    min-height: 92vh;
     color: white;
     justify-content: column;
     transition: all 0.5s ease;
@@ -767,12 +786,9 @@ input[type=target] {
   align-items: center;
   text-align: center;
   justify-content: center;
- 
   background-image: url(cardWaves.png);
   background-size: auto 100%;
   transition: all 0.3s ease;
-  
-  
 }
 
 .course-preview:hover {
@@ -813,160 +829,87 @@ h3 {
   text-align: left;
   margin-top: 0px;
 }
+
 .course-preview p {
   font-size: calc(7px + 2vmin);
 }
+
 .courseInfo {
   padding-bottom: 100px;
 }
 
 .course-inner-carousel {
-  
   font-size: calc(12px + 2vmin);
   display: flex;
-
   width: auto 100%;
 }
-.course-carousel {
 
+.course-carousel {
   width: 1200px;
   overflow:hidden;
-  
 }
-@media screen and (max-width: 1200px) {
-  .course-carousel {
 
+@media screen and (max-width: 1200px) and (min-width: 821px) {
+  .course-carousel {
     width: 800px;
-    overflow:hidden;
-    
   }
+
   .course-inner-carousel {
-  
     font-size: calc(2px + 2vmin);
-    display: flex;
-  
-    width: auto 100%;
   }
+
   .course-preview {
-    background: rgb(34, 34, 34);
-    padding: 0;
-    border-radius: 30px;
-    min-height: 300px;
+    min-height: 350px;
     height: calc(140px + 1vmin);
-    min-width: 250px;
-    margin: 1rem;
-    display:flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-image: url(cardWaves.png);
-    background-size: auto 100%;
-    transition: all 0.3s ease;
-    
-    
+    min-width: 290px;
   }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 820px) and (min-width: 551px){
   .course-carousel {
-
-    width: 500px;
-    overflow:hidden;
-    
+    width: 535px;
   }
 
   .course-inner-carousel {
-  
     font-size: calc(2px + 2vmin);
-    display: flex;
-  
-    width: auto 100%;
   }
 
   .course-preview {
-    background: rgb(34, 34, 34);
-    padding: 0;
-    border-radius: 30px;
-    min-height: 250px;
+    min-height: 290px;
     height: calc(140px + 1vmin);
-    min-width: 175px;
-    margin: 1rem;
-    display:flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-image: url(cardWaves.png);
-    background-size: auto 100%;
-    transition: all 0.3s ease;
-    
-    
+    min-width: 225px;
   }
 }
-@media screen and (max-width: 550px) {
+
+@media screen and (max-width: 550px) and (min-width: 341px) {
   .course-carousel {
     width: 275px;
-    overflow: hidden;
-    
   }
 
   .course-inner-carousel {
     font-size: calc(2px + 2vmin);
-    display: flex;
-    width: auto 100%;
   }
 
   .course-preview {
-    background: rgb(34, 34, 34);
-    padding: 0;
-    border-radius: 30px;
-    min-height: 140px;
+    min-height: 180px;
     height: calc(140px + 1vmin);
-    min-width: 100px;
-    margin: 1rem;
-    display:flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-image: url(cardWaves.png);
-    background-size: auto 100%;
-    transition: all 0.3s ease;
+    min-width: 150px;
   }
-}
-
-.swipe-text {
-  display: flex;
-  margin: 0 5%;
-  justify-content: space-between;
 }
 
 @media screen and (max-width: 340px) {
   .course-carousel {
     width: 190px;
-    overflow: hidden;
-    
   }
 
   .course-inner-carousel {
     font-size: calc(2px + 2vmin);
-    display: flex;
-    width: auto 100%;
   }
 
   .course-preview {
-    background: rgb(34, 34, 34);
-    padding: 0;
-    border-radius: 30px;
     min-height: 100px;
     height: calc(140px + 1vmin);
     min-width: 80px;
-    margin: 1rem;
-    display:flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-image: url(cardWaves.png);
-    background-size: auto 100%;
-    transition: all 0.3s ease;
   }
 }
 
@@ -989,10 +932,13 @@ h3 {
   background:#202020;
   padding: 40px;
   border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .create input {
-  width: 90%;
+  width: 100%;
   padding: 10px;
   margin: 15px;
   margin-bottom: 30px;
@@ -1011,12 +957,27 @@ h3 {
   cursor: pointer;
 }
 
-
 .create button:hover {
   color: rgb(19, 19, 19);
   transition: all 0.3s ease;
 }
 
+@media screen and (max-width: 500px) {
+  .create {
+    margin: 0 auto;
+    padding: 50px;
+  }
+
+  .create input {
+    width: 85%;
+    padding: 10px;
+    margin: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+  }
+}
 
 /* COURSE SECTION TAB BAR */
 .tabs {
@@ -1084,8 +1045,6 @@ h3 {
   border-bottom: 2px solid #00B4DB !important;
 }
 
-
-
 @media screen and (max-width: 500px) {
   .tab-container {
     display: flex;
@@ -1101,7 +1060,6 @@ h3 {
     margin-right: 1rem;
     font-size: 0.75rem;
   }
-
   
   .box {
     border-style: solid;
@@ -1130,7 +1088,6 @@ h3 {
     padding-bottom: 2rem;
   }
 }
-
 
 @media screen and (min-width: 501px) and (max-width: 800px){
   .tab-container {
@@ -1245,7 +1202,6 @@ input::file-selector-button {
   margin: 0 1%;
   width: 450px;
   transition: all 0.3s ease;
-
 }
 
 .buttonGrid p {
@@ -1276,24 +1232,17 @@ input::file-selector-button {
   width: 900px;
   height: 150vh;
   transition: all 0.3s ease;
-
 }
 
 @media screen and (max-width: 600px) {
   .file-container {
-    padding: 30px;
-    width: auto 100%;
-    height: auto 100%;
-    display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
 
   input[type=file] {
-    font-family:'Quicksand';
     width: calc(180px + 2vmin);
-    font-size: calc(3px + 2vmin);
   }
 
   .iframe {
@@ -1303,9 +1252,6 @@ input::file-selector-button {
   }
 
   .buttonGrid {
-    display:flex;
-    flex-flow: column;
-    background: #363636;
     padding: 0;
     margin: 0;
     width: 350px;
@@ -1324,7 +1270,6 @@ input::file-selector-button {
   }
 
   input[type=file-name] {
-    font-weight: bold;
     height: 20px;
     width: 100px;
     padding: 12px;
@@ -1333,20 +1278,12 @@ input::file-selector-button {
 
   .button-container {
     padding: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
   }
 }
 
 
 @media screen and (min-width: 601px) and (max-width: 1400px) {
   .file-container {
-    padding: 30px;
-    width: auto 100%;
-    height: auto 100%;
-    display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -1359,9 +1296,6 @@ input::file-selector-button {
   }
 
   .buttonGrid {
-    display:flex;
-    flex-flow: column;
-    background: #363636;
     padding: 0;
     margin: 0;
     width: 600px;
@@ -1375,7 +1309,6 @@ input::file-selector-button {
   }
 
   input[type=file-name] {
-    font-weight: bold;
     width: 200px;
     padding: 12px;
     margin: 0px 2rem;

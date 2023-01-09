@@ -9,14 +9,14 @@ export default function Hamburger({ isOpen }){
 
             <style jsx>{`
                 .bar:nth-child(1){
-                    transform: ${ isOpen ? 'rotate(45deg) translateY(11px)' : 'rotate(0)'};
+                    transform: ${ isOpen ? 'rotate(45deg) translateY(10px)' : 'rotate(0)'};
                 }
                 .bar:nth-child(2){
                     transform: ${ isOpen ? 'translateX(100%)' : 'translateX(0)'};
                     opacity: ${ isOpen ? 0 : 1};
                 }
                 .bar:nth-child(3){
-                    transform: ${ isOpen ? 'rotate(-45deg) translateY(-11px)' : 'rotate(0)'};
+                    transform: ${ isOpen ? 'rotate(-45deg) translateY(-10px)' : 'rotate(0)'};
                 }
 
                 .navbar {
@@ -56,7 +56,7 @@ export default function Hamburger({ isOpen }){
                   align-items: center;
                   cursor: pointer;
                   text-decoration: none;
-                  font-size: 1.95rem;
+                  font-size: 1.85rem;
                   font-family: 'Great Vibes', cursive;
                 }
                 
@@ -95,7 +95,7 @@ export default function Hamburger({ isOpen }){
                 
                 .bar {
                   width: 25px;
-                  height: 3px;
+                  height: 2px;
                   margin: 5px auto;
                   transition: all 0.3s ease-in-out;
                   background: #fff;
@@ -131,7 +131,7 @@ export default function Hamburger({ isOpen }){
                 
                   .bar {
                     width: 26px;
-                    height: 3px;
+                    height: 2px;
                     margin: 5px auto;
                     transition: all 0.3s ease-in-out;
                     background: #fff;
@@ -145,7 +145,7 @@ export default function Hamburger({ isOpen }){
                 
                   .navbar__item {
                     width: ${isOpen ? '100%' : '0'};
-                    margin-bottom: ${isOpen ? '3rem' : 0};
+                    margin-bottom: ${isOpen ? '2.5rem' : 0};
                   }
                 
                   .navbar__links {
@@ -154,7 +154,7 @@ export default function Hamburger({ isOpen }){
                     padding-bottom: ${isOpen ? '3rem' : 0};
                     width: ${isOpen ? '100%' : ''};
                     display: ${isOpen ? 'table' : 'flex'};
-                    font-size: ${isOpen ? '1rem' : ''};
+                    font-size: ${isOpen ? '0.9rem' : ''};
                     transition: all 0.5s ease;
                   }
                 
