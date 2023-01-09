@@ -537,8 +537,8 @@ input[type=target] {
 
 @media screen and (max-width: 800px) {
   :root {
-    --calc-cardheight: 16vh;
-    --calc-cardwidth: calc(var(--calc-cardheight) * 1.65);
+    --calc-cardheight: 15vh;
+    --calc-cardwidth: calc(var(--calc-cardheight) * 1.3);
   }
 
   .calc-container {
@@ -552,7 +552,7 @@ input[type=target] {
     padding: 20px 20px;
     font-size: calc(10px + 2vmin);
     height: calc(--table-width + 2vmin);
-    width: calc(350px + 2vmin);
+    width: calc(300px + 2vmin);
   }
   
   .inputFields {
@@ -1052,18 +1052,24 @@ h3 {
   .tab-container {
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: 100px;
     z-index: 1;
     width: 100%;
     max-width: 1300px;
     padding: 0;
   }
 
+  .back-button {
+    margin-right: 1rem;
+    font-size: 0.75rem;
+  }
+
+  
   .box {
     border-style: solid;
     border: 1px solid #101010 !important;
     border-bottom: 1px solid rgb(255, 255, 255) !important;
-    width: 200px;
+    width: 210px;
   }
 
   .tab-menu {
@@ -1071,7 +1077,7 @@ h3 {
     align-items: center;
     justify-content: center;
     list-style: none;
-    width: 450px;
+    width: 330px;
   }
 
   .tab-item {
@@ -1079,7 +1085,7 @@ h3 {
   }
 
   .tab-link {
-    font-size: calc(8px + 2vmin);
+    font-size: 0.75rem;
   }
 
   .tab-btn {
@@ -1103,7 +1109,7 @@ h3 {
     border-style: solid;
     border: 1px solid #101010 !important;
     border-bottom: 1px solid rgb(255, 255, 255) !important;
-    width: 200px;
+    width: 210px;
   }
 
   .tab-menu {
@@ -1114,6 +1120,10 @@ h3 {
     width: 450px;
   }
 
+  .back-button {
+    margin-right: 1.5rem;
+  }
+  
   .tab-item {
     width: 100%;
   }
@@ -1173,6 +1183,7 @@ input::file-selector-button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .workload-container {
@@ -1185,6 +1196,7 @@ input::file-selector-button {
   height: auto 100%;
   display:flex;
   flex-direction: row;
+  transition: all 0.3s ease;
 }
 
 .buttonGrid {
@@ -1194,6 +1206,8 @@ input::file-selector-button {
   padding: 0 1%;
   margin: 0 1%;
   width: 450px;
+  transition: all 0.3s ease;
+
 }
 
 .buttonGrid p {
@@ -1223,19 +1237,85 @@ input::file-selector-button {
 .iframe {
   width: 900px;
   height: 150vh;
+  transition: all 0.3s ease;
+
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
   .file-container {
     padding: 30px;
     width: auto 100%;
     height: auto 100%;
     display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  input[type=file] {
+    font-family:'Quicksand';
+    width: calc(180px + 2vmin);
+    font-size: calc(3px + 2vmin);
+  }
+
+  .iframe {
+    width: 350px;
+    height: 30vh;
+    margin-top: 30px;
+  }
+
+  .buttonGrid {
+    display:flex;
+    flex-flow: column;
+    background: #363636;
+    padding: 0;
+    margin: 0;
+    width: 350px;
+    border-radius: 30px;
+  }
+
+  .upload-btn {
+    margin-top: 40px;
+    width: 80px;
+  }
+
+  .selectFile-btn {
+    width: calc(250px + 2vmin);
+    margin: 0 10% 3% 0;
+    height: calc(30px + 2vmin);
+  }
+
+  input[type=file-name] {
+    font-weight: bold;
+    height: 20px;
+    width: 100px;
+    padding: 12px;
+    margin: 0px;
+  }
+
+  .button-container {
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 1400px) {
+  .file-container {
+    padding: 30px;
+    width: auto 100%;
+    height: auto 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
   }
 
   .iframe {
-    width: 700px;
+    width: 600px;
     height: 125vh;
     margin-top: 30px;
   }
@@ -1246,7 +1326,7 @@ input::file-selector-button {
     background: #363636;
     padding: 0;
     margin: 0;
-    width: 700px;
+    width: 600px;
     border-radius: 30px;
   }
 

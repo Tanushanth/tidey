@@ -220,13 +220,14 @@ const CourseCalculator = () => {
                                                 <button 
                                                     type = "button" 
                                                     className = "addGrade-btn"
+                                                    
                                                     onClick = {handleGradeAdd}
                                                 > 
                                                 <div classname = "addGrade-btn-child">
                                                 <PlusCircle color = '#4ccbf9' classname = "addGrade-btn-child"> </PlusCircle>
                                                     
                                                 </div>
-                                                Add Row
+                                                <p style={{marginLeft: "10px"}}>Add Row</p>
                                                 </button>
                                             )}
                                             

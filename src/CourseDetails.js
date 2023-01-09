@@ -148,7 +148,7 @@ const CourseDetails = () => {
     <div className="App">
       < Tabs />
 
-      <div className="App-header" style={{ minHeight: "80vh" }}>
+      <div className="App-header" style={{ minHeight: "83vh" }}>
       
         <div className="course-details" style={ {fontSize: "calc(12px + 2vmin)"} }>
           { currentCourse &&  (

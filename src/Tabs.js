@@ -6,6 +6,7 @@ const Tabs = ({courses}) => {
     const { id } = useParams();
     const navigate = useNavigate();
 
+
     const handleNav = () => {
         navigate("../Courses");
     }
