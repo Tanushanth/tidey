@@ -702,9 +702,10 @@ input[type=target] {
   .addGrade-btn {
     display: flex;
     margin: 2rem 1rem 1rem 1rem;
-    padding: 0.5px;
+    padding: 5px;
     justify-content: center;
     text-align: center;
+    align-items: center;
     display:grid;
     width: calc(130px + 2vmin);
     grid-template-columns: 0.4fr 1.5fr;
@@ -712,7 +713,8 @@ input[type=target] {
   }
   
   .addGrade-btn-child {
-    margin: 4rem;
+    padding: 20px;
+    margin: 0rem;
   }
   
   .delGrade-btn {
@@ -1084,7 +1086,7 @@ h3 {
 
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .tab-container {
     display: flex;
     justify-content: space-between;
@@ -1130,7 +1132,7 @@ h3 {
 }
 
 
-@media screen and (min-width: 401px) and (max-width: 800px){
+@media screen and (min-width: 501px) and (max-width: 800px){
   .tab-container {
     display: flex;
     justify-content: space-between;
