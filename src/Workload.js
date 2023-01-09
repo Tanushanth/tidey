@@ -1,6 +1,7 @@
 import Tabs from './Tabs';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal';
 import { db } from './Firebase';
 import { storage } from './Firebase';
 import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
@@ -10,8 +11,63 @@ import { collection, getDocs } from 'firebase/firestore';
 import { isReactNative } from '@firebase/util';
 import { addDoc, doc, getDoc, deleteDoc, updateDoc} from 'firebase/firestore';
 import {FileMinus} from 'react-feather';
+import { calcLength } from 'framer-motion';
+
+const modalStyle = {
+	position: "fixed",
+	fontFamily: "'Quicksand', sans-serif",
+	zIndex: "-100px",
+	top: "10%",
+	left: "50%",
+	width: "500px",
+	marginLeft: "-260px",
+	backgroundColor: 'white',
+	border: "1px solid #999",
+	borderRadius: "6px",
+	boxShadow: "0 3px 7px rgba(0,0,0,0.3))",
+	outline: "none",
+	fontWeight: "bold"
+  }
+  
+  const modalHeaderStyle = {
+	padding: "9px 15px",
+	borderBottom: "1px solid #eee",
+  }
+  
+  const modalBodyStyle = {
+	position: "relative",
+	overflowY: "auto",
+	maxHeight: "400px",
+	padding: "15px"
+  }
+	
+  const modalFooterStyle = {
+	padding: "14px 15px 15px",
+	marginBottom: "0",
+	textAlign: "right",
+	backgroundColor: "#f5f5f5",
+	borderTop: "1px solid #ddd",
+	borderRadius: "0 0 6px 6px",
+	boxShadow: "inset 0 1px 0 @white",
+  }
+  
+  const modalBtn = {
+	background: "#2596be",
+	fontWeight: "bold",
+	color: "#fff",
+	border: "0",
+	padding: "8px",
+	borderRadius: "8px",
+	cursor: "pointer",
+	marginRight: "20px"
+  }
+
 const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
+	const [ showDeleteModal, setShowDeleteModal ] = useState(false);
+	const handleClose = () => setShowDeleteModal(false);
+	const handleShow = () => setShowDeleteModal(true);
+
 	const { id } = useParams();
 	const [ fileList, setFileList ] = useState([]);
 	const [ fileNameList, setFileNameList] = useState([]);
@@ -143,6 +199,8 @@ const Workload = () => {
 			updateInformation();
 		}
 
+		setShowDeleteModal(false);
+
 	}, [fileNameList])
 
 	const handleFileRemove = (targetURL, index) => {
@@ -201,7 +259,7 @@ const Workload = () => {
 					<div className="file-container">
 
 						<div className = "buttonGrid">
-							<p>File List</p>
+							<p style={{ fontWeight: "bold" }}>File List</p>
 						{fileList.map((url, index) => (
 							<div key = {index}>
 
@@ -211,23 +269,43 @@ const Workload = () => {
 									onClick = {() => handleFileSelect(url, index)}
 								>
 									
-									Select This : {fileNameList[index+1]}
+									{fileNameList[index+1]}
 								</button>
 								<button 
 									type = "button" 
 									className = "delFile-btn"
-									onClick = {() => handleFileRemove(url, index)}
+									onClick={ handleShow }
 								>
 									<FileMinus></FileMinus>
 								</button>
+
+								
+								<Modal show={ showDeleteModal } onHide={ handleClose } style={ modalStyle }>
+								<Modal.Header  style={ modalHeaderStyle }>
+									<Modal.Title>Delete Confirmation</Modal.Title>
+								</Modal.Header>
+								<Modal.Body style={ modalBodyStyle }>Are you sure you want to delete this file?</Modal.Body>
+								<Modal.Footer style={ modalFooterStyle }>
+									<button variant="secondary" onClick = {() => handleFileRemove(url, index)} style={ modalBtn }>
+									Yes
+									</button>
+									<button variant="primary" onClick={ handleClose } style={ modalBtn }>
+									No
+									</button>
+								</Modal.Footer>
+								</Modal>
+
 							</div>
 								
 						))}
 						
 						</div>
-						<iframe src={ currentURL } width="900px" height="1150vh"></iframe>
+						<iframe src={ currentURL }  className="iframe"></iframe>
 		
 						
+
+
+
 					</div>
 
 					<div className="button-container" >
@@ -236,14 +314,14 @@ const Workload = () => {
 							onChange={(e) => { setFileUpload(e.target.files[0]) }} />
 
 						<input 
-							type="description" 
-							placeholder="Description..."
+							type="file-name" 
+							placeholder="Enter file title here"
 							value={ newFileName }
 							onChange={(e) => setNewFileName(e.target.value)}
                         />
 						</form>
 
-						<button style={{ marginTop: "40px" }} onClick={ uploadFile }>Upload</button>
+						<button className="upload-btn" onClick={ uploadFile }>Upload</button>
 					</div>
 					
 				</div>

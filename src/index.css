@@ -901,18 +901,17 @@ h3 {
 
 @media screen and (max-width: 400px) {
   .course-carousel {
-
     width: 275px;
-    overflow:hidden;
+    overflow: hidden;
     
   }
+
   .course-inner-carousel {
-  
     font-size: calc(2px + 2vmin);
     display: flex;
-  
     width: auto 100%;
   }
+
   .course-preview {
     background: rgb(34, 34, 34);
     padding: 0;
@@ -928,8 +927,6 @@ h3 {
     background-image: url(cardWaves.png);
     background-size: auto 100%;
     transition: all 0.3s ease;
-    
-    
   }
 }
 
@@ -937,14 +934,14 @@ h3 {
   display: flex;
   margin: 0 5%;
   justify-content: space-between;
-
 }
+
 .swipe-text p {
   color:rgb(3, 153, 218);
   translate: 0px -15px;
 }
 
-/* create new blog form */
+/* CREATE A NEW COURSE SECTION */
 .create {
   max-width: 400px;
   margin: 0 auto;
@@ -955,9 +952,10 @@ h3 {
 }
 
 .create input {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
+  width: 90%;
+  padding: 10px;
+  margin: 15px;
+  margin-bottom: 30px;
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
@@ -973,12 +971,14 @@ h3 {
   cursor: pointer;
 }
 
+
 .create button:hover {
   color: rgb(19, 19, 19);
   transition: all 0.3s ease;
 }
 
-/* NAVIGATION BAR */
+
+/* COURSE SECTION TAB BAR */
 .tabs {
   background: #101010;
   height: 10vh;
@@ -1124,6 +1124,7 @@ h3 {
   }
 }
 
+/* WORKLOAD SECTION */
 .column {
   margin: 1rem;
   padding: 20px;
@@ -1138,6 +1139,18 @@ input[type=info] {
   font-size: calc(2px + 2vmin);
   color:rgb(19, 19, 19);
   width: calc(300px + 2vmin);
+}
+
+input[type=file-name] {
+  font-family:'Courier New', Courier, monospace;
+  font-size: calc(2px + 2vmin);
+  font-weight: bold;
+  grid-column-start: 1;
+  width: 500px;
+  padding: 12px 20px;
+  margin: 0px 1rem;
+  box-sizing: border-box;
+  border-radius: 7px;
 }
 
 input[type=file] {
@@ -1155,6 +1168,8 @@ input::file-selector-button {
   padding: 30px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .workload-container {
@@ -1168,32 +1183,80 @@ input::file-selector-button {
   display:flex;
   flex-direction: row;
 }
-.buttonGrid{
+
+.buttonGrid {
   display:flex;
   flex-flow: column;
   background: #363636;
   padding: 0 1%;
   margin: 0 1%;
   width: 450px;
-
 }
-.buttonGrid p{
+
+.buttonGrid p {
   font-size: calc(5px + 2vmin);
 }
+
 .selectFile-btn {
   width: calc(250px + 2vmin);
   margin: 0 10% 0 0;
   height: calc(30px + 2vmin);
 }
+
 .delFile-btn{
   width: calc(25px + 2vmin);
 }
-/*
-.workload-container button {
-  width: calc(230px + 2vmin);
+
+.upload-btn {
+  margin-top: 40px;
+  width: 200px;
 }
-*/
+
 .workload-container button:hover {
   color:rgb(3, 153, 218);
   transition: all 0.3s ease;
+}
+
+.iframe {
+  width: 900px;
+  height: 150vh;
+}
+
+@media screen and (max-width: 1000px) {
+  .file-container {
+    padding: 30px;
+    width: auto 100%;
+    height: auto 100%;
+    display:flex;
+    flex-direction: column;
+  }
+
+  .iframe {
+    width: 700px;
+    height: 125vh;
+    margin-top: 30px;
+  }
+
+  .buttonGrid {
+    display:flex;
+    flex-flow: column;
+    background: #363636;
+    padding: 0;
+    margin: 0;
+    width: 700px;
+    border-radius: 30px;
+  }
+
+  .selectFile-btn {
+    width: calc(250px + 2vmin);
+    margin: 0 10% 3% 0;
+    height: calc(30px + 2vmin);
+  }
+
+  input[type=file-name] {
+    font-weight: bold;
+    width: 200px;
+    padding: 12px;
+    margin: 0px 2rem;
+  }
 }

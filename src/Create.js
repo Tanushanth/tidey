@@ -48,7 +48,7 @@ const Create = () => {
           <form onSubmit = {createCourse}>
             <label>Course Code:</label>
             <input 
-              type="course" 
+              type="text" 
               required
               placeholder="Course Code..."
               value={ courseCode }
@@ -57,7 +57,7 @@ const Create = () => {
 
             <label>Course Name:</label>
             <input 
-              type="course" 
+              type="text" 
               required
               placeholder="Course Name..."
               value={ courseName }
