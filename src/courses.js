@@ -11,12 +11,6 @@ const Courses = () => {
     
       <header className="App-header">
         <div className="course-container">
-          {/*
-          { error && <div>{ error }</div>}
-          { isPending && <div>Loading...</div>}
-          
-          { courses && <CourseList/> }
-          */}
           <CourseList/>
         </div>
 
