@@ -90,7 +90,7 @@ const Calculator = () => {
   
   return (
     <div className="App">
-        <header className="App-header">
+        <header style={{minHeight: "100vh"}}className="App-header">
             <div className = "calc-card-container-1">
                 <div className = "calc-card">
                     <h1>Current Grade</h1>
@@ -152,13 +152,14 @@ const Calculator = () => {
                                             <button 
                                                 type = "button" 
                                                 className = "addGrade-btn"
+                                                
                                                 onClick = {handleGradeAdd}                                            >
                                                 
                                                 <div classname = "addGrade-btn-child">
                                                 <PlusCircle color = '#4ccbf9' classname = "addGrade-btn-child"> </PlusCircle>
                                                     
                                                 </div>
-                                                Add Row
+                                                <p style={{marginLeft: "10px"}}>Add Row</p>
                                             </button>
                                         )}
                                         

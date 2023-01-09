@@ -41,7 +41,7 @@ const Create = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header style={{ minHeight: "92vh" }}className="App-header">
         <h3>Add a new course</h3>
 
         <div className="create">
