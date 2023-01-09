@@ -872,6 +872,7 @@ h3 {
     overflow:hidden;
     
   }
+
   .course-inner-carousel {
   
     font-size: calc(2px + 2vmin);
@@ -879,6 +880,7 @@ h3 {
   
     width: auto 100%;
   }
+
   .course-preview {
     background: rgb(34, 34, 34);
     padding: 0;
@@ -998,14 +1000,17 @@ h3 {
   padding: 0 0px;
 }
 
+.back-button {
+  margin-right: 3rem;
+}
+
 .tab-menu {
   display: flex; 
   align-items: center;
   justify-content: center;
   list-style: none;
-  width: 540px;
+  width: 640px;
   transition: all 0.3s ease;
-
 }
 
 .box {
@@ -1039,7 +1044,6 @@ h3 {
   border-style: solid;
   border: 2px solid #101010 !important;
   border-bottom: 2px solid #00B4DB !important;
-  width: 180px;
 }
 
 
@@ -1059,7 +1063,7 @@ h3 {
     border-style: solid;
     border: 1px solid #101010 !important;
     border-bottom: 1px solid rgb(255, 255, 255) !important;
-    width: 180px;
+    width: 200px;
   }
 
   .tab-menu {
@@ -1067,7 +1071,7 @@ h3 {
     align-items: center;
     justify-content: center;
     list-style: none;
-    width: 400px;
+    width: 450px;
   }
 
   .tab-item {
@@ -1088,7 +1092,7 @@ h3 {
   .tab-container {
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: 90px;
     z-index: 1;
     width: 100%;
     max-width: 1300px;
@@ -1099,7 +1103,7 @@ h3 {
     border-style: solid;
     border: 1px solid #101010 !important;
     border-bottom: 1px solid rgb(255, 255, 255) !important;
-    width: 180px;
+    width: 200px;
   }
 
   .tab-menu {
@@ -1107,8 +1111,7 @@ h3 {
     align-items: center;
     justify-content: center;
     list-style: none;
-    width: 400px;
-    
+    width: 450px;
   }
 
   .tab-item {

@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { ArrowLeftCircle } from "react-feather";
 
 const Tabs = ({courses}) => {
     const { id } = useParams();
+    const navigate = useNavigate();
+
+    const handleNav = () => {
+        navigate("../Courses");
+    }
 
     return ( 
         <nav class="tabs">
@@ -10,11 +16,15 @@ const Tabs = ({courses}) => {
             <div class="tab-container">
             
                 <ul class="tab-menu">
-                    <div className="box">
-                        <li className="tab-item">
-                        <Link className="tab-link" to={`../Courses`}>Back to Courses</Link>
-                        </li>
+                    <div className="back-button">
+                    <ArrowLeftCircle color='white' size="30px" cursor="pointer" onClick={handleNav} ></ArrowLeftCircle>
+                    
+
+                    <Link className="tab-link" to={`../Courses`}>Back</Link>
+                    
                     </div>
+                    
+                    
                     <div className="box">
                         <li className="tab-item">
                         <Link className="tab-link" to={`../Courses/${id}`}>Course Info</Link>
