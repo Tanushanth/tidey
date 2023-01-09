@@ -865,7 +865,7 @@ h3 {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 820px) {
   .course-carousel {
 
     width: 500px;
@@ -900,8 +900,7 @@ h3 {
     
   }
 }
-
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
   .course-carousel {
     width: 275px;
     overflow: hidden;
@@ -921,6 +920,43 @@ h3 {
     min-height: 140px;
     height: calc(140px + 1vmin);
     min-width: 100px;
+    margin: 1rem;
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-image: url(cardWaves.png);
+    background-size: auto 100%;
+    transition: all 0.3s ease;
+  }
+}
+
+.swipe-text {
+  display: flex;
+  margin: 0 5%;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 340px) {
+  .course-carousel {
+    width: 190px;
+    overflow: hidden;
+    
+  }
+
+  .course-inner-carousel {
+    font-size: calc(2px + 2vmin);
+    display: flex;
+    width: auto 100%;
+  }
+
+  .course-preview {
+    background: rgb(34, 34, 34);
+    padding: 0;
+    border-radius: 30px;
+    min-height: 100px;
+    height: calc(140px + 1vmin);
+    min-width: 80px;
     margin: 1rem;
     display:flex;
     align-items: center;
