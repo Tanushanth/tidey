@@ -533,9 +533,241 @@ input[type=target] {
   transition: box-shadow 1s;
   transition: font-size 1s;
 }
+@media screen and (max-width: 450px) {
+  :root {
+    --calc-cardheight: 10vh;
+    --calc-cardwidth: calc(var(--calc-cardheight) * 1.3);
+  }
+
+  .calc-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .table {
+    padding: 10px 10px;
+    font-size: calc(6px + 2vmin);
+    height: calc(--table-width + 2vmin);
+    width: calc(260px + 1vmin);
+  }
+  
+  .inputFields {
+    font-weight: bold;
+    margin:10px;
+  }
+  
+  .target-container {
+    font-size: calc(8px + 2vmin);
+    display: flex;
+  }
+  
+  label {
+    padding-left: 18px;
+    font-size: calc(8px + 2vmin);
+  }
+
+  input[type=description] {
+    font-size: calc(1px + 2vmin);
+    width: 80px;
+    padding: 10px;
+    margin: 0px 0.2rem;
+  }
+  
+  input[type=number] {
+    font-size: calc(1px + 2vmin);
+    width: 40px;
+    padding: 10px;
+    margin: 0px 0.2rem;
+  }
+  
+  input[type=target] {
+    font-size: calc(2px + 2vmin);
+    width: 40px;
+    padding: 12px 10px;
+    margin: 0.25px 0.25rem;
+  }
+  
+  .target-header {
+    font-size: calc(8px + 1vmin);
+  }
+  
+  .addGrade-btn {
+    margin: 2rem 1rem 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2px;
+    width: calc(100px + 2vmin);
+    grid-template-columns: 0.1fr 1fr;
+    text-decoration: none;
+    font-size: calc(3px + 2vmin);
+    font-family: 'Quicksand';
+    border-radius: 20px;
+  }
+  
+  .addGrade-btn-child {
+    margin: 5rem;
+  }
+  
+  .addGrade-btn-child:hover {
+    color:#202020;
+  }
+  
+  .addGrade-btn:hover {
+    color: #00B4DB;
+    transition: all 0.3s ease;
+  }
+  
+  .delGrade-btn {
+    width: calc(40px + 2vmin);
+    height: 30px;
+    font-size: calc(5px + 0.7vmin);
+    font-family: 'Quicksand';
+    margin-left: 5px;
+  }
+  
+  .calcGrade-btn {
+    width: 140px;
+    height: 50px;
+    margin: 15px;
+    display: flex;
+    padding: 2px;
+  }
+  
+  .calc-card {
+    padding: 1px;
+    margin: 2px;
+    font-size: calc(1px + 1.3vmin);
+    font-family: 'Quicksand';
+  }
+  
+  .calc-card:hover {
+    font-size: calc(1px + 1.35vmin);
+  }
+}
+
+@media screen and (min-width: 451px) and (max-width: 600px) {
+  :root {
+    --calc-cardheight: 15vh;
+    --calc-cardwidth: calc(var(--calc-cardheight) * 1.3);
+  }
+
+  .calc-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .table {
+    padding: 10px 10px;
+    font-size: calc(6px + 2vmin);
+    height: calc(--table-width + 2vmin);
+    width: calc(320px + 1vmin);
+  }
+  
+  .inputFields {
+    font-weight: bold;
+    margin:10px;
+  }
+  
+  .target-container {
+    font-size: calc(8px + 2vmin);
+    display: flex;
+  }
+  
+  label {
+    padding-left: 18px;
+    font-size: calc(8px + 2vmin);
+  }
+
+  input[type=description] {
+    font-size: calc(1px + 2vmin);
+    width: 100px;
+    padding: 10px;
+    margin: 0px 0.2rem;
+  }
+  
+  input[type=number] {
+    font-size: calc(1px + 2vmin);
+    width: 50px;
+    padding: 10px;
+    margin: 0px 0.2rem;
+  }
+  
+  input[type=target] {
+    font-size: calc(2px + 2vmin);
+    width: 50px;
+    padding: 12px 10px;
+    margin: 0.25px 0.25rem;
+  }
+  
+  .target-header {
+    font-size: calc(8px + 1vmin);
+  }
+  
+  .addGrade-btn {
+    margin: 2rem 1rem 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2px;
+    width: calc(100px + 2vmin);
+    grid-template-columns: 0.1fr 1fr;
+    text-decoration: none;
+    font-size: calc(3px + 2vmin);
+    font-family: 'Quicksand';
+    border-radius: 20px;
+  }
+  
+  .addGrade-btn-child {
+    margin: 5rem;
+  }
+  
+  .addGrade-btn-child:hover {
+    color:#202020;
+  }
+  
+  .addGrade-btn:hover {
+    color: #00B4DB;
+    transition: all 0.3s ease;
+  }
+  
+  .delGrade-btn {
+    width: calc(60px + 2vmin);
+    height: 40px;
+    font-size: calc(5px + 0.7vmin);
+    font-family: 'Quicksand';
+    margin-left: 5px;
+  }
+  
+  .calcGrade-btn {
+    width: 140px;
+    height: 50px;
+    margin: 15px;
+    display: flex;
+    padding: 2px;
+  }
+  
+  .calc-card {
+    padding: 1px;
+    margin: 2px;
+    font-size: calc(1px + 1.3vmin);
+    font-family: 'Quicksand';
+  }
+  
+  .calc-card:hover {
+    font-size: calc(1px + 1.35vmin);
+  }
+}
 
 
-@media screen and (max-width: 800px) {
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
   :root {
     --calc-cardheight: 15vh;
     --calc-cardwidth: calc(var(--calc-cardheight) * 1.3);
@@ -552,7 +784,7 @@ input[type=target] {
     padding: 20px 20px;
     font-size: calc(10px + 2vmin);
     height: calc(--table-width + 2vmin);
-    width: calc(300px + 2vmin);
+    width: calc(340px + 2vmin);
   }
   
   .inputFields {
@@ -624,7 +856,7 @@ input[type=target] {
   }
   
   .delGrade-btn {
-    width: calc(85px + 2vmin);
+    width: calc(60px + 2vmin);
     height: 40px;
     font-size: calc(7px + 0.7vmin);
     font-family: 'Quicksand';

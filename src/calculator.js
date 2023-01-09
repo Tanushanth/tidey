@@ -141,7 +141,7 @@ const Calculator = () => {
                                                 className = "delGrade-btn"
                                                 onClick = {() => handleGradeRemove(index)}
                                             >
-                                                Remove Row
+                                                Remove
                                             </button>
                                         )}
                                         
