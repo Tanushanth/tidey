@@ -1165,12 +1165,34 @@ input::file-selector-button {
   padding: 30px;
   width: auto 100%;
   height: auto 100%;
+  display:flex;
+  flex-direction: row;
 }
+.buttonGrid{
+  display:flex;
+  flex-flow: column;
+  background: #363636;
+  padding: 0 1%;
+  margin: 0 1%;
+  width: 450px;
 
+}
+.buttonGrid p{
+  font-size: calc(5px + 2vmin);
+}
+.selectFile-btn {
+  width: calc(250px + 2vmin);
+  margin: 0 10% 0 0;
+  height: calc(30px + 2vmin);
+}
+.delFile-btn{
+  width: calc(25px + 2vmin);
+}
+/*
 .workload-container button {
   width: calc(230px + 2vmin);
 }
-
+*/
 .workload-container button:hover {
   color:rgb(3, 153, 218);
   transition: all 0.3s ease;

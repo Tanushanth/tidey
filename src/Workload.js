@@ -9,8 +9,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs } from 'firebase/firestore';
 import { isReactNative } from '@firebase/util';
 import { addDoc, doc, getDoc, deleteDoc, updateDoc} from 'firebase/firestore';
-
-
+import {FileMinus} from 'react-feather';
 const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
 	const { id } = useParams();
@@ -20,7 +19,7 @@ const Workload = () => {
 	const [changesSaved, setChangesSaved] = useState(false);
 	const [ firstFile, setFirstFile ] = useState(true);
 	const [ firstUpdate, setFirstUpdate ] = useState(false);
-	const [ currentURL, setCurrentURL] = useState();
+	const [ currentURL, setCurrentURL] = useState("https://firebasestorage.googleapis.com/v0/b/tidey-db.appspot.com/o/DefaultTideyPDF.pdf?alt=media&token=668d2fd8-62dc-42d1-a9e1-a1687b45c213");
 	const [ newFileName, setNewFileName ] = useState('');
 	const [courses, setCourses] = useState();
 	const coursesCollectionRef = collection(db, "courses");
@@ -118,7 +117,12 @@ const Workload = () => {
 
 		if(userID && !firstUpdate){
 
-			
+			/* JUST TOOK THE URL TO SAVE A STORAGE CALL EVERYTIME
+			getDownloadURL(ref(storage, `/DefaultTideyPDF.pdf`)).then((url) => {
+				setCurrentURL(url);
+				console.log(url);
+			});
+			*/
 			listAll(fileListRef).then((response) => {
 				
 				response.items.forEach((item) => {
@@ -196,7 +200,8 @@ const Workload = () => {
 					
 					<div className="file-container">
 
-					
+						<div className = "buttonGrid">
+							<p>File List</p>
 						{fileList.map((url, index) => (
 							<div key = {index}>
 
@@ -213,14 +218,14 @@ const Workload = () => {
 									className = "delFile-btn"
 									onClick = {() => handleFileRemove(url, index)}
 								>
-									remove :D
+									<FileMinus></FileMinus>
 								</button>
 							</div>
 								
 						))}
 						
-						
-						<iframe src={ currentURL } width="900px" height="900vh"></iframe>
+						</div>
+						<iframe src={ currentURL } width="900px" height="1150vh"></iframe>
 		
 						
 					</div>

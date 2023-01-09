@@ -74,9 +74,11 @@ const CourseList = () => {
             
                 </motion.div>
                 <div className = "swipe-text">
-                <ChevronsLeft color = '#4ccbf9'></ChevronsLeft>
-                <p>SWIPE</p>
-                <ChevronsRight color = '#4ccbf9'></ChevronsRight>
+                    
+                    <ChevronsLeft color = '#4ccbf9'></ChevronsLeft>
+                    <p>SWIPE</p>
+                    <ChevronsRight color = '#4ccbf9'></ChevronsRight>
+                    
                 </div>
             </motion.div>
     /*
