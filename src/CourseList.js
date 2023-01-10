@@ -3,7 +3,7 @@ import { db } from './Firebase';
 import {useState, useEffect} from 'react';
 import {collection, getDocs, addDoc} from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import {motion} from 'framer-motion';
+import {animationControls, motion, useAnimation} from 'framer-motion';
 import {useRef} from "react";
 import {ChevronsLeft, ChevronsRight} from 'react-feather';
 const courseStyle = {
@@ -19,6 +19,9 @@ const CourseList = () => {
     const carousel = useRef();
     const auth = getAuth();
     const swipeString = "<<< SWIPE"
+    const dragRef = useRef(null);
+    const xPos = useRef(0);
+    const animation = useAnimation();
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserID(user.uid)
@@ -27,13 +30,25 @@ const CourseList = () => {
     });
 
     const handleLeftSwipe = () => {
-                
+        const newXPosition = xPos.current + 200;
+
+        animation.start({
+            x: newXPosition > 0 ? 0 : newXPosition,
+        });
     }
 
     const handleRightSwipe = () => {
+        const newXPosition = xPos.current - 200;
 
+        animation.start({
+            x: newXPosition > -(carouselWidth) ? -(carouselWidth) : newXPosition,
+        });
     }
 
+    const onUpdate = (latest) => {
+        xPos.current = latest.x;
+    }
+    
     useEffect(() => {
         
         const getCourses = async () => {
@@ -49,12 +64,18 @@ const CourseList = () => {
     }, []);
     useEffect(() => {
         setCarouselWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }, [courses])
+    }, [])
     return ( 
 
             <motion.div ref = {carousel} className = "course-carousel">
                 
-                <motion.div drag = "x" dragConstraints =  {{right: 0, left: -carouselWidth}} className = "course-inner-carousel">
+                <motion.div 
+                    drag = "x" 
+                    dragConstraints =  {{right: 0, left: -(carouselWidth+150)}} 
+                    className = "course-inner-carousel"
+                    animate = {animation}
+                    ref = {dragRef}
+                >
                     {courses && courses.map((course) => {
                         return(
                             <motion.div>
