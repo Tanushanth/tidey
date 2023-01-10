@@ -240,6 +240,34 @@ code {
   font-size: calc(10px + 2vmin);
 }
 
+
+.add-course .main-btn {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  background: #00B4DB;  
+  background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  
+  background: linear-gradient(to right, #0083B0, #00B4DB); 
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  border-radius: 130px;
+  text-align: center;
+  width: calc(180px + 2vmin);
+  height: calc(12px + 2vmin);
+}
+
+
+.add-course .main-btn-content {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: calc(6px + 2vmin);
+}
+
 .modal {
   position: fixed;
   font-family: 'Quicksand', sans-serif;
@@ -318,6 +346,32 @@ code {
   .main-btn-content {
     font-size: calc(8px + 2vmin);
   }
+
+  .add-course .main-btn {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background: #00B4DB;  
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  
+    background: linear-gradient(to right, #0083B0, #00B4DB); 
+    font-weight: bold;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    border-radius: 130px;
+    text-align: center;
+    width: calc(120px + 2vmin);
+    height: calc(12px + 2vmin);
+  }
+  
+  .add-course .main-btn-content {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: calc(6px + 2vmin);
+  }
     
   .modal {
     width: 300px;
@@ -329,7 +383,7 @@ code {
   }
 }
 
-@media screen and (max-width: 900px) and (min-width: 401px) {
+@media screen and (max-width: 950px) and (min-width: 401px) {
   .App-header {
     min-height: 92vh;
     color: white;
@@ -358,7 +412,33 @@ code {
     font-size: calc(8px + 2vmin);
   }
 
-    
+  .add-course .main-btn {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background: #00B4DB;  
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  
+    background: linear-gradient(to right, #0083B0, #00B4DB); 
+    font-weight: bold;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    border-radius: 130px;
+    text-align: center;
+    width: calc(200px + 2vmin);
+    height: calc(12px + 2vmin);
+  }
+  
+  
+  .add-course .main-btn-content {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: calc(6px + 2vmin);
+  }  
+
   .modal {
     width: 370px;
     margin-left: -195px;
@@ -1149,11 +1229,12 @@ input[type=target] {
   font-size: 20px;
 }
 
+
 .course-preview {
   background: rgb(34, 34, 34);
-  padding: 0;
+  padding: 10px;
   border-radius: 30px;
-  min-height: 370px;
+  min-height: 350px;
   height: calc(140px + 1vmin);
   min-width: 300px;
   margin: 1rem;
@@ -1165,6 +1246,7 @@ input[type=target] {
   background-size: auto 100%;
   transition: all 0.3s ease;
 }
+
 
 .course-preview:hover {
   box-shadow: 0 0 1.5rem rgb(116, 218, 236);
@@ -1220,6 +1302,10 @@ h3 {
 }
 
 .course-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   width: 1200px;
   overflow:hidden;
 }
@@ -1313,7 +1399,7 @@ h3 {
 }
 
 .create input {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   margin: 15px;
   margin-bottom: 30px;
@@ -1351,6 +1437,13 @@ h3 {
     border: 1px solid #ddd;
     box-sizing: border-box;
     display: block;
+  }
+
+  .course-header {
+    font-size: calc(15px + 2vmin);
+    padding-top: 20px;
+    margin-bottom: -50px;
+    color: white;
   }
 }
 

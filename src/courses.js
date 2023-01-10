@@ -14,12 +14,14 @@ const Courses = () => {
           <CourseList/>
         </div>
 
+        <div className="add-course">
         <div className="main-btn-container">
           <div className="main-btn">
             <div className="main-btn-content">
             <Link to="../Create" style={{ color: '#FFF', textDecoration: "none" }}>Add a new course</Link>
             </div>
           </div>
+        </div>
         </div>
         
       </header>
