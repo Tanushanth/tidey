@@ -133,16 +133,16 @@ const Navbar = () => {
                     </ul>
                 
 
-                <Modal show={ showModal } style={ modalStyle }>
-                  <Modal.Header  style={ modalHeaderStyle }>
+                <Modal show={ showModal } className="modal">
+                  <Modal.Header className="modal-header">
                     <Modal.Title>Logout Confirmation</Modal.Title>
                   </Modal.Header>
-                  <Modal.Body style={ modalBodyStyle }>Are you sure you want to log out?</Modal.Body>
-                  <Modal.Footer style={ modalFooterStyle }>
-                    <button variant="secondary" onClick={ logout } style={ modalBtn }>
+                  <Modal.Body className="modal-body">Are you sure you want to log out?</Modal.Body>
+                  <Modal.Footer className="modal-footer">
+                    <button variant="secondary" onClick={ logout } className="modal-btn">
                       Yes
                     </button>
-                    <button variant="primary" onClick={ handleClose } style={ modalBtn }>
+                    <button variant="primary" onClick={ handleClose } className="modal-btn">
                       No
                     </button>
                   </Modal.Footer>

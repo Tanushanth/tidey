@@ -90,7 +90,7 @@ const Calculator = () => {
   
   return (
     <div className="App">
-        <header style={{minHeight: "100vh"}}className="App-header">
+        <header className="App-header">
             <div className = "calc-card-container-1">
                 <div className = "calc-card">
                     <h1>Current Grade</h1>

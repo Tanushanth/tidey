@@ -56,7 +56,7 @@ export default function Hamburger({ isOpen }){
                   align-items: center;
                   cursor: pointer;
                   text-decoration: none;
-                  font-size: 1.85rem;
+                  font-size: 1.75rem;
                   font-family: 'Great Vibes', cursive;
                 }
                 

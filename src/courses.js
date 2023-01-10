@@ -14,9 +14,13 @@ const Courses = () => {
           <CourseList/>
         </div>
 
-        <button>
-          <Link to="../Create" style={{ color: '#FFF', textDecoration: "none" }}>Add a new course</Link>
-        </button>
+        <div className="main-btn-container">
+          <div className="main-btn">
+            <div className="main-btn-content">
+            <Link to="../Create" style={{ color: '#FFF', textDecoration: "none" }}>Add a new course</Link>
+            </div>
+          </div>
+        </div>
         
       </header>
       </div>

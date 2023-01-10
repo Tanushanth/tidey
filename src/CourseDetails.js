@@ -9,54 +9,6 @@ import {collection, getDocs, addDoc, doc, getDoc, deleteDoc} from 'firebase/fire
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
 import { storage } from './Firebase';
-const modalStyle = {
-  position: "fixed",
-  fontFamily: "'Quicksand', sans-serif",
-  zIndex: "-100px",
-  top: "10%",
-  left: "50%",
-  width: "500px",
-  marginLeft: "-260px",
-  backgroundColor: 'white',
-  border: "1px solid #999",
-  borderRadius: "6px",
-  boxShadow: "0 3px 7px rgba(0,0,0,0.3))",
-  outline: "none",
-  fontWeight: "bold"
-}
-
-const modalHeaderStyle = {
-  padding: "9px 15px",
-  borderBottom: "1px solid #eee",
-}
-
-const modalBodyStyle = {
-  position: "relative",
-  overflowY: "auto",
-  maxHeight: "400px",
-  padding: "15px"
-}
-  
-const modalFooterStyle = {
-  padding: "14px 15px 15px",
-  marginBottom: "0",
-  textAlign: "right",
-  backgroundColor: "#f5f5f5",
-  borderTop: "1px solid #ddd",
-  borderRadius: "0 0 6px 6px",
-  boxShadow: "inset 0 1px 0 @white",
-}
-
-const modalBtn = {
-  background: "#2596be",
-  fontWeight: "bold",
-  color: "#fff",
-  border: "0",
-  padding: "8px",
-  borderRadius: "8px",
-  cursor: "pointer",
-  marginRight: "20px"
-}
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -155,41 +107,46 @@ const CourseDetails = () => {
               
               <article>
                   <h2> { currentCourse.courseCode } </h2>
-                  <p> { currentCourse.courseName } </p>
+                  <p style={{ fontFamily: "'Great Vibes'"  }}> { currentCourse.courseName } </p>
          
-                <button 
-                  onClick={ handleShow }
-                  style={{ marginRight: "20px" }} >
+            <div className="main-btn-container">
+                <div className="main-btn"
+                  onClick={ handleShow } >
+                    <div className="main-btn-content" style={{ cursor: "pointer" }}>
                     Delete course
-                </button>
+                    </div>
+                </div>
 
-                <button 
+                <div className="main-btn"
                   onClick={ handleEditShow }>
+                    <div className="main-btn-content" style={{ cursor: "pointer" }}>
                     Edit course
-                </button>
+                    </div>
+                </div>
+                </div>
                 
-                <Modal show={ showDeleteModal } onHide={ handleClose } style={ modalStyle }>
-                  <Modal.Header  style={ modalHeaderStyle }>
+                <Modal show={ showDeleteModal } onHide={ handleClose } className="modal">
+                  <Modal.Header  className="modal-header">
                     <Modal.Title>Delete Confirmation</Modal.Title>
                   </Modal.Header>
-                  <Modal.Body style={ modalBodyStyle }>Are you sure you want to delete this course?</Modal.Body>
-                  <Modal.Footer style={ modalFooterStyle }>
-                    <button variant="secondary" onClick={ handleDelete } style={ modalBtn }>
+                  <Modal.Body className="modal-body">Are you sure you want to delete this course?</Modal.Body>
+                  <Modal.Footer className="modal-footer">
+                    <button variant="secondary" onClick={ handleDelete } className="modal-btn">
                       Yes
                     </button>
-                    <button variant="primary" onClick={ handleClose } style={ modalBtn }>
+                    <button variant="primary" onClick={ handleClose } className="modal-btn">
                       No
                     </button>
                   </Modal.Footer>
                 </Modal>
 
                 
-                <Modal show={ showEditModal } onHide={ handleClose } style={ modalStyle }>
-                  <Modal.Header  style={ modalHeaderStyle }>
+                <Modal show={ showEditModal } onHide={ handleClose } className="modal">
+                  <Modal.Header className="modal-header">
                     <Modal.Title>Edit Course</Modal.Title>
                   </Modal.Header>
-                  <Modal.Body style={ modalBodyStyle }>Fill in the inputs with your changes</Modal.Body>
-                  <Modal.Footer style={ modalFooterStyle }>
+                  <Modal.Body className="modal-body">Fill in the inputs with your changes</Modal.Body>
+                  <Modal.Footer className="modal-footer">
                     <input 
                       type="text" 
                       required
@@ -208,14 +165,14 @@ const CourseDetails = () => {
 
                     <button 
                       onClick={ updateCourse }
-                      style={ modalBtn }
+                      className="modal-btn"
                     >
                         Save
                     </button>
 
                     <button 
                       onClick={ handleEditCancel }
-                      style={ modalBtn }
+                      className="modal-btn"
                     >
                         Cancel
                     </button>

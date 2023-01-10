@@ -26,6 +26,13 @@ const CourseList = () => {
       } 
     });
 
+    const handleLeftSwipe = () => {
+                
+    }
+
+    const handleRightSwipe = () => {
+
+    }
 
     useEffect(() => {
         
@@ -75,46 +82,12 @@ const CourseList = () => {
                 </motion.div>
                 <div className = "swipe-text">
                     
-                    <ChevronsLeft color = '#4ccbf9'></ChevronsLeft>
+                    <ChevronsLeft color = '#4ccbf9' onClick={ handleLeftSwipe }></ChevronsLeft>
                     <p>SWIPE</p>
-                    <ChevronsRight color = '#4ccbf9'></ChevronsRight>
+                    <ChevronsRight color = '#4ccbf9' onClick={ handleRightSwipe }></ChevronsRight>
                     
                 </div>
             </motion.div>
-    /*
-        <div className="course-list" style={{ fontSize: "calc(12px + 2vmin)" }}>
-            
-            {courses && courses.map((course) => (
-                <article>
-                    {course.userID === userID &&
-                        <div className="course-preview">          
-                            <Link to={`/Courses/${course.id} `} style={ courseStyle }>
-                                <h2>{ course.courseCode }</h2>
-                                <p>{ course.courseName }</p>
-                            </Link>
-                        </div>              
-                    }
-                </article>
-                
-            ))}
-
-        </div>
-                
-        
-       
-        <div className="course-list" style={{ fontSize: "calc(12px + 2vmin)" }}>
-            {courses.map((course) => (
-                <div className="course-preview" key={ course.id }>
-                    <Link to={`/Courses/${course.id} `} style={ courseStyle }>
-                        <h2>{ course.courseCode }</h2>
-                        <p>{ course.courseName }</p>
-                    </Link>
-                </div>
-            ))}
-
-        </div>
-            */
-
     );
 }
  

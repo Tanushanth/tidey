@@ -240,7 +240,96 @@ code {
   font-size: calc(10px + 2vmin);
 }
 
-@media screen and (max-width: 900px) {
+.modal {
+  position: fixed;
+  font-family: 'Quicksand', sans-serif;
+  z-index: -100px;
+  top: 10%;
+  left: 50%;
+  width: 500px;
+  margin-left: -260px;
+  background-color: white;
+  border: 1px solid #999;
+  border-radius: 6px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+  outline: none;
+  font-weight: bold;
+}
+
+.modal-header {
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-body {
+  position: relative;
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 15px;
+}
+
+ 
+.modal-footer {
+  padding: 14px 15px 15px;
+  margin-bottom: 0;
+  text-align: right;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 6px 6px;
+  box-shadow: inset 0 1px 0 white;
+}
+
+.modal-btn {
+  background: #2596be;
+  font-weight: bold;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 400px) {
+  .App-header {
+    min-height: 92vh;
+    color: white;
+    justify-content: column;
+    transition: all 0.5s ease;
+  }
+
+  .home-heading {
+    font-size: calc(55px + 2vmin);
+  }
+
+  .main-btn-container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: column;
+    align-items: center;
+  }
+
+  .main-btn {
+    width: 175px;
+    height: calc(18px + 2vmin);
+    margin: 0.25em;
+  }
+
+  .main-btn-content {
+    font-size: calc(8px + 2vmin);
+  }
+    
+  .modal {
+    width: 300px;
+    margin-left: -170px;
+  }
+
+  .modal-btn {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 401px) {
   .App-header {
     min-height: 92vh;
     color: white;
@@ -260,13 +349,59 @@ code {
   }
 
   .main-btn {
-    width: 215px;
+    width: 205px;
     height: calc(18px + 2vmin);
     margin: 0.25em;
   }
 
   .main-btn-content {
     font-size: calc(8px + 2vmin);
+  }
+
+    
+  .modal {
+    width: 370px;
+    margin-left: -195px;
+    background-color: white;
+    border: 1px solid #999;
+    border-radius: 6px;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    outline: none;
+    font-weight: bold;
+  }
+
+  .modal-header {
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .modal-body {
+    position: relative;
+    overflow-y: auto;
+    max-height: 400px;
+    padding: 15px;
+  }
+
+  
+  .modal-footer {
+    padding: 14px 15px 15px;
+    margin-bottom: 0;
+    text-align: right;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 6px 6px;
+    box-shadow: inset 0 1px 0 white;
+  }
+
+  .modal-btn {
+    background: #2596be;
+    font-weight: bold;
+    color: #fff;
+    border: 0;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 20px;
   }
 }
 
@@ -278,6 +413,10 @@ code {
 .main-btn:hover {
   box-shadow: 0 0 1.5rem rgb(3, 153, 218);
   transition: all 0.3s ease;
+}
+
+.course-details p {
+  font-size: calc(20px + 2vmin);
 }
 
 .textbox {
@@ -503,6 +642,10 @@ input[type=target] {
 .calcGrade-btn {
   width: 260px;
   height: 70px;
+  background: #00B4DB;  
+  font-weight: bold;
+  background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  
+  background: linear-gradient(to right, #0083B0, #00B4DB); 
   margin-top: 25px;
   display: flex;
   justify-content: center;
@@ -510,7 +653,7 @@ input[type=target] {
 }
 
 .calcGrade-btn:hover {
-  color: #00B4DB;
+  color: #151515;
   transition: all 0.3s ease;
 }
 
@@ -554,8 +697,8 @@ input[type=target] {
 }
 @media screen and (max-width: 450px) {
   :root {
-    --calc-cardheight: 10vh;
-    --calc-cardwidth: calc(var(--calc-cardheight) * 1.3);
+    --calc-cardheight: 11vh;
+    --calc-cardwidth: calc(var(--calc-cardheight) * 1.75);
   }
 
   .calc-container {
@@ -658,7 +801,7 @@ input[type=target] {
   
   .calc-card {
     padding: 1px;
-    margin: 2px;
+    margin: 10px;
     font-size: calc(1px + 1.3vmin);
     font-family: 'Quicksand';
   }
@@ -671,7 +814,7 @@ input[type=target] {
 @media screen and (min-width: 451px) and (max-width: 600px) {
   :root {
     --calc-cardheight: 15vh;
-    --calc-cardwidth: calc(var(--calc-cardheight) * 1.3);
+    --calc-cardwidth: calc(var(--calc-cardheight) * 1.4);
   }
 
   .calc-container {
@@ -774,7 +917,7 @@ input[type=target] {
   
   .calc-card {
     padding: 1px;
-    margin: 2px;
+    margin: 10px;
     font-size: calc(1px + 1.3vmin);
     font-family: 'Quicksand';
   }
@@ -1010,7 +1153,7 @@ input[type=target] {
   background: rgb(34, 34, 34);
   padding: 0;
   border-radius: 30px;
-  min-height: 400px;
+  min-height: 370px;
   height: calc(140px + 1vmin);
   min-width: 300px;
   margin: 1rem;
@@ -1031,7 +1174,7 @@ input[type=target] {
 .course-header {
   font-size: calc(15px + 2vmin);
   padding-top: 20px;
-  margin-bottom: -30px;
+  margin-bottom: 10px;
   color: white;
 }
 

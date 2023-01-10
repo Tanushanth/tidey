@@ -235,20 +235,6 @@ const Workload = () => {
 		setCurrentURL(url);
 	}
 
-	/*
-	const handleFileName = (e) => {
-		//console.log(e.target.value);
-		//console.log(newFileName);
-
-		//setNewFileName(e.target.value);
-		setFileNameList((prev) => [...prev,  e.target.value]);
-		//const newNameList = [...fileNameList];
-        //newNameList[element] = e.target.value;
-        //setFileNameList(newNameList);
-		
-	}
-	*/
-
     return ( 
         <div className="App">
             < Tabs />
@@ -280,16 +266,16 @@ const Workload = () => {
 								</button>
 
 								
-								<Modal show={ showDeleteModal } onHide={ handleClose } style={ modalStyle }>
-								<Modal.Header  style={ modalHeaderStyle }>
+								<Modal show={ showDeleteModal } onHide={ handleClose } className="modal">
+								<Modal.Header  className="modal-header">
 									<Modal.Title>Delete Confirmation</Modal.Title>
 								</Modal.Header>
-								<Modal.Body style={ modalBodyStyle }>Are you sure you want to delete this file?</Modal.Body>
-								<Modal.Footer style={ modalFooterStyle }>
+								<Modal.Body className="modal-body">Are you sure you want to delete this file?</Modal.Body>
+								<Modal.Footer className="modal-footer">
 									<button variant="secondary" onClick = {() => handleFileRemove(url, index)} style={ modalBtn }>
 									Yes
 									</button>
-									<button variant="primary" onClick={ handleClose } style={ modalBtn }>
+									<button variant="primary" onClick={ handleClose } className="modal-btn">
 									No
 									</button>
 								</Modal.Footer>
