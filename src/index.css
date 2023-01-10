@@ -257,7 +257,7 @@ code {
   color: rgb(255, 255, 255);
   border-radius: 130px;
   text-align: center;
-  width: calc(180px + 2vmin);
+  width: calc(200px + 2vmin);
   height: calc(12px + 2vmin);
 }
 
@@ -403,7 +403,7 @@ code {
   }
 
   .main-btn {
-    width: 205px;
+    width: 230px;
     height: calc(18px + 2vmin);
     margin: 0.25em;
   }
@@ -1311,6 +1311,10 @@ h3 {
 }
 
 @media screen and (max-width: 1200px) and (min-width: 821px) {
+  :root {
+    --carousel-mincardheight: 350px;
+    --carousel-mincardwidth: 290px;
+  }
   .course-carousel {
     width: 800px;
   }
@@ -1320,13 +1324,18 @@ h3 {
   }
 
   .course-preview {
-    min-height: 350px;
+    min-height: var(--carousel-mincardheight);
     height: calc(140px + 1vmin);
-    min-width: 290px;
+    min-width: var(--carousel-mincardwidth);
   }
 }
 
 @media screen and (max-width: 820px) and (min-width: 551px){
+  :root {
+    --carousel-mincardheight: 290px;
+    --carousel-mincardwidth: 225px;
+  }
+
   .course-carousel {
     width: 535px;
   }
@@ -1336,13 +1345,17 @@ h3 {
   }
 
   .course-preview {
-    min-height: 290px;
+    min-height: var(--carousel-mincardheight);
     height: calc(140px + 1vmin);
-    min-width: 225px;
+    min-width: var(--carousel-mincardwidth);
   }
 }
 
 @media screen and (max-width: 550px) and (min-width: 341px) {
+  :root {
+    --carousel-mincardheight: 180px;
+    --carousel-mincardwidth:  150px;
+  }
   .course-carousel {
     width: 275px;
   }
@@ -1352,13 +1365,17 @@ h3 {
   }
 
   .course-preview {
-    min-height: 180px;
+    min-height: var(--carousel-mincardheight);
     height: calc(140px + 1vmin);
-    min-width: 150px;
+    min-width: var(--carousel-mincardwidth);
   }
 }
 
 @media screen and (max-width: 340px) {
+  :root {
+    --carousel-mincardheight: 100px;
+    --carousel-mincardwidth:  80px;
+  }
   .course-carousel {
     width: 190px;
   }
@@ -1368,9 +1385,9 @@ h3 {
   }
 
   .course-preview {
-    min-height: 100px;
+    min-height: var(--carousel-mincardheight);
     height: calc(140px + 1vmin);
-    min-width: 80px;
+    min-width: var(--carousel-mincardwidth);
   }
 }
 

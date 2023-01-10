@@ -30,18 +30,18 @@ const CourseList = () => {
     });
 
     const handleLeftSwipe = () => {
-        const newXPosition = xPos.current + 200;
+        const newXPosition = xPos.current + 300;
 
         animation.start({
-            x: newXPosition > 0 ? 0 : newXPosition,
+            x: newXPosition > (carouselWidth * 1.1) ? (carouselWidth * 1.1): newXPosition,
         });
     }
 
     const handleRightSwipe = () => {
-        const newXPosition = xPos.current - 200;
+        const newXPosition = xPos.current - 300;
 
         animation.start({
-            x: newXPosition > -(carouselWidth) ? -(carouselWidth) : newXPosition,
+            x: newXPosition > -(carouselWidth * 1.1) ? -(carouselWidth * 1.1) : newXPosition,
         });
     }
 
@@ -64,14 +64,17 @@ const CourseList = () => {
     }, []);
     useEffect(() => {
         setCarouselWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-    }, [])
+
+    
+    }, [courses])
+ 
     return ( 
 
             <motion.div ref = {carousel} className = "course-carousel">
                 
                 <motion.div 
                     drag = "x" 
-                    dragConstraints =  {{right: 0, left: -(carouselWidth+150)}} 
+                    dragConstraints =  {{right: (carouselWidth * 1.1), left: -(carouselWidth * 1.1)}} 
                     className = "course-inner-carousel"
                     animate = {animation}
                     ref = {dragRef}
