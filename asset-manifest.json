@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tidey/static/css/main.c4bb609a.css",
+    "main.js": "/tidey/static/js/main.2802dc1c.js",
+    "static/media/Wavey.png": "/tidey/static/media/Wavey.e798557046846f78959d.png",
+    "static/media/cardWaves.png": "/tidey/static/media/cardWaves.3711eed400b1e335caa2.png",
+    "index.html": "/tidey/index.html",
+    "main.c4bb609a.css.map": "/tidey/static/css/main.c4bb609a.css.map",
+    "main.2802dc1c.js.map": "/tidey/static/js/main.2802dc1c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4bb609a.css",
+    "static/js/main.2802dc1c.js"
+  ]
+}
