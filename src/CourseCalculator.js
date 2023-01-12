@@ -1,15 +1,12 @@
 import { useState } from 'react';
-import { useEffect, useLayoutEffect} from 'react';
+import { useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from "react-router-dom";
-import Popup from 'reactjs-popup';
+
 import {PlusCircle} from 'react-feather';
-import useFetch from './UseFetch';
 import Tabs from './Tabs';
-import { Tab } from 'bootstrap';
 
 import {db} from "./Firebase";
-import {collection, getDocs, addDoc, doc, getDoc, deleteDoc, updateDoc} from 'firebase/firestore';
+import {doc, getDoc,  updateDoc} from 'firebase/firestore';
 
 
 
@@ -21,8 +18,6 @@ const CourseCalculator = () => {
     const [targetGrade, setTargetGrade] = useState(100);
     const [additionalGrade, setAdditionalGrade] = useState(0);
     const [errorState, setErrorState] = useState(false);
-    const [courses, setCourses] = useState();
-    const coursesCollectionRef = collection(db, "courses");
     const [currentCourse, setCurrentCourse] = useState();
     const [changesSaved, setChangesSaved] = useState(false);
 
@@ -73,11 +68,11 @@ const CourseCalculator = () => {
         let oneNumberError = false;
         for (let i = 0; i < gradeList.length; i++) {
 
-            if(gradeList[i].weight != 0){
+            if(gradeList[i].weight !== 0){
                 zeroWeightError = false;
                 noInfoError = false;
             }
-            if(gradeList[i].grade != 0){
+            if(gradeList[i].grade !== 0){
                 noInfoError = false;
             }
             if((!gradeList[i].grade && gradeList[i].weight) ||
@@ -99,13 +94,7 @@ const CourseCalculator = () => {
 
 
 
-    const getCourses = async () => {
-            
-        const data = await getDocs(coursesCollectionRef);
-        setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-        
-        
-    };
+
 
     const getCurrentCourse = async () =>{
         const docRef = doc(db, "courses", id);
@@ -122,7 +111,6 @@ const CourseCalculator = () => {
 
     useEffect(() => {
 
-        getCourses();
         getCurrentCourse();
         
     }, []);
@@ -262,7 +250,7 @@ const CourseCalculator = () => {
                         onClick = {() => {
                             handleErrorCheck()
 
-                            if(errorState == false){
+                            if(errorState === false){
                                 handleGradeCalculation()
                             }
                             else{

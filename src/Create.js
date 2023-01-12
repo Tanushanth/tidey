@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {db} from './Firebase';
-import {collection, getDocs, addDoc, doc, updateDoc, setDoc} from 'firebase/firestore';
+import {collection, doc, setDoc} from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 const Create = () => {
   const [courseCode, setCourseCode] = useState('');
@@ -9,7 +9,6 @@ const Create = () => {
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
   const [fileNameList, setFileNameList] = useState(['']);
   const [targetGrade, setTargetGrade] = useState(0);
-  const [isPending, setIsPending] = useState(false);
   const coursesCollectionRef = collection(db, "courses");
   const [userID, setUserID] = useState('');
   const navigate = useNavigate();

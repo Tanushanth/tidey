@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { db } from './Firebase';
 import {useState, useEffect} from 'react';
-import {collection, getDocs, addDoc} from 'firebase/firestore';
+import {collection, getDocs} from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import {animationControls, motion, useAnimation} from 'framer-motion';
+import {motion, useAnimation} from 'framer-motion';
 import {useRef} from "react";
 import {ChevronsLeft, ChevronsRight} from 'react-feather';
 const courseStyle = {
@@ -18,7 +18,6 @@ const CourseList = () => {
     const [carouselWidth, setCarouselWidth] = useState();
     const carousel = useRef();
     const auth = getAuth();
-    const swipeString = "<<< SWIPE"
     const dragRef = useRef(null);
     const xPos = useRef(0);
     const animation = useAnimation();

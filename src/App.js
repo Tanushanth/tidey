@@ -10,7 +10,6 @@ import CourseCalculator from './CourseCalculator';
 import Workload from './Workload';
 import NotFound from './NotFound';
 import Tabs from './Tabs';
-import {db} from './Firebase';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 

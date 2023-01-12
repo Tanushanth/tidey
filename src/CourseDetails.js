@@ -1,13 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-import useFetch from './UseFetch';
 import Tabs from './Tabs';
 import Modal from 'react-bootstrap/Modal';
 import { updateDoc } from "firebase/firestore";
 import {db} from "./Firebase";
 import {useState, useEffect} from 'react';
-import {collection, getDocs, addDoc, doc, getDoc, deleteDoc} from 'firebase/firestore';
+import {doc, getDoc, deleteDoc} from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
+import { ref, listAll, getDownloadURL, deleteObject } from "firebase/storage";
 import { storage } from './Firebase';
 
 const CourseDetails = () => {
@@ -24,8 +23,6 @@ const CourseDetails = () => {
   const handleEditShow = () => setEditShow(true);
   const handleEditCancel= () => setEditShow(false);
   
-  const [courses, setCourses] = useState();
-  const coursesCollectionRef = collection(db, "courses");
   const [currentCourse, setCurrentCourse] = useState();
   const [ userID, setUserID ] = useState();
 
@@ -45,24 +42,13 @@ const CourseDetails = () => {
 
 
   useEffect(() => {
-      const getCourses = async () => {
-          
-          const data = await getDocs(coursesCollectionRef);
-          setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-          
-          
-      };
       const getCurrentCourse = async () =>{
         const docRef = doc(db, "courses", id);
         const docSnap = await getDoc(docRef);
         setCurrentCourse({...docSnap.data(), id: docSnap.id});
       }
-      
-      getCourses();
-      getCurrentCourse();
-
-      
-      
+ 
+      getCurrentCourse();  
       
   }, []);
   

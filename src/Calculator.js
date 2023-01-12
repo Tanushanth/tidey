@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useEffect} from 'react';
-import { Link } from "react-router-dom";
-import Popup from 'reactjs-popup';
 import {PlusCircle} from 'react-feather';
 
 const Calculator = () => {
@@ -59,11 +57,11 @@ const Calculator = () => {
     let oneNumberError = false;
     for (let i = 0; i < gradeList.length; i++) {
 
-        if(gradeList[i].weight != 0){
+        if(gradeList[i].weight !== 0){
             zeroWeightError = false;
             noInfoError = false;
         }
-        if(gradeList[i].grade != 0){
+        if(gradeList[i].grade !== 0){
             noInfoError = false;
         }
         if((!gradeList[i].grade && gradeList[i].weight) ||
@@ -84,7 +82,6 @@ const Calculator = () => {
   }
 
   useEffect(() => {
-    console.log("USEEFFECT")
     document.documentElement.style.setProperty('--table-width', (gradeList.length) * 300)
   }, [gradeList, targetGrade])
   
@@ -194,7 +191,7 @@ const Calculator = () => {
                     onClick = {() => {
                         handleErrorCheck()
 
-                        if(errorState == false){
+                        if(errorState === false){
                             handleGradeCalculation()
                         }
                         else{

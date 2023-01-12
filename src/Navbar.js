@@ -5,54 +5,7 @@ import { auth } from "./Firebase";
 import Modal from 'react-bootstrap/Modal';
 import HamburgerMenu from './HamburgerMenu';
 
-const modalStyle = {
-    position: "fixed",
-    fontFamily: "'Quicksand', sans-serif",
-    zIndex: "100",
-    top: "10%",
-    left: "50%",
-    width: "500px",
-    marginLeft: "-260px",
-    backgroundColor: 'white',
-    border: "1px solid #999",
-    borderRadius: "6px",
-    boxShadow: "0 3px 7px rgba(0,0,0,0.3))",
-    outline: "none",
-    fontWeight: "bold"
-}
 
-const modalHeaderStyle = {
-    padding: "9px 15px",
-    borderBottom: "1px solid #eee",
-}
-
-const modalBodyStyle = {
-    position: "relative",
-    overflowY: "auto",
-    maxHeight: "400px",
-    padding: "15px"
-}
-
-const modalFooterStyle = {
-    padding: "14px 15px 15px",
-    marginBottom: "0",
-    textAlign: "right",
-    backgroundColor: "#f5f5f5",
-    borderTop: "1px solid #ddd",
-    borderRadius: "0 0 6px 6px",
-    boxShadow: "inset 0 1px 0 @white",
-}
-
-const modalBtn = {
-    background: "#2596be",
-    fontWeight: "bold",
-    color: "#fff",
-    border: "0",
-    padding: "8px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    marginRight: "20px"
-}
 
 const Navbar = () => {
     const [ isLoggedIn, setIsLoggedIn ] = useState();

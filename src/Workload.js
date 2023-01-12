@@ -7,60 +7,8 @@ import { storage } from './Firebase';
 import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
 import { v4 } from 'uuid';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { collection, getDocs } from 'firebase/firestore';
-import { isReactNative } from '@firebase/util';
-import { addDoc, doc, getDoc, deleteDoc, updateDoc} from 'firebase/firestore';
+import {doc, getDoc, updateDoc} from 'firebase/firestore';
 import {FileMinus} from 'react-feather';
-import { calcLength } from 'framer-motion';
-
-const modalStyle = {
-	position: "fixed",
-	fontFamily: "'Quicksand', sans-serif",
-	zIndex: "-100px",
-	top: "10%",
-	left: "50%",
-	width: "500px",
-	marginLeft: "-260px",
-	backgroundColor: 'white',
-	border: "1px solid #999",
-	borderRadius: "6px",
-	boxShadow: "0 3px 7px rgba(0,0,0,0.3))",
-	outline: "none",
-	fontWeight: "bold"
-  }
-  
-  const modalHeaderStyle = {
-	padding: "9px 15px",
-	borderBottom: "1px solid #eee",
-  }
-  
-  const modalBodyStyle = {
-	position: "relative",
-	overflowY: "auto",
-	maxHeight: "400px",
-	padding: "15px"
-  }
-	
-  const modalFooterStyle = {
-	padding: "14px 15px 15px",
-	marginBottom: "0",
-	textAlign: "right",
-	backgroundColor: "#f5f5f5",
-	borderTop: "1px solid #ddd",
-	borderRadius: "0 0 6px 6px",
-	boxShadow: "inset 0 1px 0 @white",
-  }
-  
-  const modalBtn = {
-	background: "#2596be",
-	fontWeight: "bold",
-	color: "#fff",
-	border: "0",
-	padding: "8px",
-	borderRadius: "8px",
-	cursor: "pointer",
-	marginRight: "20px"
-  }
 
 const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
@@ -72,15 +20,13 @@ const Workload = () => {
 	const [ fileList, setFileList ] = useState([]);
 	const [ fileNameList, setFileNameList] = useState([]);
 	const [ userID, setUserID ] = useState();
-	const [changesSaved, setChangesSaved] = useState(false);
-	const [ firstFile, setFirstFile ] = useState(true);
 	const [ firstUpdate, setFirstUpdate ] = useState(false);
 	const [ currentURL, setCurrentURL] = useState("https://firebasestorage.googleapis.com/v0/b/tidey-db.appspot.com/o/DefaultTideyPDF.pdf?alt=media&token=668d2fd8-62dc-42d1-a9e1-a1687b45c213");
 	const [ newFileName, setNewFileName ] = useState('');
-	const [courses, setCourses] = useState();
-	const coursesCollectionRef = collection(db, "courses");
+
+	
     const [currentCourse, setCurrentCourse] = useState();
-	const [isFirstFile, setIsFirstFile] = useState(true);
+
 
 	
 	const auth = getAuth();
@@ -134,14 +80,10 @@ const Workload = () => {
 	const updateInformation = async() => {
         const docRef = doc(db, "courses", id);
         await updateDoc( docRef , {fileNameList: fileNameList});
-        setChangesSaved(true);
     }
 
 	/* ALL FOR GETTING THE CURRENT COURSE INFO */
-	const getCourses = async () => {
-        const data = await getDocs(coursesCollectionRef);
-        setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-    };
+
 
     const getCurrentCourse = async () =>{
         const docRef = doc(db, "courses", id);
@@ -150,14 +92,13 @@ const Workload = () => {
     }
 
 	useEffect(() => {
-        getCourses();
         getCurrentCourse();
     }, []);
 
 
 	/* SETTING THE FILE NAME LIST NEW */
     useEffect(() => {        
-        if(currentCourse && currentCourse[0] != ''){
+        if(currentCourse && currentCourse[0] !== ''){
             setFileNameList(currentCourse.fileNameList);
         }
     }, [currentCourse]);
@@ -173,12 +114,6 @@ const Workload = () => {
 
 		if(userID && !firstUpdate){
 
-			/* JUST TOOK THE URL TO SAVE A STORAGE CALL EVERYTIME
-			getDownloadURL(ref(storage, `/DefaultTideyPDF.pdf`)).then((url) => {
-				setCurrentURL(url);
-				console.log(url);
-			});
-			*/
 			listAll(fileListRef).then((response) => {
 				
 				response.items.forEach((item) => {
@@ -272,7 +207,7 @@ const Workload = () => {
 								</Modal.Header>
 								<Modal.Body className="modal-body">Are you sure you want to delete this file?</Modal.Body>
 								<Modal.Footer className="modal-footer">
-									<button variant="secondary" onClick = {() => handleFileRemove(url, index)} style={ modalBtn }>
+									<button variant="secondary" onClick = {() => handleFileRemove(url, index)} className = "modal-btn">
 									Yes
 									</button>
 									<button variant="primary" onClick={ handleClose } className="modal-btn">

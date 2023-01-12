@@ -1,5 +1,4 @@
 import CourseList from './CourseList';
-import useFetch from './UseFetch';
 import { Link, useNavigate } from "react-router-dom";
 import {useEffect, useState} from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -12,10 +11,8 @@ const Courses = () => {
       setUserID(user.uid)
     } 
   });
-  {/*const { data: courses, isPending, error } = useFetch('http://localhost:8000/courses');*/}
   useEffect(() => {
-    console.log(userID);
-    if(userID == "undefined"){
+    if(userID === "undefined"){
       
       navigate("../tidey");
       

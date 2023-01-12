@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "./Firebase";
 import { useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
