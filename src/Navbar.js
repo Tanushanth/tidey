@@ -27,7 +27,7 @@ const Navbar = () => {
     }
     
     onAuthStateChanged(auth, (currentUser) => {
-        if(localStorage.token !== null && localStorage.getItem("email") !== "undefined"){
+        if(localStorage.getItem("email") !== null && localStorage.getItem("email") !== "undefined"){
             setIsLoggedIn(true);
         }
         else {
