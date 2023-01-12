@@ -28,7 +28,7 @@ const Tabs = ({courses}) => {
                     
                     <div className="box">
                         <li className="tab-item">
-                        <Link className="tab-link" to={`../tidey//Courses/${id}`}>Course Info</Link>
+                        <Link className="tab-link" to={`../tidey/Courses/${id}`}>Course Info</Link>
                         </li>
                     </div>
 
