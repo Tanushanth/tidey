@@ -37,6 +37,11 @@ const Navbar = () => {
         }
     })
 
+    useEffect(() => {
+        if(!localStorage.email)
+            localStorage.setItem("email", "undefined");
+    }, [])
+    
     return ( 
         <nav class="navbar">
             <div class="navbar__container">
