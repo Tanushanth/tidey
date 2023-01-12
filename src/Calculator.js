@@ -96,11 +96,11 @@ const Calculator = () => {
             <div className="calc-container">
 
               <div className="table">
-                    <p>Grade Calculator</p>
+                    <p style={{ fontWeight: "bold" }}>Grade Calculator</p>
 
                     <div className="text-table">
                         <form>
-                            <label>Enter your grades below:</label>
+                            <label className="grades-heading">Enter your grades below:</label>
 
                             {gradeList.map((singleRow, index) => (
                                 

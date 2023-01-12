@@ -141,7 +141,7 @@ const CourseDetails = () => {
                   <Modal.Body className="modal-body">Fill in the inputs with your changes</Modal.Body>
                   <Modal.Footer className="modal-footer">
                     <input 
-                      type="text" 
+                      type="edit" 
                       required
                       value={ courseCode } 
                       style={{ marginRight: "20px"}}
@@ -149,7 +149,7 @@ const CourseDetails = () => {
                     />
                       
                     <input 
-                      type="text" 
+                      type="edit" 
                       value={ courseName } 
                       required
                       style={{ marginRight: "20px", marginBottom: "20px"}}

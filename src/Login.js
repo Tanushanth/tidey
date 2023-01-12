@@ -11,7 +11,6 @@ const headingStyle = {
   paddingTop: "30px"
 }
 
-
 const Login = () => {
   const navigate = useNavigate();
   const [ loginEmail, setLoginEmail ] = useState("");
@@ -19,10 +18,12 @@ const Login = () => {
   const [ user, setUser ] = useState({});
   const [ windowHeight, setWindowHeight ] = useState(window.innerHeight); 
 
+
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
     localStorage.setItem("email", user?.email);
   })
+
 
   const login = async (e) => {
     e.preventDefault()
@@ -41,7 +42,9 @@ const Login = () => {
     }
   }
 
+
   const provider = new GoogleAuthProvider();
+
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
@@ -58,7 +61,8 @@ const Login = () => {
     })
   };
 
-useEffect(() => {
+
+  useEffect(() => {
     const handleWindowResize = () => {
       setWindowHeight(window.innerHeight);
     };
@@ -69,6 +73,7 @@ useEffect(() => {
       window.removeEventListener('resize', handleWindowResize);
     };
   });
+
 
   return (
     <div className="App">

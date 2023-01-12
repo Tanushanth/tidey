@@ -592,12 +592,19 @@ code {
   display: flex;
 }
 
+.grades-heading {
+  text-align: left;
+  padding-left: 50px;
+  display: block;
+  font-size: 20px;
+  font-family: 'Quicksand';
+}
+
 label {
   text-align: left;
   display: block;
   font-size: 20px;
   font-family: 'Quicksand';
-  padding-left: 50px;
 }
 
 input[type=course] {
@@ -614,6 +621,24 @@ input[type=text] {
   color:rgb(19, 19, 19);
   width: calc(190px + 2vmin);
   border-radius: 7px;
+}
+
+input[type=edit] {
+  font-family:'Courier New', Courier, monospace;
+  font-size: calc(2px + 2vmin);
+  color:rgb(19, 19, 19);
+  width: calc(190px + 2vmin);
+  border-radius: 7px;
+}
+
+@media screen and (min-width: 394px) {
+  input[type=edit] {
+    font-family:'Courier New', Courier, monospace;
+    font-size: calc(2px + 2vmin);
+    color:rgb(19, 19, 19);
+    width: calc(120px + 2vmin);
+    border-radius: 7px;
+  }
 }
 
 input[type=description] {
@@ -811,6 +836,11 @@ input[type=target] {
     font-size: calc(8px + 2vmin);
   }
 
+  .grades-heading {
+    padding-left: 18px;
+    font-size: calc(8px + 2vmin);
+  }
+
   input[type=description] {
     font-size: calc(1px + 2vmin);
     width: 80px;
@@ -923,6 +953,11 @@ input[type=target] {
   }
   
   label {
+    padding-left: 18px;
+    font-size: calc(8px + 2vmin);
+  }
+
+  .grades-heading {
     padding-left: 18px;
     font-size: calc(8px + 2vmin);
   }
@@ -1041,6 +1076,11 @@ input[type=target] {
   }
   
   label {
+    padding-left: 18px;
+    font-size: calc(8px + 2vmin);
+  }
+
+  .grades-heading {
     padding-left: 18px;
     font-size: calc(8px + 2vmin);
   }

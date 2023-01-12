@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import HamburgerMenu from './HamburgerMenu';
 
 const Navbar = () => {
-    const [ isLoggedIn, setIsLoggedIn ] = useState();
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false);
     const [ showModal, setShowModal ] = useState(false);
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
@@ -27,10 +27,10 @@ const Navbar = () => {
     }
     
     onAuthStateChanged(auth, (currentUser) => {
-        if(localStorage.getItem("email") !== "undefined"){
+        if(localStorage.token !== null && localStorage.getItem("email") !== "undefined"){
             setIsLoggedIn(true);
         }
-        else{
+        else {
             setIsLoggedIn(false);
         }
     })

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from "./Firebase";
 
@@ -39,6 +39,25 @@ const SignUp = () => {
     }
   }
 
+  
+  const provider = new GoogleAuthProvider();
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      const name = result.user.displayName;
+      localStorage.setItem("name", name);
+      alert('You are logged in');
+      if((localStorage.getItem("email") !== "undefined")){
+        navigate("../tidey/");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  };
+
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowHeight(window.innerHeight);
@@ -77,6 +96,7 @@ const SignUp = () => {
       <header className="App-header">
           <div className="textbox">
             <p className="textbox-heading" style={{ fontWeight: "bold" }}>Create a new Tidey account</p>
+            <button onClick={ signInWithGoogle }>Create an account with Google</button>
 
             <form onSubmit={ register }>
               <label style={ headingStyle }>Enter an Email:</label>

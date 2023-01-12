@@ -1,5 +1,3 @@
-import { useState, useEffect} from 'react';
-
 export default function Hamburger({ isOpen }){
     return(
         <>
@@ -171,10 +169,8 @@ export default function Hamburger({ isOpen }){
                     cursor: pointer;
                   }
                 }
-               
-                
-            `}</style>
-            
+                 
+            `}</style>   
         </>
     )
 }

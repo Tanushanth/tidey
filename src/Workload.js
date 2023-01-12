@@ -8,15 +8,14 @@ import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebas
 import { v4 } from 'uuid';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs } from 'firebase/firestore';
-import { isReactNative } from '@firebase/util';
-import { addDoc, doc, getDoc, deleteDoc, updateDoc} from 'firebase/firestore';
-import {FileMinus} from 'react-feather';
-import { calcLength } from 'framer-motion';
+import { doc, getDoc, updateDoc} from 'firebase/firestore';
+import { FileMinus } from 'react-feather';
 
 
 const Workload = () => {
 	const [ fileUpload, setFileUpload ] = useState(null);
 	const [ showDeleteModal, setShowDeleteModal ] = useState(false);
+
 	const handleClose = () => setShowDeleteModal(false);
 	const handleShow = () => setShowDeleteModal(true);
 
@@ -25,17 +24,17 @@ const Workload = () => {
 	const [ fileNameList, setFileNameList] = useState([]);
 	const [ userID, setUserID ] = useState();
 	const [changesSaved, setChangesSaved] = useState(false);
-	const [ firstFile, setFirstFile ] = useState(true);
+
 	const [ firstUpdate, setFirstUpdate ] = useState(false);
 	const [ currentURL, setCurrentURL] = useState("https://firebasestorage.googleapis.com/v0/b/tidey-db.appspot.com/o/DefaultTideyPDF.pdf?alt=media&token=668d2fd8-62dc-42d1-a9e1-a1687b45c213");
 	const [ newFileName, setNewFileName ] = useState('');
 	const [courses, setCourses] = useState();
+
 	const coursesCollectionRef = collection(db, "courses");
     const [currentCourse, setCurrentCourse] = useState();
-	const [isFirstFile, setIsFirstFile] = useState(true);
-
-	
 	const auth = getAuth();
+	const fileListRef = ref(storage, `${userID}/${id}`);
+
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -43,12 +42,7 @@ const Workload = () => {
       } 
     });
 
-	const fileListRef = ref(storage, `${userID}/${id}`);
-
-	
-
 	const uploadFile = () => {
-
 		if(fileUpload === null) {
 			alert("Choose a file");
 			return;
@@ -60,26 +54,13 @@ const Workload = () => {
 
 		console.log(newFileName);
 		const fileRef = ref(storage, `${userID}/${id}/${fileUpload.name + v4()}`);
-
-		
-		/* WHY DOES THI SNOT WORK */
-		
 		setFileNameList((prev) => [...prev, newFileName])
-
-
-
-
-
-		console.log(fileNameList);
-
 		
 		uploadBytes(fileRef, fileUpload).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
 				setFileList((prev) => [...prev, url])
 			})
 		})
-
-
 	};
 
 
@@ -109,7 +90,7 @@ const Workload = () => {
 
 	/* SETTING THE FILE NAME LIST NEW */
     useEffect(() => {        
-        if(currentCourse && currentCourse[0] != ''){
+        if(currentCourse && currentCourse[0] !== ''){
             setFileNameList(currentCourse.fileNameList);
         }
     }, [currentCourse]);
