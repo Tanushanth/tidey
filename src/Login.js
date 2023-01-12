@@ -17,7 +17,7 @@ const Login = () => {
   const [ loginEmail, setLoginEmail ] = useState("");
   const [ loginPassword, setLoginPassword ] = useState("");
   const [ user, setUser ] = useState({});
-
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight); 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
     localStorage.setItem("email", user?.email);
@@ -58,14 +58,24 @@ const Login = () => {
   };
 
   useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
 
-  }, [])
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  });
 
   return (
     <div className="App">
        <div className="background-style">
       {/* Waves Container*/}
-      <div>
+      {windowHeight >= 750 && 
+        (
+          <div>
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
               viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto" >
               <defs>
@@ -79,6 +89,7 @@ const Login = () => {
               </g>
             </svg>
           </div>
+        )}
       <header className="App-header">
           <div className="textbox">
             <p className="textbox-heading" style={{ fontWeight: "bold" }}>Log in to your account</p>

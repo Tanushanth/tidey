@@ -678,9 +678,10 @@ input[type=target] {
 .addGrade-btn {
   margin: 2rem 1rem 1rem 1rem;
   padding: 3px;
+  align-items: center;
   justify-content: center;
   text-align: center;
-  display:grid;
+  display: flex;
   width: calc(200px + 2vmin);
   grid-template-columns: 0.1fr 1fr;
   text-decoration: none;

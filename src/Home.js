@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Home = () => {
   const [ userID, setUserID ] = useState();
   const auth = getAuth();
   const navigate = useNavigate();
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight); 
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setUserID(user.uid)
@@ -23,10 +24,24 @@ const Home = () => {
     
   }
 
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  });
+  
     return ( 
       <div className="background-style">
 
-          {/* Waves Container*/}
+        {/* Waves Container*/}
+        {windowHeight >= 750 && 
+        (
           <div>
             <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
               viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto" >
@@ -41,7 +56,8 @@ const Home = () => {
               </g>
             </svg>
           </div>
-          {/*<!--Waves end-->*/}
+        )}
+        {/*<!--Waves end-->*/}
 
         <header className="App-header">
             <p className="home-heading">
