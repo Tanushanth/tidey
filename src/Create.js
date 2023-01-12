@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {db} from './Firebase';
-import {collection, getDocs, addDoc, doc, updateDoc, setDoc} from 'firebase/firestore';
+import {collection, doc, setDoc} from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 const Create = () => {
   const [courseCode, setCourseCode] = useState('');
   const [courseName, setCourseName] = useState('');
@@ -22,8 +23,6 @@ const Create = () => {
     } 
   });
 
-
-
   const createCourse = async (e) => {
     e.preventDefault()
     const docRef = new doc(coursesCollectionRef);
@@ -36,7 +35,7 @@ const Create = () => {
       id: docRef.id,
       userID: userID
     });
-    navigate(-1);
+    navigate("../tidey/Courses");
   }
 
   return (

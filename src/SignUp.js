@@ -32,7 +32,7 @@ const SignUp = () => {
         registerPassword
       );
       alert('You are logged in');
-      navigate(-1);
+      navigate("../tidey/");
     } catch(error) {
         console.log(error.message);
     }

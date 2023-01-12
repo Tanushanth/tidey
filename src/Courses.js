@@ -1,9 +1,7 @@
 import CourseList from './CourseList';
-import useFetch from './UseFetch';
 import { Link } from "react-router-dom";
+
 const Courses = () => {
-  
-  {/*const { data: courses, isPending, error } = useFetch('http://localhost:8000/courses');*/}
 
   return (
     <div>
@@ -18,7 +16,7 @@ const Courses = () => {
         <div className="main-btn-container">
           <div className="main-btn">
             <div className="main-btn-content">
-            <Link to="../Create" style={{ color: '#FFF', textDecoration: "none" }}>Add a new course</Link>
+            <Link to="../tidey/Create" style={{ color: '#FFF', textDecoration: "none" }}>Add a new course</Link>
             </div>
           </div>
         </div>

@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
-import { auth } from "./Firebase";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Home = () => {
   const [ userID, setUserID ] = useState();
   const auth = getAuth();
-
+  const navigate = useNavigate();
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setUserID(user.uid)
@@ -14,11 +13,11 @@ const Home = () => {
   });
 
   const handleAlert = () => {
-    console.log(userID);
-    if(!userID)
+    if(!userID){
       alert("To save your courses, you can log in or sign up!");
-    else  
-      return;
+    } else{
+      navigate("../tidey/Courses");
+    }
   }
 
     return ( 
@@ -48,13 +47,13 @@ const Home = () => {
 
             <div className="main-btn-container">
               <div className="main-btn">
-                <Link className="main-btn-content" onClick={handleAlert} to="/Courses">
+                <div className="main-btn-content" onClick={handleAlert} style={{cursor:'pointer'}}>
                   Course dashboard
-                </Link>
+                </div>
               </div>
           
               <div className="main-btn">
-              <Link className="main-btn-content" to="/Calculator">
+              <Link className="main-btn-content" to="/tidey/Calculator">
                 Calculate grades
               </Link>
               </div>
@@ -62,7 +61,6 @@ const Home = () => {
           
         </header>
         </div>
-
     );
 }
  

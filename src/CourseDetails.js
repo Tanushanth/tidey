@@ -60,10 +60,6 @@ const CourseDetails = () => {
       
       getCourses();
       getCurrentCourse();
-
-      
-      
-      
   }, []);
   
 
@@ -74,7 +70,7 @@ const CourseDetails = () => {
 
     const docRef = doc(db, "courses", id);
     await deleteDoc(docRef);
-    navigate("../Courses")
+    navigate("../tidey/Courses")
 
     listAll(fileListRef).then((response) => {
 			response.items.forEach((item) => {
@@ -92,7 +88,7 @@ const CourseDetails = () => {
     const docRef = doc(db, "courses", id);
     await updateDoc( docRef , {courseCode: courseCode, courseName: courseName});
     setEditShow(false);
-    navigate("../Courses");
+    navigate("../tidey/Courses");
   };
 
 
@@ -179,9 +175,6 @@ const CourseDetails = () => {
                   </Modal.Footer>
                 </Modal>
           
-
-
-                
               </article>
             )
           }
