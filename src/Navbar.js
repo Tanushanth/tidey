@@ -8,7 +8,7 @@ import HamburgerMenu from './HamburgerMenu';
 
 
 const Navbar = () => {
-    const [ isLoggedIn, setIsLoggedIn ] = useState();
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false);
     const [ showModal, setShowModal ] = useState(false);
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
