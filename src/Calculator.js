@@ -105,7 +105,7 @@ const Calculator = () => {
 
                     <div className="text-table">
                         <form>
-                            <label>Enter your grades below:</label>
+                            <label className = "calc-label">Enter your grades below:</label>
 
                             {gradeList.map((singleRow, index) => (
                                 

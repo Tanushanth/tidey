@@ -597,7 +597,14 @@ label {
   display: block;
   font-size: 20px;
   font-family: 'Quicksand';
-  padding-left: 50px;
+}
+
+.calc-label {
+  text-align: left;
+  display: block;
+  font-size: 20px;
+  font-family: 'Quicksand';
+  padding-left: 50px
 }
 
 input[type=course] {
@@ -1798,5 +1805,24 @@ input::file-selector-button {
     width: 200px;
     padding: 12px;
     margin: 0px 2rem;
+  }
+}
+
+
+input[type=edit] {
+  font-family:'Courier New', Courier, monospace;
+  font-size: calc(2px + 2vmin);
+  color:rgb(19, 19, 19);
+  width: calc(190px + 2vmin);
+  border-radius: 7px;
+}
+
+@media screen and (min-width: 394px) {
+  input[type=edit] {
+    font-family:'Courier New', Courier, monospace;
+    font-size: calc(2px + 2vmin);
+    color:rgb(19, 19, 19);
+    width: calc(120px + 2vmin);
+    border-radius: 7px;
   }
 }
