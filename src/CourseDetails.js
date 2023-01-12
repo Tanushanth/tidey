@@ -1,13 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
-import useFetch from './UseFetch';
 import Tabs from './Tabs';
 import Modal from 'react-bootstrap/Modal';
 import { updateDoc } from "firebase/firestore";
-import {db} from "./Firebase";
-import {useState, useEffect} from 'react';
-import {collection, getDocs, addDoc, doc, getDoc, deleteDoc} from 'firebase/firestore';
+import { db } from "./Firebase";
+import { useState, useEffect } from 'react';
+import { collection, getDocs, doc, getDoc, deleteDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from "firebase/storage";
+import { ref, listAll, getDownloadURL, deleteObject } from "firebase/storage";
 import { storage } from './Firebase';
 
 const CourseDetails = () => {
@@ -15,14 +14,12 @@ const CourseDetails = () => {
   const navigate = useNavigate();
   const [ courseCode, setCourseCode] = useState( "New Course Code");
   const [ courseName, setCourseName] = useState("New Course Name");
-
   const [ showDeleteModal, setDeleteShow ] = useState(false);
   const [ showEditModal, setEditShow ] = useState(false);
-
   const handleClose = () => setDeleteShow(false);
   const handleShow = () => setDeleteShow(true);
   const handleEditShow = () => setEditShow(true);
-  const handleEditCancel= () => setEditShow(false);
+  const handleEditCancel= () => setEditShow(false); 
   
   const [courses, setCourses] = useState();
   const coursesCollectionRef = collection(db, "courses");

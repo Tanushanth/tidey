@@ -1,18 +1,13 @@
 import { useState } from 'react';
 import { useEffect} from 'react';
-import { Link } from "react-router-dom";
-import Popup from 'reactjs-popup';
-import {PlusCircle} from 'react-feather';
+import { PlusCircle } from 'react-feather';
 
 const Calculator = () => {
-
-
   const [gradeList, setGradeList] = useState([{ desc: "", weight: "", grade: ""}]);
   const [currentGrade, setCurrentGrade] = useState(0);
   const [targetGrade, setTargetGrade] = useState(0);
   const [additionalGrade, setAdditionalGrade] = useState(0);
   const [errorState, setErrorState] = useState(false);
-
 
   const handleGradeAdd = () =>{
     setGradeList([...gradeList, {desc: "", weight: "", grade: ""}]);
@@ -28,7 +23,6 @@ const Calculator = () => {
     const newList = [...gradeList];
     newList[index][element] = e.target.value;
     setGradeList(newList);
-
   }
 
   const handleGradeCalculation = () => {
@@ -42,11 +36,11 @@ const Calculator = () => {
             tempWeight += thisWeight;
         }
     }
+
     setCurrentGrade(100* tempGrade/tempWeight );
     let remainingWeight = 100 - tempWeight;
     let remainingGrade = targetGrade - (tempGrade);
     setAdditionalGrade(100* remainingGrade/remainingWeight)
-    
   }
 
   const handleTargetChange = (e) => {
@@ -59,11 +53,11 @@ const Calculator = () => {
     let oneNumberError = false;
     for (let i = 0; i < gradeList.length; i++) {
 
-        if(gradeList[i].weight != 0){
+        if(gradeList[i].weight !== 0){
             zeroWeightError = false;
             noInfoError = false;
         }
-        if(gradeList[i].grade != 0){
+        if(gradeList[i].grade !== 0){
             noInfoError = false;
         }
         if((!gradeList[i].grade && gradeList[i].weight) ||
@@ -72,14 +66,12 @@ const Calculator = () => {
         }
 
 
-
         if(zeroWeightError || noInfoError || oneNumberError){
             setErrorState(true);
         }
         else{
             setErrorState(false);
         }
-
     }
   }
 
@@ -162,17 +154,8 @@ const Calculator = () => {
                                                 <p style={{marginLeft: "10px"}}>Add Row</p>
                                             </button>
                                         )}
-                                        
-                                        
                                 </div>
-                            
-                            
-                            
                             ))}
-
-
-
-
 
                         </form>
                     </div>
@@ -194,7 +177,7 @@ const Calculator = () => {
                     onClick = {() => {
                         handleErrorCheck()
 
-                        if(errorState == false){
+                        if(errorState === false){
                             handleGradeCalculation()
                         }
                         else{
@@ -206,11 +189,6 @@ const Calculator = () => {
                 >
                     <p>Calculate Grade!</p>
                 </button>
-            </div>
-
-            <div className = "result-container">
-
-            
             </div>
         </header>
     </div>

@@ -1,15 +1,10 @@
 import { useState } from 'react';
-import { useEffect, useLayoutEffect} from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from "react-router-dom";
-import Popup from 'reactjs-popup';
-import {PlusCircle} from 'react-feather';
-import useFetch from './UseFetch';
+import { PlusCircle } from 'react-feather';
 import Tabs from './Tabs';
-import { Tab } from 'bootstrap';
-
-import {db} from "./Firebase";
-import {collection, getDocs, addDoc, doc, getDoc, deleteDoc, updateDoc} from 'firebase/firestore';
+import { db} from "./Firebase";
+import { collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 
 
 
@@ -21,8 +16,6 @@ const CourseCalculator = () => {
     const [targetGrade, setTargetGrade] = useState(100);
     const [additionalGrade, setAdditionalGrade] = useState(0);
     const [errorState, setErrorState] = useState(false);
-    const [courses, setCourses] = useState();
-    const coursesCollectionRef = collection(db, "courses");
     const [currentCourse, setCurrentCourse] = useState();
     const [changesSaved, setChangesSaved] = useState(false);
 
@@ -40,8 +33,6 @@ const CourseCalculator = () => {
         const newList = [...gradeList];
         newList[index][element] = e.target.value;
         setGradeList(newList);
-        /*handleDatabaseUpdate();*/
-
     }
 
     const handleGradeCalculation = () => {
@@ -73,11 +64,11 @@ const CourseCalculator = () => {
         let oneNumberError = false;
         for (let i = 0; i < gradeList.length; i++) {
 
-            if(gradeList[i].weight != 0){
+            if(gradeList[i].weight !== 0){
                 zeroWeightError = false;
                 noInfoError = false;
             }
-            if(gradeList[i].grade != 0){
+            if(gradeList[i].grade !== 0){
                 noInfoError = false;
             }
             if((!gradeList[i].grade && gradeList[i].weight) ||
@@ -97,16 +88,6 @@ const CourseCalculator = () => {
         }
     }
 
-
-
-    const getCourses = async () => {
-            
-        const data = await getDocs(coursesCollectionRef);
-        setCourses(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-        
-        
-    };
-
     const getCurrentCourse = async () =>{
         const docRef = doc(db, "courses", id);
         const docSnap = await getDoc(docRef);
@@ -121,10 +102,7 @@ const CourseCalculator = () => {
     }
 
     useEffect(() => {
-
-        getCourses();
         getCurrentCourse();
-        
     }, []);
 
     useEffect(() => {        
@@ -155,7 +133,6 @@ const CourseCalculator = () => {
 
     
     return (
-        
         <div className="App">
             <Tabs />
             <header className="App-header">
@@ -229,23 +206,14 @@ const CourseCalculator = () => {
                                                 </div>
                                                 <p style={{marginLeft: "10px"}}>Add Row</p>
                                                 </button>
-                                            )}
-                                            
-                                            
+                                            )}  
                                     </div>
-                                
-                                
-                                
                                 ))}
-
-
-
-
-
                             </form>
                         </div>
                     </div>
                 </div>
+
                 <div className = "target-container">
                     <p className="target-header">Enter Target Grade (%):
                         <input 
@@ -262,19 +230,16 @@ const CourseCalculator = () => {
                         onClick = {() => {
                             handleErrorCheck()
 
-                            if(errorState == false){
+                            if(errorState === false){
                                 handleGradeCalculation()
                             }
                             else{
                                 alert("Please enter valid Grades/Weights");
                             }
-
-                            
                         }}
                     >Calculate/Save Grade!
                     </button>
                 </div>
-                
             </header>
         </div>
     );
