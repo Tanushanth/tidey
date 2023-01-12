@@ -52,7 +52,6 @@ const Workload = () => {
 			alert("You are not logged in");
 		}
 
-		console.log(newFileName);
 		const fileRef = ref(storage, `${userID}/${id}/${fileUpload.name + v4()}`);
 
 		
@@ -60,13 +59,6 @@ const Workload = () => {
 		
 		setFileNameList((prev) => [...prev, newFileName])
 
-
-
-
-
-		console.log(fileNameList);
-
-		
 		uploadBytes(fileRef, fileUpload).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
 				setFileList((prev) => [...prev, url])

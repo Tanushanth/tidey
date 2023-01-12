@@ -24,6 +24,7 @@ const App = () => {
       <div className="content">
         <Routes>
           <Route path="/tidey" element={<Home />} />
+          <Route path="/tidey/" element={<Home />} />
           <Route path="/tidey/Login" element={<Login />} />
           <Route path="/tidey/SignUp" element={<SignUp />} />
           <Route path="/tidey/Create" element={<Create />} />
