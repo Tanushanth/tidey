@@ -27,7 +27,7 @@ const Navbar = () => {
     }
     
     onAuthStateChanged(auth, (currentUser) => {
-        if(localStorage.getItem("email") !== null && localStorage.getItem("email") !== "undefined"){
+        if(localStorage.email !== null && localStorage.getItem("email") !== "undefined"){
             setIsLoggedIn(true);
         }
         else {
@@ -36,8 +36,9 @@ const Navbar = () => {
     })
 
     useEffect(() => {
-        console.log(isLoggedIn);
-    }, [isLoggedIn])
+        if(!localStorage.email)
+            localStorage.setItem("email", "undefined");
+    }, [])
     
     return ( 
         <nav class="navbar">
