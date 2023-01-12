@@ -87,7 +87,7 @@ const CourseList = () => {
                                     <div>
                                         
                                             <div className="course-preview" >  
-                                                <Link to={`/Courses/${course.id} `} style={ courseStyle }>                                                      
+                                                <Link to={`/tidey/Courses/${course.id} `} style={ courseStyle }>                                                      
                                                     <div className = "courseInfo">
                                                         <h2>{ course.courseCode }</h2>
                                                     

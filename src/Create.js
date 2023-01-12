@@ -36,7 +36,7 @@ const Create = () => {
       id: docRef.id,
       userID: userID
     });
-    navigate(-1);
+    navigate("../tidey/Courses");
   }
 
   return (

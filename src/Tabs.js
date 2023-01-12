@@ -8,7 +8,7 @@ const Tabs = ({courses}) => {
 
 
     const handleNav = () => {
-        navigate("../Courses");
+        navigate("../tidey/Courses");
     }
 
     return ( 
@@ -21,26 +21,26 @@ const Tabs = ({courses}) => {
                     <ArrowLeftCircle color='white' size="30px" cursor="pointer" onClick={handleNav} ></ArrowLeftCircle>
                     
 
-                    <Link className="tab-link" to={`../Courses`}>Back</Link>
+                    <Link className="tab-link" to={`../tidey/Courses`}>Back</Link>
                     
                     </div>
                     
                     
                     <div className="box">
                         <li className="tab-item">
-                        <Link className="tab-link" to={`../Courses/${id}`}>Course Info</Link>
+                        <Link className="tab-link" to={`../tidey/Courses/${id}`}>Course Info</Link>
                         </li>
                     </div>
 
                     <div className="box">
                         <li className="tab-item">
-                        <Link className="tab-link" to={`../Courses/${id}/Calculator`}>Grade Calculator</Link>
+                        <Link className="tab-link" to={`../tidey/Courses/${id}/Calculator`}>Grade Calculator</Link>
                         </li>
                     </div>
 
                     <div className="box">
                         <li className="tab-item">
-                        <Link className="tab-link" to={`../Courses/${id}/Workload`}>Syllabus</Link>
+                        <Link className="tab-link" to={`../tidey/Courses/${id}/Workload`}>Syllabus</Link>
                         </li>
                     </div>
 

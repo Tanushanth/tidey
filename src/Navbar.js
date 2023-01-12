@@ -72,7 +72,7 @@ const Navbar = () => {
         localStorage.setItem("email", "undefined");
         setShowModal(false);
         setIsLoggedIn(false);
-        navigate("./");
+        navigate("./tidey");
     }
     
     onAuthStateChanged(auth, (currentUser) => {
@@ -91,7 +91,7 @@ const Navbar = () => {
     return ( 
         <nav class="navbar">
             <div class="navbar__container">
-                <Link class="navbar__links" id="navbar__logo" to="./">Tidey</Link>
+                <Link class="navbar__links" id="navbar__logo" to="./tidey">Tidey</Link>
 
                     <div className="navbar__toggle" id="mobile-menu" onClick={ toggleHamburger }>
                         <HamburgerMenu isOpen={ hamburgerOpen } />
@@ -104,12 +104,12 @@ const Navbar = () => {
                         <article>
                             <ul class="navbar__menu">
                                 <li className="navbar__item">
-                                <Link className="navbar__links" style={{ marginRight: "50px" }}to="./">{localStorage.getItem("email")}</Link>
+                                <Link className="navbar__links" style={{ marginRight: "50px" }}to="./tidey">{localStorage.getItem("email")}</Link>
                                 </li>
 
                                 <li className="navbar__item">
                                 <Link className="navbar__links" onClick={ ()=>{handleShow();
-                                toggleHamburger();} } to="./">Logout</Link>
+                                toggleHamburger();} } to="./tidey">Logout</Link>
                                 </li>
                             </ul>
                         </article>
@@ -119,12 +119,12 @@ const Navbar = () => {
                             <article>
                             <ul class="navbar__menu">
                                 <li className="navbar__item">
-                                <Link className="navbar__links" to="./SignUp" onClick={ toggleHamburger } >Sign Up</Link>
+                                <Link className="navbar__links" to="./tidey/SignUp" onClick={ toggleHamburger } >Sign Up</Link>
                                 </li>
                                 
                                 
                                 <li className="navbar__item">
-                                <Link className="navbar__links" to="./Login" onClick={ toggleHamburger } >Login</Link>
+                                <Link className="navbar__links" to="./tidey/Login" onClick={ toggleHamburger } >Login</Link>
                                 </li>
                             </ul>
                             </article>

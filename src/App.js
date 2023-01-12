@@ -24,16 +24,16 @@ const App = () => {
 
       <div className="content">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Create" element={<Create />} />
-          <Route path="/Courses" element={<Courses />} />
-          <Route path="/Courses/:id" element={<CourseDetails />} />
-          <Route path="/Courses/:id/Calculator" element={<CourseCalculator />} />
-          <Route path="/Courses/:id/Workload" element={<Workload />} />
-          <Route path="/Calculator" element={<Calculator />} />
-          <Route path="/Tabs" element={<Tabs />} />
+          <Route path="/tidey" element={<Home />} />
+          <Route path="/tidey/Login" element={<Login />} />
+          <Route path="/tidey/SignUp" element={<SignUp />} />
+          <Route path="/tidey/Create" element={<Create />} />
+          <Route path="/tidey/Courses" element={<Courses />} />
+          <Route path="/tidey/Courses/:id" element={<CourseDetails />} />
+          <Route path="/tidey/Courses/:id/Calculator" element={<CourseCalculator />} />
+          <Route path="/tidey/Courses/:id/Workload" element={<Workload />} />
+          <Route path="/tidey/Calculator" element={<Calculator />} />
+          <Route path="/tidey/Tabs" element={<Tabs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

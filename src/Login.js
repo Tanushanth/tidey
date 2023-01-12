@@ -34,7 +34,7 @@ const Login = () => {
       );
       
       alert('You are logged in');
-      navigate("./");
+      navigate("../tidey");
     } catch(error) {
         console.log(error.message);
     }
@@ -49,7 +49,7 @@ const Login = () => {
       localStorage.setItem("name", name);
       alert('You are logged in');
       if((localStorage.getItem("email") !== "undefined")){
-        navigate("../");
+        navigate("../tidey");
       }
     })
     .catch((error) => {
