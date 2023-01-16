@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from "./Firebase";
 
@@ -36,6 +36,7 @@ const SignUp = () => {
       navigate("../tidey/");
     } catch(error) {
         console.log(error.message);
+        alert("Password must be 8+ characters")
     }
   }
 

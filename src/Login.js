@@ -37,8 +37,9 @@ const Login = () => {
       
       alert('You are logged in');
       navigate("../tidey/");
-    } catch(error) {
-        console.log(error.message);
+    } catch(FirebaseError) {
+        console.log(FirebaseError.message);
+        alert("Password or email is incorrect")
     }
   }
 
