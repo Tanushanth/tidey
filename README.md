@@ -5,8 +5,8 @@ https://github.com/uzFer/tidey/assets/109243682/c90e0f0d-3baf-44fc-9d02-aeb11594
 
 
 ### Tech Used ###
-- Used React.js for building the UI, including animation on homescreen, modals, and course card layouts.
-- Google Firebase for account management, specifically: 
-  - Firestore Database for storing all course info
-  - Authentication for storing user emails + validating upon sign in/sign up
-  - Storage for holding all uploaded files for users
+- Used _React.js_ for building the UI, including animation on homescreen, modals, and course card layouts.
+- _Google Firebase_ for account management, specifically: 
+  - _Firestore Database_ for storing all course info
+  - _Authentication_ for storing user emails + validating upon sign in/sign up
+  - _Storage_ for holding all uploaded files for users
