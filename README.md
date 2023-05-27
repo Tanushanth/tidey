@@ -1,3 +1,4 @@
+# Tidey - Course Organization Website
 ### Brief Overview ###
 After a year of using random websites to calculate the grades I need to pass my courses, I realized having one place with all this information would be much more helpful. Tidey is a course organization website that calculates and saves your grades, course information, and important files all in one place. 
 
